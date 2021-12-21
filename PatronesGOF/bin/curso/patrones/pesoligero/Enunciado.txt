@@ -1,0 +1,2 @@
+Necesitamos crear muchos objetos de un mismo tipo,
+ aunque con poca personalidad.

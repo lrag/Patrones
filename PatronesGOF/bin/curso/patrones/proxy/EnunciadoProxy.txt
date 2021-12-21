@@ -1,0 +1,1 @@
+Necesitamos accelerar un proceso repetitivo virtualizando el acceso a un medio.

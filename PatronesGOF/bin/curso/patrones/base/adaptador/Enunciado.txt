@@ -1,0 +1,2 @@
+Teniendo la clase Pterodactilo que hereda de Dinosaurio. 
+Hacer que el programa gestor de Aves lo maneje.

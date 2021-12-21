@@ -1,0 +1,4 @@
+En casa tenemos un homecinema formado por un DVD, una TV y un Equipo HIFI. Cada vez
+que queremos ver una pelicula tenemos que encender los tres aparatos y pulsar el play 
+(3 mandos). cada vez que una peli acaba pulsamos stop en el dvd y apagamos los tres 
+dispositivos. 

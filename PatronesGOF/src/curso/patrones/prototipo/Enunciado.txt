@@ -1,0 +1,2 @@
+Queremos sacar un numero indeterminado de copias de un objeto por ejemplo uno de la
+clase Soldado (rango, color, arma).

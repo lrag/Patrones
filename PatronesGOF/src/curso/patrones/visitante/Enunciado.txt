@@ -1,0 +1,2 @@
+Necesitamos Recorrer una estructura heterogenea de objetos aplicando distintos calculos
+para una o todas los tipos de objectos exitentes.

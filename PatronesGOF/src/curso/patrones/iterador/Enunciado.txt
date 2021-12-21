@@ -1,0 +1,2 @@
+Tenenos un restaurante y tenemos un menu para los desayunos (Componente SW)
+ y otro para las cenas implementados con estructuras heterogeneas.

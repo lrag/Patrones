@@ -1,0 +1,3 @@
+Implementar las clases del Dominio para un Starbucks Café.
+Correspondiendo a los distintos tipos de productos (Cafe, Descafeinado y Te), 
+calculando sus precios segun su tipo e ingredientes.

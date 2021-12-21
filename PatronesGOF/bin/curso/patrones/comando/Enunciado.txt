@@ -1,0 +1,4 @@
+Tenemos en casa diversos dispositivos TV, Luces, Puertas, AC, etc
+cada uno de ellos manejable desde su propio mando. diseñar un mando
+a distancia programable y no acoplado a cada nuevo dispositivo que
+añadamos o quitemos

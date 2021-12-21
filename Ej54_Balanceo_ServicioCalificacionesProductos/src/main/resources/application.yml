@@ -1,0 +1,18 @@
+#El puerto se escogerá aleatoriamente al arrancar entre los disponibles
+server:
+  port: 0
+
+spring:
+  application:
+    name: "ServicioCalificacionesProductos"
+    
+  config:
+    import: consul:localhost:8500   
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+

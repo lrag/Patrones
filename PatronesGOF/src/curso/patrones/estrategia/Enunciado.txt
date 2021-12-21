@@ -1,0 +1,2 @@
+Considerar una jerarquía de clases que herendan de la Clase Ave (Gallina, Pato, Avestruz).
+considerando que unas aves cantan, otras vuelan y otras nadan.

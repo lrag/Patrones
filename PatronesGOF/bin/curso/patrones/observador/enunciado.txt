@@ -1,0 +1,4 @@
+Disponemos de una clase llamada DatosDelTiempo que recibe los datos
+de temperatura, presión y humedad de una serie de dispositivos dados. Utilizando esta clase
+vamos a tener de entrada de inicialmente tres dispositivos: DispositivoMedidasActuales,
+DispositivoEstadisticas y el DispositivoPronosticos. 

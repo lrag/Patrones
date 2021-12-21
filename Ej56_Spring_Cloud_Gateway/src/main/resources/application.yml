@@ -1,0 +1,24 @@
+spring:  
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #PAra indicar que debe llamar al servicio de resgistro y descubrimiento para averguar cuantas aplicaciones hay
+      
+      routes:
+        - id: ServicioClientes
+          uri: lb://ServicioClientes
+          predicates:
+            - Path=/clientes/**
+          filters:
+            - RewritePath=/foo/(?<segment>.*), /$\{segment}
+
+    consul:
+      host: localhost
+      port: 8500
+    
+      discovery:
+        register: false
+        registerHealthCheck: false

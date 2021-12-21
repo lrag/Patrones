@@ -1,0 +1,31 @@
+server:
+  port: 9020
+  tomcat:
+    threads:
+      max: 6
+
+spring:
+  application:
+    name: "ServicioProductos"
+    
+  config:
+    import: consul:localhost:8500       
+  
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+      config:
+        enabled: true
+        fail-fast: true
+        watch:
+          enabled: true
+          delay: 5000  
+               
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect

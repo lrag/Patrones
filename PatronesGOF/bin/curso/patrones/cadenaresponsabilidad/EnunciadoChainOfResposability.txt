@@ -1,0 +1,2 @@
+Dada una factura, los distintos departamentos de la empresa
+ (Comercial, Logistica, Facturacion, etc) deben procesarla

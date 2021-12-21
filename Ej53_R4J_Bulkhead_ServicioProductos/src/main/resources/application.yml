@@ -1,0 +1,42 @@
+server:
+  port: 9020
+  tomcat:
+    threads:
+      max: 6
+      
+resilience4j.bulkhead:
+  instances:
+    gestorProductos-buscarProductoYCalificaciones:
+      maxConcurrentCalls: 3
+      maxWaitDuration: 10ms    
+      
+spring:
+  application:
+    name: "ServicioProductos"
+    
+  config:
+    import: consul:localhost:8500   
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+      config:
+        enabled: true
+        fail-fast: true
+        format: YAML
+
+
+  datasource:
+    url: ${bbdd.url:jdbc:h2:file:c:/h2/bbdd_cloud_productos;DB_CLOSE_DELAY=-1} 
+    driverClassName: org.h2.Driver
+    username: ${bbdd.username:sa}
+    password: ${bbdd.password:}
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect

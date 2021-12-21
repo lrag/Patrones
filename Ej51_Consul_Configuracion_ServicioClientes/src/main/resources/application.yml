@@ -1,0 +1,39 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: "ServicioClientes"
+    
+  config:
+    import: consul:localhost:8500           
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+      config:
+        enabled: true
+        fail-fast: true
+        watch:
+          enabled: true
+          delay: 5000  
+        
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect     
+    
+  #datasource:
+  #  url: ${bbdd.url:jdbc:h2:file:c:/h2/bbdd_cloud_clientes}
+  #  driverClassName: org.h2.Driver
+  #  username: ${bbdd.username:sa}
+  #  password: ${bbdd.password:}    
+    
+
+
+
+  
