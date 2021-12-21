@@ -6,6 +6,8 @@ import com.curso.modelo.persistencia.util.FactoriaClienteRepositorio;
 
 public class GestorClientes {
 	
+	//SINGLETÓN/////////////////////////////////////////////////////////	
+	
 	private static GestorClientes instancia;
 
 	public static synchronized GestorClientes getInstancia() {
@@ -14,6 +16,11 @@ public class GestorClientes {
 		}
 		return instancia;
 	}
+
+	private GestorClientes(){
+	}
+	
+	////////////////////////////////////////////////////////////////////
 	
 	private ClienteRepositorio clienteRepo = FactoriaClienteRepositorio.getClienteRepositorio();
 	
@@ -23,7 +30,6 @@ public class GestorClientes {
 		System.out.println("Cliente:"+cliente);
 		//LN...
 		clienteRepo.insertar(cliente);
-	}
-	
+	}	
 	
 }

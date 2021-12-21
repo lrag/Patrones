@@ -4,6 +4,8 @@ import com.curso.modelo.entidad.Cliente;
 
 public class ClienteRepositorioMongoDB implements ClienteRepositorio {
 
+	//SINGLETÓN/////////////////////////////////////////////////////////	
+	
 	private static ClienteRepositorio instancia;
 	
 	public static synchronized ClienteRepositorio getInstancia() {
@@ -13,6 +15,8 @@ public class ClienteRepositorioMongoDB implements ClienteRepositorio {
 		return instancia;
 	}
 
+	////////////////////////////////////////////////////////////////////	
+	
 	private ClienteRepositorioMongoDB() {
 	}
 

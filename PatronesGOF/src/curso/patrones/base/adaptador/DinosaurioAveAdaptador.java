@@ -11,7 +11,6 @@ public class DinosaurioAveAdaptador extends Ave {
 	@Override
 	public void cantar() {
 		dinosaurio.rugir();
-
 	}
 
 	@Override

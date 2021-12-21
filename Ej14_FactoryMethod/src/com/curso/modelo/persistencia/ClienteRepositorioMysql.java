@@ -10,6 +10,8 @@ import com.curso.modelo.persistencia.util.DataSourceUtil;
 
 public class ClienteRepositorioMysql implements ClienteRepositorio {
 
+	//SINGLETÓN/////////////////////////////////////////////////////////
+	
 	private static ClienteRepositorioMysql instancia;
 	
 	public static synchronized ClienteRepositorioMysql getInstancia() {
@@ -18,6 +20,8 @@ public class ClienteRepositorioMysql implements ClienteRepositorio {
 		}
 		return instancia;
 	}
+	
+	////////////////////////////////////////////////////////////////////
 
 	private DataSource ds = DataSourceUtil.getDataSource();
 	
