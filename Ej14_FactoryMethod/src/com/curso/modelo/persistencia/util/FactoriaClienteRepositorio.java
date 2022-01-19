@@ -9,7 +9,7 @@ public class FactoriaClienteRepositorio {
 	//Esto se ha leído de la configuracion
 	private static String tipo = "Mysql";
 	
-	public static ClienteRepositorio getClienteRepositorio() {
+	public synchronized static ClienteRepositorio getClienteRepositorio() {
 		switch(tipo) {
 			case "Mysql"   : return ClienteRepositorioMysql.getInstancia();
 			case "MongoDB" : return ClienteRepositorioMongoDB.getInstancia();
@@ -18,7 +18,7 @@ public class FactoriaClienteRepositorio {
 	}
 	
 	//Una factory method tambien puede recibir indicaciones del objeto que tiene que crear 
-	public static ClienteRepositorio getClienteRepositorio(String tipo) {
+	public synchronized static ClienteRepositorio getClienteRepositorio(String tipo) {
 		switch(tipo) {
 			case "Mysql"   : return ClienteRepositorioMysql.getInstancia();
 			case "MongoDB" : return ClienteRepositorioMongoDB.getInstancia();

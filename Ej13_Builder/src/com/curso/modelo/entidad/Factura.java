@@ -111,22 +111,21 @@ public class Factura {
 		detalles.forEach(df -> addDetalle(df));
 	}
 	
-	public void addDetalle(DetalleFactura detalle) {		
+	public void addDetalle(DetalleFactura nuevoDetalle) {		
 		detalles
 			.stream()
-			.filter(df -> igualitos(df,detalle) )
+			.filter(detalle -> isIgualitos(detalle,nuevoDetalle) )
 			.findAny()
 			.ifPresentOrElse(
-				df -> {	
-					df.setCantidad(df.getCantidad()+detalle.getCantidad());
+				detalle -> {	
+					detalle.setCantidad(detalle.getCantidad()+nuevoDetalle.getCantidad());
 				}, 
-				() -> detalles.add(detalle)				
-			);
-		
+				() -> detalles.add(nuevoDetalle)				
+			);		
 		calcularTotal();
 	}
 
-	private boolean igualitos(DetalleFactura df1, DetalleFactura df2) {
+	private boolean isIgualitos(DetalleFactura df1, DetalleFactura df2) {
 		return df1.getProducto().getId()==df2.getProducto().getId() && df1.getPrecio()==df2.getPrecio();
 	}
 	

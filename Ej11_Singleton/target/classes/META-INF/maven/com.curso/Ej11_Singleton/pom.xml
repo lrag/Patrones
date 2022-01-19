@@ -5,6 +5,7 @@
 	<groupId>com.curso</groupId>
 	<artifactId>Ej11_Singleton</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -17,10 +18,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<dependencies>
-
-	</dependencies>
-
 
 </project>
