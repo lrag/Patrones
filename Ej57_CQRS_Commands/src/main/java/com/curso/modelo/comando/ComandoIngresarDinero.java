@@ -2,16 +2,16 @@ package com.curso.modelo.comando;
 
 import java.util.UUID;
 
-public class ComandoRetirarCuenta {
+public class ComandoIngresarDinero {
 
 	private UUID idCuenta;
 	private long cantidad;
 
-	public ComandoRetirarCuenta() {
+	public ComandoIngresarDinero() {
 		super();
 	}
 
-	public ComandoRetirarCuenta(UUID idCuenta, long cantidad) {
+	public ComandoIngresarDinero(UUID idCuenta, long cantidad) {
 		super();
 		this.idCuenta = idCuenta;
 		this.cantidad = cantidad;

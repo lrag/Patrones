@@ -7,7 +7,6 @@ public class ComandoCrearCuenta {
 
 	public ComandoCrearCuenta() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public ComandoCrearCuenta(long saldoInicial, String cliente) {
