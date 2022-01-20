@@ -21,7 +21,6 @@ import com.curso.modelo.proxy.ProductosRestProxy;
 public class GestorPedidos {
 
 	@Autowired private PedidoRepositorio pedidoRepo;
-	@Autowired private ProductoRepositorio productoRepo;
 	
 	@Autowired private ClientesRestProxy clientesRestProxy;
 	@Autowired private ProductosRestProxy productosRestProxy;
