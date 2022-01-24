@@ -6,16 +6,27 @@ import org.springframework.web.client.RestTemplate;
 
 import com.curso.modelo.entidad.Cliente;
 import com.curso.modelo.entidad.Producto;
+import com.curso.modelo.persistencia.ProductoRepositorio;
 
 @Component
 public class ProductosRestProxy {
 
-	@Autowired
-	private RestTemplate restTemplate;
+	@Autowired private RestTemplate restTemplate;
+	@Autowired private ProductoRepositorio productoRepo;
 	
 	public Producto buscar(String codigo){
-		//return restTemplate.getForEntity("http://localhost:9000/clientes/"+login, Cliente.class).getBody();
-		return restTemplate.getForEntity("http://ServicioProductos/productos/"+codigo, Producto.class).getBody();
+		
+		return productoRepo
+				.findByCodigo(codigo)
+				.orElseGet( () -> {
+					System.out.println("Invocando al microservicio de productos");
+					//No estamos controlando los posibles errores al enviar la petición!!!
+					//Producto prodAux = restTemplate.getForEntity("http://localhost:9020/productos/"+codigo, Producto.class).getBody();
+					Producto prodAux = restTemplate.getForEntity("http://ServicioProductos/productos/"+codigo, Producto.class).getBody();
+					System.out.println("Producto obtenido:"+prodAux);
+					productoRepo.save(prodAux);
+					return prodAux;
+				});				
 	}
 	
 }

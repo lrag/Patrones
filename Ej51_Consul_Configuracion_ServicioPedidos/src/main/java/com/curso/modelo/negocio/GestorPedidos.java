@@ -20,13 +20,10 @@ import com.curso.modelo.proxy.ProductosRestProxy;
 @Transactional
 public class GestorPedidos {
 
-	@Autowired private ClienteRepositorio clienteRepo;
 	@Autowired private PedidoRepositorio pedidoRepo;
-	@Autowired private DetallePedidoRepositorio detallePedidoRepo;
-	@Autowired private ProductoRepositorio productoRepo;
 	
-	@Autowired private ClientesRestProxy clientesRest;
-	@Autowired private ProductosRestProxy productosRest;
+	@Autowired private ClientesRestProxy clientesRestProxy;
+	@Autowired private ProductosRestProxy productosRestProxy;
 	
 	public Pedido altaPedido(Pedido pedido) {
 
@@ -36,15 +33,7 @@ public class GestorPedidos {
 		//Buscamos al cliente a partir de su login
 		String login = pedido.getCliente().getLogin();			
 		System.out.println("Login del cliente:"+login);
-		Cliente cliente = clienteRepo
-			.findByLogin(login)
-			.orElseGet( () -> {
-				System.out.println("Invocando al microservicio de clientes");
-				Cliente cliAux = clientesRest.buscar(login);
-				System.out.println("Cliente obtenido:"+cliAux);
-				clienteRepo.save(cliAux);
-				return cliAux;
-			});
+		Cliente cliente = clientesRestProxy.buscar(login);
 		pedido.setCliente(cliente);
 		
 		//Comprobamos los datos bancarios
@@ -54,15 +43,7 @@ public class GestorPedidos {
 		Double total = 0d;
 		for(DetallePedido dp : pedido.getDetalles()) {
 			String codigoProducto = dp.getProducto().getCodigo();
-			Producto producto = productoRepo
-				.findByCodigo(codigoProducto)
-				.orElseGet( () -> {
-					System.out.println("Invocando al microservicio de productos");
-					Producto prodAux = productosRest.buscar(codigoProducto);
-					System.out.println("prodAux:"+prodAux);
-					productoRepo.save(prodAux);
-					return prodAux;					
-				});
+			Producto producto = productosRestProxy.buscar(codigoProducto);
 			dp.setProducto(producto);
 			dp.setPrecio(producto.getPrecio());
 			dp.setPedido(pedido);

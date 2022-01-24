@@ -1,0 +1,24 @@
+server:
+  port: 9060
+
+spring:
+  application:
+    name: "ServicioProductos_CQRS_Query"
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+
+
+  mongodb:
+    embedded:
+      version: 3.5.5
+
+kafka:
+  direccion: localhost:9092
+  topic:
+    nombre: topic-productos-cqrs
+    grupo: "consumer-productos"

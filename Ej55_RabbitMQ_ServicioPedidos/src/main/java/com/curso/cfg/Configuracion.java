@@ -56,6 +56,7 @@ public class Configuracion {
     public RabbitTemplate rabbitTemplate(final ConnectionFactory connectionFactory) {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(producerJackson2MessageConverter());
+        rabbitTemplate.setChannelTransacted(true);
         return rabbitTemplate;
     }
 

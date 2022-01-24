@@ -12,6 +12,12 @@ import com.curso.modelo.persistencia.ClienteRepositorio;
 import com.curso.modelo.persistencia.PedidoRepositorio;
 
 /*
+
+RabbitMQ :
+http://localhost:15672/#/connections
+guest
+guest
+
 {
 	"fecha" : "5/5/2021",
 	"estado" : "pendiente",
