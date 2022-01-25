@@ -19,7 +19,7 @@ import com.curso.modelo.proxy.ClientesRestProxy;
 import com.curso.modelo.proxy.ProductosRestProxy;
 
 @Service
-@Transactional
+@Transactional(rollbackOn = { Exception.class } )
 public class GestorPedidos {
 
 	@Autowired private PedidoRepositorio pedidoRepo;

@@ -22,7 +22,7 @@ public class GestorProductos {
 	//Podemos tener @CircuitBReaker y @BulkHead simultaneamente sin problemas
     //@CircuitBreaker(name = "gestorProductos-buscarProductoYCalificaciones", fallbackMethod = "buscarProductoSinCalificaciones")    
     @Bulkhead(name = "gestorProductos-buscarProductoYCalificaciones", 
-    		  fallbackMethod = "buscarProductoSinCalificaciones", type = Bulkhead.Type.SEMAPHORE)
+        	  fallbackMethod = "buscarProductoSinCalificaciones", type = Bulkhead.Type.SEMAPHORE)
 	public Optional<Producto> buscarProductoYCalificaciones(String codigo) {
 		return productoRepo
 			.findByCodigo(codigo)

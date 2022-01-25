@@ -27,7 +27,9 @@ public class OyenteEventos {
 		return nombreTopic;
 	}
 	
-	@KafkaListener(topics = "#{__listener.nombreTopic}", groupId = "#{__listener.idGrupo}")
+	@KafkaListener(topics = "#{__listener.nombreTopic}", 
+			       groupId = "${random.uuid}", //<----
+			       properties = {"auto.offset.reset = earliest"})
 	public void oyenteEventoProducto(EventoProducto eventoProducto) {
 		
 		System.out.println("Evento recibido:"+eventoProducto);
