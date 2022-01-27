@@ -5,7 +5,7 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true #PAra indicar que debe llamar al servicio de resgistro y descubrimiento para averguar cuantas aplicaciones hay
+          enabled: true #Para indicar que debe llamar al servicio de resgistro y descubrimiento para averguar cuantas aplicaciones hay
       
       routes:
         - id: ServicioClientes

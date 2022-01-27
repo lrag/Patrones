@@ -35,7 +35,6 @@ public class ConfiguracionMongoDB {
         MongodExecutable mongodExecutable = starter.prepare(mongodConfig);
         mongodExecutable.start();
         return new MongoTemplate(MongoClients.create(String.format(CONNECTION_STRING, ip, port)), "productos");
-    }	
-	
+    }		
 	
 }

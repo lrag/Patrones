@@ -16,12 +16,14 @@ public class ProxyMensajeria {
 	@Value("${kafka.topic.nombre}") 
 	private String nombreTopic;
 	
-	@Autowired private KafkaTemplate<String, EventoProducto> kafkaTemplate;
+	@Autowired 
+	private KafkaTemplate<String, EventoProducto> kafkaTemplate;
 	
 	public void enviarMensaje(String clave, EventoProducto valor) {
 		
 		System.out.println("Enviando el mensaje...");
 		ListenableFuture<SendResult<String, EventoProducto>> future = kafkaTemplate.send(nombreTopic, clave, valor);
+
 		future.addCallback(new ListenableFutureCallback<SendResult<String, EventoProducto>>() {
 
 		    @Override
