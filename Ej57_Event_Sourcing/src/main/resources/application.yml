@@ -1,17 +1,6 @@
-server:
-  port: 9070
-
 spring:
   application:
     name: "ServicioProductos_CQRS_Query"
-
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        instanceId: ${spring.application.name}:${random.value}
-
 
   mongodb:
     embedded:
