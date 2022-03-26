@@ -12,21 +12,10 @@ import com.curso.modelo.persistencia.FacturaRepositorio;
 @Service
 public class GestorFacturas {
 
-	@Autowired private FacturaRepositorio facturaRepo;
-
 	public Factura facturarPedido(Pedido pedido) {
 		//Lógica de negocio...
 		//...
     	System.out.println("========================================");
-		System.out.println("Insertando la factura...");
-		return null;
-	}
-	
-	public Factura insertar(Factura factura) {
-		//Lógica de negocio...
-		//...
-    	System.out.println("========================================");
-		System.out.println("Insertando la factura...");
 		return null;
 	}
 	

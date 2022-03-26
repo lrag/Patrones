@@ -12,7 +12,6 @@ spring:
       discovery:
         instanceId: ${spring.application.name}:${random.value}
 
-
   mongodb:
     embedded:
       version: 3.5.5

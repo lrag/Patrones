@@ -25,7 +25,6 @@ public class ProxyMensajeria {
 		ListenableFuture<SendResult<String, EventoProducto>> future = kafkaTemplate.send(nombreTopic, clave, valor);
 
 		future.addCallback(new ListenableFutureCallback<SendResult<String, EventoProducto>>() {
-
 		    @Override
 		    public void onSuccess(SendResult<String, EventoProducto> result) {
 		        System.out.println("OK");
@@ -36,7 +35,6 @@ public class ProxyMensajeria {
 		        System.out.println("ZASCA");
 		        ex.printStackTrace();
 		    }
-
 		});
 	}
 	

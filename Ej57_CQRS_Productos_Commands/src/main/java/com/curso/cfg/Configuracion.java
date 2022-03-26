@@ -47,7 +47,7 @@ public class Configuracion {
 
 	@Bean
 	public KafkaTemplate<String, EventoProducto> kafkaTemplateProductos() {
-		return new KafkaTemplate<String, EventoProducto>(producerFactory());
+		return new KafkaTemplate<>(producerFactory());
 	}
 
 }

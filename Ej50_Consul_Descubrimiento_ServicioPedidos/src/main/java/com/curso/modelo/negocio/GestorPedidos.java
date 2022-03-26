@@ -64,7 +64,7 @@ public class GestorPedidos {
 		// TODO Auto-generated method stub		
 	}
 
-	public void borrar(Integer idPedido) {
+	public void borrar(String codigo) {
 		// TODO Auto-generated method stub		
 	}	
 	

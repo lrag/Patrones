@@ -21,9 +21,8 @@ public class GestorProductos {
 		return productoRepo
 			.findByCodigo(codigo)
 			.map(producto -> {
-				List<CalificacionProducto> calificaciones = 
-					calificacionesProductosProxy
-						.buscarCalificacionesProducto(producto.getCodigo());
+				List<CalificacionProducto> calificaciones = calificacionesProductosProxy
+					.buscarCalificacionesProducto(producto.getCodigo());
 				producto.setCalificaciones(calificaciones);
 				return producto;		
 			})

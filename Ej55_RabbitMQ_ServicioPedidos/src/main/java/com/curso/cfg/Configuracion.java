@@ -42,12 +42,12 @@ public class Configuracion {
 	//en rabbitMQ
 	//Sin esta bean funciona igual pero se crea una cola temporal
 	@Bean
-	public Queue colaPedidosCreados() {
+	public Queue colaOrdenesDeCompra() {
         // name: colaPedidosCreados
         // durable: true
         // exclusive: false
         // auto_delete: false
-        return new Queue("colaPedidosCreados", true, false, false);
+        return new Queue("colaOrdenesDeCompra", true, false, false);
 	}	
 	
 	//Esta necesitamos tenerla

@@ -18,7 +18,7 @@ public class ProductosRestProxy {
 	@Autowired
 	private WebClient webClientClientes;
 	
-	
+	//Este va como un tiro
 	public Flux<Producto> listar() {		
 		return webClientClientes
 				.get()
@@ -28,6 +28,7 @@ public class ProductosRestProxy {
 		
 	}
 
+	//Este tardará 4 segundos
 	public Mono<Producto> buscarConCalificaciones(String codigo) {		
 		return webClientClientes
 				.get()

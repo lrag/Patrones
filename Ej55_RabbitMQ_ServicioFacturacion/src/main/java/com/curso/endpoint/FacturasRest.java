@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.modelo.entidad.Factura;
+import com.curso.modelo.entidad.Pedido;
 import com.curso.modelo.negocio.GestorFacturas;
 import com.curso.modelo.persistencia.FacturaRepositorio;
 
@@ -36,9 +37,9 @@ public class FacturasRest {
 	}	
 	
 	@PostMapping(path="/facturas")
-	public ResponseEntity<Factura> insertar(@RequestBody() Factura cliente){
-		Factura clienteInsertado = gestorFacturas.insertar(cliente);
-		return new ResponseEntity<Factura>(clienteInsertado, HttpStatus.CREATED);
+	public ResponseEntity<Factura> crearFactura(@RequestBody() Pedido pedido){
+		Factura facturaInsertada = gestorFacturas.facturarPedido(pedido);
+		return new ResponseEntity<>(facturaInsertada, HttpStatus.CREATED);
 	}
 	
 }

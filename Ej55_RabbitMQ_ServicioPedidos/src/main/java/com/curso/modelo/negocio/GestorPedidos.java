@@ -63,8 +63,9 @@ public class GestorPedidos {
 		//Ese mensaje lo recogerá ServicioFacturacion y cualquier otro que esté subscrito
 		//De esta manera ServicioPedidos puede 'ordenar' al ServicioFacturas que emita 
 		//una factura SIN CONOCERLO
-		rabbitTemplate.convertAndSend("colaPedidosCreados",new PedidoDTO(pedido));	
+		rabbitTemplate.convertAndSend("colaOrdenesDeCompra",new PedidoDTO(pedido));	
 
+		/*
 		System.out.println("------------------------------------");
 		System.out.println("Iniciando espera");
 		try {
@@ -75,7 +76,6 @@ public class GestorPedidos {
 		System.out.println("YA");
 		System.out.println("------------------------------------");
 		
-		/*
 		if(1==1) {
 			System.out.println("ZASCA");
 			throw new RuntimeException("ZASCA TARRASCA");

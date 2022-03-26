@@ -18,8 +18,7 @@ public class Producto {
 	private String nombre;
 	private String imagen;
 	private String fabricante;
-	private Double precio;
-	
+	private Double precio;	
 	
 	@Transient
 	private List<CalificacionProducto> calificaciones;

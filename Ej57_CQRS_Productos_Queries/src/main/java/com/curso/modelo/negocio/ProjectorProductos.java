@@ -13,6 +13,10 @@ public class ProjectorProductos {
 
 	@Autowired private RepositorioProductos repoProductos;
 	
+	//
+	//Aqui no hay lógica de negocio
+	//
+	
 	public void insertar(Producto producto) {
 		System.out.println("Insertando el producto:"+producto);
 		repoProductos.save(producto);

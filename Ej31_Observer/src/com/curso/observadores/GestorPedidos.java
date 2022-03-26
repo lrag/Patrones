@@ -7,7 +7,7 @@ public class GestorPedidos {
 
 	private SujetoPedidos sujetoPedidos = SujetoPedidos.getInstancia();
 	
-	//Estas son las dependencias de esta clase
+	//Estas serian las dependencias de esta clase si no funcionara con eventos
 	//private GestorClientes gestorClientes;
 	//private GestorAlmacen gestorAlmacen;
 	//private GestorCatalogo gestorCatalogo;

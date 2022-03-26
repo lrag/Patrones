@@ -1,6 +1,6 @@
 package com.curso.endpoint;
 
-import java.util.UUID;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,6 @@ import com.curso.endpoint.dto.ProductoDTO;
 import com.curso.modelo.negocio.GestorProductos;
 import com.curso.modelo.repositorio.RepositorioProductos;
 
-import java.util.List;
-
 @RestController
 public class ProductosEndpoint {
 	
@@ -35,17 +33,17 @@ public class ProductosEndpoint {
 				gestorProductos.insertar(productoDTO.asProducto());
 			}
 		}.start();		
-		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 	
-	@PutMapping("/productos/{id}")
+	@PutMapping("/productos/{referencia}")
 	public ResponseEntity<Void> modificarProducto(@RequestBody ProductoDTO productoDTO){
 		new Thread() {
 			public void run(){
 				gestorProductos.modificar(productoDTO.asProducto());				
 			}
 		}.start();	
-		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 
 	@DeleteMapping("/productos/{referencia}")
@@ -55,7 +53,7 @@ public class ProductosEndpoint {
 				gestorProductos.borrar(referencia);
 			}
 		}.start();	
-		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 	
 	//ESTO ES PARA PRUEBAS. AQUI NO PINTA NADA////////////

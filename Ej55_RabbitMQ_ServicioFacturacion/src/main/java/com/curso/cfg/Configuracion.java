@@ -50,12 +50,12 @@ public class Configuracion {
     }
 
     @Bean
-    public Queue myDurableQueue() {
-        // name: colaPedidosCreados
-        // durable: true
-        // exclusive: false
+    public Queue colaOrdenesDeCompra() {
+        // name: colaOrdenesDeCompra
+        // durable    : true  <--
+        // exclusive  : false
         // auto_delete: false
-        return new Queue("colaPedidosCreados", true, false, false);
+        return new Queue("colaOrdenesDeCompra", true, false, false);
     }	
 	
     @Bean

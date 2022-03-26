@@ -1,11 +1,5 @@
 package com.curso.modelo.entidad;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-
 public class CalificacionProducto {
 
 	private String codigoProducto;

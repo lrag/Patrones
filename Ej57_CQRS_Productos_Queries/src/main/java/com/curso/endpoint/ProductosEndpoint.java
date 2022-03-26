@@ -33,8 +33,8 @@ public class ProductosEndpoint {
 			.collect(Collectors.toList());
 	}
 	
-	@GetMapping("/productos/{id}")
-	public ResponseEntity<ProductoDTO> buscarProducto(@PathVariable("id") String idProducto){
+	@GetMapping("/productos/{referencia}")
+	public ResponseEntity<ProductoDTO> buscarProducto(@PathVariable("referencia") String idProducto){
 		return repoProductos
 			.findById(idProducto)
 			.map(p -> new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK))

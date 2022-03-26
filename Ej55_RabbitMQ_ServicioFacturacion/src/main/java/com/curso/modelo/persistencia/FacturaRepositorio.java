@@ -15,7 +15,6 @@ public class FacturaRepositorio {
 	}
 
 	public Optional<Factura> findById(Integer id) {
-		// TODO Auto-generated method stub
 		return Optional.of(null);
 	}
 }

@@ -24,9 +24,8 @@ public class GestorProductos {
 			.findByCodigo(codigo)
 			.map(producto -> {
 				try {
-					List<CalificacionProducto> calificaciones = 
-						calificacionesProductosProxy
-							.buscarCalificacionesProducto(producto.getCodigo());
+					List<CalificacionProducto> calificaciones = calificacionesProductosProxy
+						.buscarCalificacionesProducto(producto.getCodigo());
 					producto.setCalificaciones(calificaciones);
 				} catch (Exception e) {
 					System.out.println("ZASCA al invocar ServicioCalificacionesProducto");
@@ -39,13 +38,12 @@ public class GestorProductos {
     @CircuitBreaker(name = "gestorProductos-buscarProductoYCalificaciones", 
     		        fallbackMethod = "buscarProductoSinCalificaciones")    
 	public Optional<Producto> buscarProductoYCalificaciones(String codigo) {
-		System.out.println("Ejecutando el método gestorProductos.buscarProductoYCalificaciones");
+    	System.out.println("Ejecutando el método gestorProductos.buscarProductoYCalificaciones");
     	return productoRepo
 			.findByCodigo(codigo)
 			.map(producto -> {
-				List<CalificacionProducto> calificaciones = 
-					calificacionesProductosProxy
-						.buscarCalificacionesProducto(producto.getCodigo());
+				List<CalificacionProducto> calificaciones = calificacionesProductosProxy
+					.buscarCalificacionesProducto(producto.getCodigo());
 				producto.setCalificaciones(calificaciones);
 				return producto;		
 			})
@@ -64,5 +62,30 @@ public class GestorProductos {
 		//...
 		return productoRepo.save(producto);
 	}
+	
+	
+	/*
+	GestorProductos target;
+	Integer fallos = 0;
+	Integer umbral = 5;
+	
+	public Optional<Producto> buscarProductoYCalificaciones(String codigo) {
+		
+		Optional<Producto> p = null;
+		
+		if(fallos > 5) {
+			return target.buscarProductoSinCalificaciones(codigo, null);
+		}
+
+		try {
+			p = target.buscarProductoYCalificaciones(codigo);
+		} catch (Exception e) {
+			//Aumenta el contador de fallos
+			fallos++;
+			p = target.buscarProductoSinCalificaciones(codigo, e);
+		}		
+		return p;		
+	}
+	*/	
 	
 }

@@ -16,7 +16,7 @@ import com.curso.modelo.repositorio.RepositorioProductos;
     "nombre": "Fleje",
     "descripcion": "Bla bla bla",
     "fabricante": {
-        "codigo": "",
+        "codigo": "FAB-1"
     }
 }
 */

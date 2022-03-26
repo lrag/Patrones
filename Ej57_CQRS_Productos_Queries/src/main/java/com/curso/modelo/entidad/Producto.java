@@ -2,6 +2,23 @@ package com.curso.modelo.entidad;
 
 import org.springframework.data.annotation.Id;
 
+
+/*
+Colección de producto:
+[
+ {
+	"referencia"  :  "REF-1",
+	"nombre"      :  "Chintáfono",
+	"descripcion" : "Un chintáfono muy bonito",
+	"fabricante"  : {
+		"codigo"    : "FAB-1",
+		"nombre"    : "Chintáfonos de la Armuña S.A",
+		"direccion" : "C/Tal";
+		"telefono"  : "923 123 456";	
+	}
+ }
+]*/
+
 public class Producto {
 
 	@Id

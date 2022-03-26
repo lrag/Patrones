@@ -7,7 +7,7 @@ import com.curso.modelo.entidad.Pedido;
 
 public class SujetoPedidos extends SujetoAbstracto<Pedido> {
 
-	public static SujetoPedidos instancia;
+	private static SujetoPedidos instancia;
 	
 	public static synchronized SujetoPedidos getInstancia() {
 		if(instancia == null) {

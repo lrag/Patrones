@@ -19,10 +19,11 @@ public class GestorProductos {
 	@Autowired private ProductoRepositorio productoRepo;
 	@Autowired private CalificacionesProductosProxy calificacionesProductosProxy;
 	
-	//Podemos tener @CircuitBReaker y @BulkHead simultaneamente sin problemas
+	//Podemos tener @CircuitBreaker y @BulkHead simultaneamente sin problemas
     //@CircuitBreaker(name = "gestorProductos-buscarProductoYCalificaciones", fallbackMethod = "buscarProductoSinCalificaciones")    
     @Bulkhead(name = "gestorProductos-buscarProductoYCalificaciones", 
-        	  fallbackMethod = "buscarProductoSinCalificaciones", type = Bulkhead.Type.SEMAPHORE)
+        	  fallbackMethod = "buscarProductoSinCalificaciones", 
+        	  type = Bulkhead.Type.SEMAPHORE)
 	public Optional<Producto> buscarProductoYCalificaciones(String codigo) {
 		return productoRepo
 			.findByCodigo(codigo)

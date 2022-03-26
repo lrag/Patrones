@@ -77,4 +77,10 @@ public class Pedido {
 		this.detalles = detalles;
 	}
 
+	@Override
+	public String toString() {
+		return "Pedido [codigo=" + codigo + ", fecha=" + fecha + ", estado=" + estado + ", total=" + total
+				+ ", cliente=" + cliente + ", detalles=" + detalles + "]";
+	}
+
 }

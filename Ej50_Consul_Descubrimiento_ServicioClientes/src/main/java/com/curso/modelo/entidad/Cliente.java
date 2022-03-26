@@ -1,5 +1,6 @@
 package com.curso.modelo.entidad;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,12 +12,13 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(unique = true)
 	private String login;
 	private String nombre;
 	private String direccion;
 	private String telefono;
 	private String correoE;
-	private String datosBancarios; //DATOS_BANCARIOS
+	private String datosBancarios; // DATOS_BANCARIOS
 
 	public Cliente() {
 		super();
@@ -88,6 +90,12 @@ public class Cliente {
 
 	public void setDatosBancarios(String datosBancarios) {
 		this.datosBancarios = datosBancarios;
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente [id=" + id + ", login=" + login + ", nombre=" + nombre + ", direccion=" + direccion
+				+ ", telefono=" + telefono + ", correoE=" + correoE + ", datosBancarios=" + datosBancarios + "]";
 	}
 
 }

@@ -13,7 +13,7 @@ import com.curso.modelo.persistencia.ClienteRepositorio;
 //@Scope("singleton")
 @Transactional
 public class GestorClientes {
-
+	
 	@Autowired
 	private ClienteRepositorio clienteRepo;
 

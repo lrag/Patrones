@@ -31,11 +31,10 @@ public class ProductosRest {
 			productoRepo
 				.findByCodigo(codigo)
 				.map(p -> {
-					System.out.println("Encontrado:"+p);
-					
-					return new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK);
+					System.out.println("Encontrado:"+p);					
+					return new ResponseEntity<>(new ProductoDTO(p), HttpStatus.OK);
 				})
-				.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
 	@GetMapping(path="/productos/{codigo}/calificaciones")

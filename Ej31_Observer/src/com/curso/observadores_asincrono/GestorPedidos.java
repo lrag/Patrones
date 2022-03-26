@@ -1,7 +1,6 @@
 package com.curso.observadores_asincrono;
 
 import com.curso.modelo.entidad.Pedido;
-import com.curso.util.eventos.SujetoPedidos;
 import com.curso.util.eventos.SujetoPedidosAsincrono;
 
 public class GestorPedidos {
@@ -12,7 +11,7 @@ public class GestorPedidos {
 	//private GestorClientes gestorClientes;
 	//private GestorAlmacen gestorAlmacen;
 	//private GestorCatalogo gestorCatalogo;
-	
+
 	public void crearOrdenDeCompra(Pedido pedido) {
 		
 		//Lógica de negocio para aceptar el pedido
