@@ -7,7 +7,7 @@ public class GestorPedidos {
 
 	private SujetoPedidos sujetoPedidos = SujetoPedidos.getInstancia();
 	
-	//Estas serian las dependencias de esta clase si no funcionara con eventos
+	//Estas serian las dependencias de esta clase, con las que está de verdad acoplada
 	//private GestorClientes gestorClientes;
 	//private GestorAlmacen gestorAlmacen;
 	//private GestorCatalogo gestorCatalogo;
@@ -18,7 +18,8 @@ public class GestorPedidos {
 		
 		//buscar los datos del cliente
 		//Cliente c = servicioClientes.buscar(pedido.getCliente())
-		//buscar el precio de los productos: sincron y reservarlas: sincronno
+		//buscar el precio de los productos: sincrono
+		//reservarla los productos en el almacen: sincronno
 		
 		System.out.println("=====================================");
 		System.out.println("GestorPedidos.altaPedido");

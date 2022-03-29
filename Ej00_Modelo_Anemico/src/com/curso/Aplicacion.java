@@ -22,8 +22,7 @@ public class Aplicacion {
 		System.out.println("=================================");
 		c1.matricularAlumno(a1);
 		c2.matricularAlumno(a2);
-		c3.matricularAlumno(a3);
-		
+		c3.matricularAlumno(a3);		
 		
 		System.out.println("=================================");
 		GestorAlumnos ga = new GestorAlumnos();
