@@ -71,9 +71,7 @@ public class CursoEnlatado extends Curso{
 	public void matricularAlumno(Alumno alumno) {
 		//LN
 		System.out.println("Matriculando a un alumno en un curso enlatado");
-		if(alumnos.size()<plazas) {
-			alumnos.add(alumno);
-		}
+		//Aqui no hay límite de aforo
 	}	
 	
 	@Override

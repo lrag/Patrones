@@ -60,6 +60,7 @@ public abstract class Curso {
 	}
 
 	public List<Alumno> getAlumnos() {
+		//Aqui deberíamos devolver una copia de la lista y de los alumnos
 		return alumnos;
 	}
 
