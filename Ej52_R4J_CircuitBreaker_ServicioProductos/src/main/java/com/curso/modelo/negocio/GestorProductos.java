@@ -52,7 +52,11 @@ public class GestorProductos {
 	
     //Este método es una suerte de catch
 	public Optional<Producto> buscarProductoSinCalificaciones(String codigo, Exception e) {
-		System.out.println("!!!! "+e.getMessage());
+		
+		System.out.println(e.getClass());
+		//e.printStackTrace();
+		
+		System.out.println("FALLBACK!!!! "+e.getMessage());
 		return productoRepo
 			.findByCodigo(codigo);
 	}  	
