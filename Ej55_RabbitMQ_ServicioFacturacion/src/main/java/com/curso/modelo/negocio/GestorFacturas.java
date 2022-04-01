@@ -16,6 +16,8 @@ public class GestorFacturas {
 		//Lógica de negocio...
 		//...
     	System.out.println("========================================");
+    	System.out.println("GestorFacturas.facturarPedido.");
+    	System.out.println("Emitiendo una facturita");
 		return null;
 	}
 	

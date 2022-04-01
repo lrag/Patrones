@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 
 
 /*
-Colección de producto:
+Colección de productos:
 [
  {
 	"referencia"  :  "REF-1",
@@ -16,6 +16,16 @@ Colección de producto:
 		"direccion" : "C/Tal";
 		"telefono"  : "923 123 456";	
 	}
+	"caracteristicas" : [
+		{
+			"nombre":"aaa",
+			"descripcion":"bbb"
+		},	
+		{
+			"nombre":"ccc",
+			"descripcion":"ddd"
+		}
+	]
  }
 ]*/
 
