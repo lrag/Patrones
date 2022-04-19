@@ -31,6 +31,7 @@ public class GestorPedidos {
 		}
 		
 		sujetoPedidos.emitir(pedido);
+		
 	}
 	
 }

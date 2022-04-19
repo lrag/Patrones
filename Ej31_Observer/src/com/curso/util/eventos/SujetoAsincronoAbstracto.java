@@ -8,6 +8,7 @@ import java.util.concurrent.Executors;
 
 public abstract class SujetoAsincronoAbstracto<T> implements Sujeto<T> {
 	
+	private ExecutorService terminator = Executors.newFixedThreadPool(4);
 	private List<Observador<T>> observadores = new ArrayList<Observador<T>>();
 	
 	@Override
@@ -27,12 +28,10 @@ public abstract class SujetoAsincronoAbstracto<T> implements Sujeto<T> {
 
 	@Override
 	public void emitir(T evento) {
-		//Esto mejor como atributo de la clase, y adedmás es muy cutre
-		ExecutorService terminator = Executors.newFixedThreadPool(4);
+		//Esto mejor como atributo de la clase, y podría implementarse de otras maneras
 		observadores.forEach( obs -> {			
 			terminator.execute(() -> obs.procesarEvento(evento)); //Runnable
 		});
-		terminator.shutdown();
 	}
 	
 }
