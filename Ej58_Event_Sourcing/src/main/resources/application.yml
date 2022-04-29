@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: "ServicioProductos_CQRS_Query"
+  main:
+    web-application-type: none
+
+  mongodb:
+    embedded:
+      version: 3.5.5
+
+kafka:
+  direccion: localhost:9092
+  topic:
+    nombre: topic-productos-cqrs
+    grupo: "consumer-productos"

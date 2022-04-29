@@ -12,5 +12,9 @@ spring:
     consul:
       host: localhost
       port: 8500
+      config:
+        enabled: true
+        fail-fast: true
+        format: YAML      
       discovery:
         instanceId: ${spring.application.name}:${random.value}

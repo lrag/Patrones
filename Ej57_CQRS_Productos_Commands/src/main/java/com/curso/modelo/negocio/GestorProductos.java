@@ -20,7 +20,7 @@ public class GestorProductos {
 	@Autowired private RepositorioFabricantes repoFabricantes;
 	@Autowired private ProxyMensajeria proxyMensajeria;
 	
-	public void insertar(Producto producto) {
+	public Producto insertar(Producto producto) {
 		//LN...
 		System.out.println("Insertando el producto:"+producto);
 		Fabricante f = repoFabricantes.findById(producto.getFabricante().getCodigo()).get();
@@ -29,23 +29,23 @@ public class GestorProductos {
 		
 		EventoProducto ep = new EventoProducto(TipoEventoProducto.PRODUCTO_CREADO, producto);
 		proxyMensajeria.enviarMensaje(producto.getReferencia(), ep);
+		return producto;
 	}
 
-	public void modificar(Producto producto) {
+	public Producto modificar(Producto producto) {
 		//LN...
 		System.out.println("Modificando el producto:"+producto);
 		repoProductos.save(producto);
 		
 		EventoProducto ep = new EventoProducto(TipoEventoProducto.PRODUCTO_MODIFICADO, producto);
-		proxyMensajeria.enviarMensaje(producto.getReferencia(), ep);		
+		proxyMensajeria.enviarMensaje(producto.getReferencia(), ep);
+		return producto;
 	}
 
 	public void borrar(String referencia) {
 		//LN...
-		
 		Producto producto = repoProductos.findById(referencia).get();
-		
-		System.out.println("Borrando el producto:"+referencia);
+		System.out.println("Borrando el producto:"+producto);
 		repoProductos.deleteById(referencia);
 		
 		EventoProducto ep = new EventoProducto(TipoEventoProducto.PRODUCTO_BORRADO, producto);

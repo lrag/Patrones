@@ -19,6 +19,7 @@ public class CalificacionesProductosProxy {
 	private RestTemplate restTemplate;
 	
 	public List<CalificacionProducto> buscarCalificacionesProducto(String codigoProducto){		
+		//Este no tiene el try/catch 
 		CalificacionProducto[] calificacionesArray = restTemplate
 			.getForEntity(
 				"http://ServicioCalificacionesProductos/calificaciones_productos?codigoProducto="+codigoProducto

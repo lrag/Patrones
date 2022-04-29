@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.endpoint.dto.ProductoDTO;
+import com.curso.modelo.entidad.Producto;
 import com.curso.modelo.negocio.GestorProductos;
 import com.curso.modelo.repositorio.RepositorioProductos;
 
@@ -25,35 +26,21 @@ public class ProductosEndpoint {
 	private GestorProductos gestorProductos;
 
 	@PostMapping("/productos")
-	public ResponseEntity<Void> altaProducto(@RequestBody ProductoDTO productoDTO){
-		//Lo mismo necesitamos algo más sofisticado aqui si lo queremos asincrono
-		//O igual no necesitamos que lo sea
-		new Thread() {
-			public void run(){
-				gestorProductos.insertar(productoDTO.asProducto());
-			}
-		}.start();		
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
+	public ResponseEntity<ProductoDTO> altaProducto(@RequestBody ProductoDTO productoDTO){
+		Producto producto = gestorProductos.insertar(productoDTO.asProducto());
+		return new ResponseEntity<ProductoDTO>(new ProductoDTO(producto), HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/productos/{referencia}")
-	public ResponseEntity<Void> modificarProducto(@RequestBody ProductoDTO productoDTO){
-		new Thread() {
-			public void run(){
-				gestorProductos.modificar(productoDTO.asProducto());				
-			}
-		}.start();	
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
+	public ResponseEntity<ProductoDTO> modificarProducto(@RequestBody ProductoDTO productoDTO, @PathVariable("referencia") String referencia){
+		productoDTO.setReferencia(referencia);
+		Producto producto =	gestorProductos.modificar(productoDTO.asProducto());				
+		return new ResponseEntity<>(new ProductoDTO(producto), HttpStatus.OK);
 	}
 
 	@DeleteMapping("/productos/{referencia}")
 	public ResponseEntity<Void> eliminarProducto(@PathVariable("referencia") String referencia) {
-		new Thread() {
-			public void run(){
-				gestorProductos.borrar(referencia);
-			}
-		}.start();	
-		return new ResponseEntity<>(HttpStatus.ACCEPTED);
+		gestorProductos.borrar(referencia);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	//ESTO ES PARA PRUEBAS. AQUI NO PINTA NADA////////////
