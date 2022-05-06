@@ -23,10 +23,12 @@ public class ProductosRest {
 	@Autowired private GestorProductos gestorProductos;
 	@Autowired private ProductoRepositorio productoRepo;
 	
-	//GET  /productos/{codigo} 				  - El producto sin calificaciones
-	//GET  /productos/{codigo}/calificaciones - Las calificaciones de un producto
-	//GET  /productos					      - Todos los productos
-	//POST /productos						  - Insertar un producto
+	//GET    /productos/{codigo} 				  - El producto sin calificaciones
+	//GET    /productos/{codigo}/calificaciones   - Las calificaciones de un producto
+	//GET    /productos					          - Todos los productos
+	//POST   /productos						      - Insertar un producto
+	//PUT    /productos/{codigo}   			      - Modificar un producto
+	//DELETE /productos/{codigo}			      - Insertar un producto
 	
 	@GetMapping(path="/productos/{codigo}")
 	public ResponseEntity<ProductoDTO> buscar(@PathVariable("codigo") String codigo){

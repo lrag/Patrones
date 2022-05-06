@@ -5,11 +5,11 @@ contract TrazaElJamon {
   struct Cerdo {
     uint id;
     bool vacunado;
-    bool vendido;
+    bool sacrificado;
     string raza;
-    uint granjeroId;
-    uint veterinarioId;
-    uint vendedorId;
+    uint idGranjero;
+    uint idVeterinario;
+    uint idMatadero;
   }
   
   struct Granjero {
@@ -22,58 +22,59 @@ contract TrazaElJamon {
     string nombre;
   }
   
-  struct Vendedor {
+  struct Matadero {
     uint id;
     string nombre;
   }
   
   mapping(uint => Granjero) granjeros;
   mapping(uint => Veterinario) veterinarios;
-  mapping(uint => Vendedor) vendedores;
+  mapping(uint => Matadero) mataderos;
   mapping(uint => Cerdo) cerdos;
   
-  uint[] cerdosIds;
+  uint[] idCerdos;
   
   constructor() {
     granjeros[0] = Granjero(0, "");
-    granjeros[1] = Granjero(1, "Falco");
-    granjeros[2] = Granjero(2, "Octavia");
+    granjeros[1] = Granjero(1, "Fistro");
+    granjeros[2] = Granjero(2, "Fistra");
     veterinarios[0] = Veterinario(0, "");
-    veterinarios[1] = Veterinario(1, "Benji");
-    vendedores[0] = Vendedor(0, "");
-    vendedores[1] = Vendedor(1, "Arya");
-    vendedores[2] = Vendedor(2, "Oliver");
+    veterinarios[1] = Veterinario(1, "Sr. Smith");
+    mataderos[0] = Matadero(0, "");
+    mataderos[1] = Matadero(1, "Matadero de Salamanca");
+    mataderos[2] = Matadero(2, "Matadero de \xC3\x81vila");
     cerdos[1] = Cerdo(1, false, false, "R1", 1, 0, 0);
     cerdos[2] = Cerdo(2, false, false, "R2", 2, 0, 0);
-    cerdosIds.push(1);
-    cerdosIds.push(2);
+    idCerdos.push(1);
+    idCerdos.push(2);
   }
   
-  function crearCerdo(uint256 _granjeroId, uint256 _cerdoId, string memory _raza) public {
-        cerdos[_cerdoId] = Cerdo({
-            id: _cerdoId,
-            granjeroId: _granjeroId,
+  function crearCerdo(uint256 _idCerdo, uint256 _idGranjero, string memory _raza) public {
+        cerdos[_idCerdo] = Cerdo({
+            id: _idCerdo,
+            idGranjero: _idGranjero,
             raza: _raza,
             vacunado: false,
-            vendido: false,
-            veterinarioId: 0,
-            vendedorId: 0
+            sacrificado: false,
+            idVeterinario: 0,
+            idMatadero: 0
         });
-        cerdosIds.push(_cerdoId);
+        idCerdos.push(_idCerdo);
   }
   
-  function vacunarCerdo(uint256 _cerdoId, uint256 _veterinarioId) external {
-        cerdos[_cerdoId].veterinarioId = _veterinarioId;
-        cerdos[_cerdoId].vacunado = true;
+  function vacunarCerdo(uint256 _idCerdo, uint256 _idVeterinario) external {
+        cerdos[_idCerdo].idVeterinario = _idVeterinario;
+        cerdos[_idCerdo].vacunado = true;
   }
   
-  function venderCerdo(uint256 _cerdoId, uint256 _vendedorId) external {
-        cerdos[_cerdoId].vendedorId = _vendedorId;
-        cerdos[_cerdoId].vendido = true;
+  function sacrificarCerdo(uint256 _idCerdo, uint256 _idMatadero) external {
+        cerdos[_idCerdo].idMatadero = _idMatadero;
+        cerdos[_idCerdo].sacrificado = true;
+  }
+
+  function buscarCerdo(uint256 _idCerdo) public view returns (uint256 _id, string memory _raza, string memory granjero, string memory _veterinario, string memory _matadero) {
+      Cerdo memory c = cerdos[_idCerdo];
+      return (c.id, c.raza, granjeros[c.idGranjero].nombre, veterinarios[c.idVeterinario].nombre, mataderos[c.idMatadero].nombre);
   }
   
-  function buscarCerdo(uint256 _cerdoId) public view returns (uint256 _id, string memory _raza, string memory granjero, string memory _veterinario, string memory _vendedor) {
-      Cerdo memory c = cerdos[_cerdoId];
-      return (c.id, c.raza, granjeros[c.granjeroId].nombre, veterinarios[c.veterinarioId].nombre, vendedores[c.vendedorId].nombre);
-  }
 }

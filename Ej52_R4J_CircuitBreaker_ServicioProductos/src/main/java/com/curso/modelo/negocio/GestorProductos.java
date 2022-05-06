@@ -19,18 +19,25 @@ public class GestorProductos {
 	@Autowired private ProductoRepositorio productoRepo;
 	@Autowired private CalificacionesProductosProxy calificacionesProductosProxy;
 	
+	///////////////////////
+	//SIN CIRCUIT BREAKER//
+	///////////////////////
 	public Optional<Producto> buscarProductoYCalificaciones_Sin_CircuitBreaker(String codigo) {
     	return productoRepo
 			.findByCodigo(codigo)
 			.map(producto -> {
+				//Si falla la llamada para buscar las calificaciones devolveremos el producto sin ellas
+				//Deberías indicar de algún en la respuesta lo que ha sucedido				
+				List<CalificacionProducto> calificaciones = null;
 				try {
-					List<CalificacionProducto> calificaciones = calificacionesProductosProxy
-						.buscarCalificacionesProducto(producto.getCodigo());
-					producto.setCalificaciones(calificaciones);
+					calificaciones = calificacionesProductosProxy.buscarCalificacionesProducto(producto.getCodigo());
 				} catch (Exception e) {
-					System.out.println("ZASCA al invocar ServicioCalificacionesProducto");
-				}
-				return producto;		
+					System.out.println("========================================");
+					System.out.println("Servicio de calificaciones no disponible!");
+					System.out.println(e.getMessage());
+				}		
+				producto.setCalificaciones(calificaciones);
+				return producto;					
 			})
 			.or(() -> Optional.empty());
 	}	
@@ -42,6 +49,7 @@ public class GestorProductos {
     	return productoRepo
 			.findByCodigo(codigo)
 			.map(producto -> {
+				//NO TIENE TRY CATCH
 				List<CalificacionProducto> calificaciones = calificacionesProductosProxy
 					.buscarCalificacionesProducto(producto.getCodigo());
 				producto.setCalificaciones(calificaciones);
@@ -52,10 +60,9 @@ public class GestorProductos {
 	
     //Este método es una suerte de catch
 	public Optional<Producto> buscarProductoSinCalificaciones(String codigo, Exception e) {
-		
 		System.out.println(e.getClass());
 		//e.printStackTrace();
-		
+		System.out.println("========================================");		
 		System.out.println("FALLBACK!!!! "+e.getMessage());
 		return productoRepo
 			.findByCodigo(codigo);
@@ -66,7 +73,6 @@ public class GestorProductos {
 		//...
 		return productoRepo.save(producto);
 	}
-	
 	
 	/*
 	GestorProductos target;

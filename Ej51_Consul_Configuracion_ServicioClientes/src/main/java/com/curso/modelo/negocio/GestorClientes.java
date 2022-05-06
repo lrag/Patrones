@@ -3,6 +3,7 @@ package com.curso.modelo.negocio;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 
 import com.curso.modelo.entidad.Cliente;

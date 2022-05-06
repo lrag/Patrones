@@ -1,1 +1,105 @@
-[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[{"internalType":"uint256","name":"_cerdoId","type":"uint256"}],"name":"buscarCerdo","outputs":[{"internalType":"uint256","name":"_id","type":"uint256"},{"internalType":"string","name":"_raza","type":"string"},{"internalType":"string","name":"granjero","type":"string"},{"internalType":"string","name":"_veterinario","type":"string"},{"internalType":"string","name":"_vendedor","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_granjeroId","type":"uint256"},{"internalType":"uint256","name":"_cerdoId","type":"uint256"},{"internalType":"string","name":"_raza","type":"string"}],"name":"crearCerdo","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_cerdoId","type":"uint256"},{"internalType":"uint256","name":"_veterinarioId","type":"uint256"}],"name":"vacunarCerdo","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_cerdoId","type":"uint256"},{"internalType":"uint256","name":"_vendedorId","type":"uint256"}],"name":"venderCerdo","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_idCerdo",
+        "type": "uint256"
+      }
+    ],
+    "name": "buscarCerdo",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "_raza",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "granjero",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_veterinario",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_matadero",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_idCerdo",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_idGranjero",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "_raza",
+        "type": "string"
+      }
+    ],
+    "name": "crearCerdo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_idCerdo",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_idMatadero",
+        "type": "uint256"
+      }
+    ],
+    "name": "sacrificarCerdo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_idCerdo",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_idVeterinario",
+        "type": "uint256"
+      }
+    ],
+    "name": "vacunarCerdo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

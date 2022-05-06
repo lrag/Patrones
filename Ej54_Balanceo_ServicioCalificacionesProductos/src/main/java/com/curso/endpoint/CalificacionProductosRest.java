@@ -27,9 +27,9 @@ public class CalificacionProductosRest {
 	
     @Autowired
     private Environment environment;	
-
+    
 	//GET /calificaciones_productos?codigoProducto=XXX
-	@GetMapping(path="/calificaciones_productos")
+    @GetMapping(path="/calificaciones_productos")
 	public List<CalificacionProducto> listarPorProducto(@PathParam("codigoProducto") String codigoProducto){
 		System.out.println("=======================================");
         String serverPort = environment.getProperty("local.server.port");

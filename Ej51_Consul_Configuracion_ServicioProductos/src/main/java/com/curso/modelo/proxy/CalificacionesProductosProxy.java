@@ -18,20 +18,13 @@ public class CalificacionesProductosProxy {
 	
 	public List<CalificacionProducto> buscarCalificacionesProducto(String codigoProducto){		
 		List<CalificacionProducto> calificaciones = null;		
-		try {
-			//return restTemplate.getForEntity("http://localhost:9000/clientes/"+login, Cliente.class);
-			CalificacionProducto[] calificacionesArray = restTemplate
-				.getForEntity(
-					"http://ServicioCalificacionesProductos/calificaciones_productos?codigoProducto="+codigoProducto
-					,CalificacionProducto[].class)
-				.getBody();
-			calificaciones = Arrays.asList(calificacionesArray);
-		} catch (Exception e) {
-			System.out.println("========================================");
-			System.out.println("Servicio de calificaciones no disponible!");
-			System.out.println(e.getMessage());
-		}		
-		return calificaciones;
+		//return restTemplate.getForEntity("http://localhost:9000/clientes/"+login, Cliente.class);
+		CalificacionProducto[] calificacionesArray = restTemplate
+			.getForEntity(
+				"http://ServicioCalificacionesProductos/calificaciones_productos?codigoProducto="+codigoProducto
+				,CalificacionProducto[].class)
+			.getBody();
+		return calificaciones = Arrays.asList(calificacionesArray);
 	}
 	
 	
