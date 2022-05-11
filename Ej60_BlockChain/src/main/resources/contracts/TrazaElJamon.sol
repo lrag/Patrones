@@ -72,9 +72,9 @@ contract TrazaElJamon {
         cerdos[_idCerdo].sacrificado = true;
   }
 
-  function buscarCerdo(uint256 _idCerdo) public view returns (uint256 _id, string memory _raza, string memory granjero, string memory _veterinario, string memory _matadero) {
+  function buscarCerdo(uint256 _idCerdo) public view returns (uint256 _id, string memory _raza, uint256 idGranjero, uint256 idVeterinario, uint256 idMatadero) {
       Cerdo memory c = cerdos[_idCerdo];
-      return (c.id, c.raza, granjeros[c.idGranjero].nombre, veterinarios[c.idVeterinario].nombre, mataderos[c.idMatadero].nombre);
+      return (c.id, c.raza, c.idGranjero, c.idVeterinario, c.idMatadero);
   }
   
 }

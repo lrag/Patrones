@@ -1,5 +1,5 @@
 server:
-  port: 9020
+  port: 9021
   tomcat:
     threads:
       max: 6
@@ -16,7 +16,7 @@ spring:
         instanceId: ${spring.application.name}:${random.value}
 
   datasource:
-    url: jdbc:h2:file:c:/h2/bbdd_cloud_productos
+    url: jdbc:h2:file:c:/h2/bbdd_cloud_productos_
     driverClassName: org.h2.Driver
     username: sa
     password: 

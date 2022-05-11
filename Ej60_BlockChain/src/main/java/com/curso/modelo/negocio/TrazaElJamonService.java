@@ -8,6 +8,7 @@ import org.web3j.tx.ClientTransactionManager;
 import org.web3j.tx.TransactionManager;
 
 import com.curso.cfg.TrazaElJamonProperties;
+import com.curso.endpoint.dto.CerdoDTO;
 import com.curso.modelo.contrato.proxy.TrazaElJamon;
 
 //Registrado en TrazaElJamonConfiguration
@@ -33,7 +34,7 @@ public class TrazaElJamonService {
 	public void buscarCerdo(BigInteger cerdoId) throws Exception {
 		TrazaElJamon trazaElJamon = loadContract(contractAddress);
 		Tuple5<BigInteger, String, String, String, String> respuesta = trazaElJamon.buscarCerdo(cerdoId).send();
-		Cerdo cerdito = new Cerdo(respuesta)
+		CerdoDTO cerdito = new CerdoDTO(respuesta);
 		System.out.println(respuesta);
 	}
 

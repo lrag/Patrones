@@ -30,7 +30,7 @@ public class Configuracion {
 	@Bean
 	public NewTopic topic() {
 		System.out.println("Topic:"+nombreTopic);
-		return TopicBuilder.name("topic-productos-cqrs").partitions(4).replicas(1).build();
+		return TopicBuilder.name(nombreTopic).partitions(4).replicas(1).build();
 	}
 
 	@Bean

@@ -1,5 +1,5 @@
 server:
-  port: 9020
+  port: 9021
   tomcat:
     threads:
       max: 6
@@ -30,7 +30,7 @@ spring:
 
 
   datasource:
-    url: ${bbdd.url:jdbc:h2:file:c:/h2/bbdd_cloud_productos;DB_CLOSE_DELAY=-1} 
+    url: ${bbdd.url:jdbc:h2:file:c:/h2/bbdd_cloud_productos} 
     driverClassName: org.h2.Driver
     username: ${bbdd.username:sa}
     password: ${bbdd.password:}

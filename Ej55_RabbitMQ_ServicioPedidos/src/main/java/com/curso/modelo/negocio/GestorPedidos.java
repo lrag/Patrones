@@ -55,6 +55,8 @@ public class GestorPedidos {
 		
 		//Le asignamos un codigo al pedido
 		pedido.setCodigo("PED-"+Math.round(System.currentTimeMillis()/1000));
+		//Cambiamos el estado a ACEPTADO
+		pedido.setEstado("ACEPTADO");
 		
 		//Y lo insertamos
 		pedidoRepo.save(pedido);

@@ -1,6 +1,5 @@
 package com.curso.modelo.comandos;
 
-import com.curso.modelo.entidad.Producto;
 import com.curso.modelo.negocio.GestorProductos;
 
 public class ComandoBorrarProducto implements Comando {

@@ -1,5 +1,5 @@
 server:
-  port: 9030
+  port: 9031
 
 spring:
   application:
@@ -13,7 +13,7 @@ spring:
         instanceId: ${spring.application.name}:${random.value}
 
   datasource:
-    url: jdbc:h2:file:c:/h2/bbdd_cloud_calificaciones_productos;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:file:c:/h2/bbdd_cloud_calificaciones_productos_
     driverClassName: org.h2.Driver
     username: sa
     password: 

@@ -27,7 +27,7 @@ public class GestorProductos {
 			.findByCodigo(codigo)
 			.map(producto -> {
 				//Si falla la llamada para buscar las calificaciones devolveremos el producto sin ellas
-				//Deberías indicar de algún en la respuesta lo que ha sucedido				
+				//Deberíamos indicar en la respuesta lo que ha sucedido				
 				List<CalificacionProducto> calificaciones = null;
 				try {
 					calificaciones = calificacionesProductosProxy.buscarCalificacionesProducto(producto.getCodigo());

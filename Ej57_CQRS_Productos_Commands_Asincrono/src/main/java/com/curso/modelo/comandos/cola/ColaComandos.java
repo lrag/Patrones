@@ -1,7 +1,5 @@
 package com.curso.modelo.comandos.cola;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 

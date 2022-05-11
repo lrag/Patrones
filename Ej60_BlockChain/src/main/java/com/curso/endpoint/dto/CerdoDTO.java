@@ -1,5 +1,9 @@
 package com.curso.endpoint.dto;
 
+import java.math.BigInteger;
+
+import org.web3j.tuples.generated.Tuple5;
+
 /*
 struct Cerdo {
   uint id;
@@ -38,6 +42,19 @@ public class CerdoDTO {
 		this.idMatadero = idMatadero;
 	}
 
+	public CerdoDTO(Tuple5<BigInteger, String, String, String, String> respuesta) {
+		id = respuesta.component1().intValue();
+		raza    = respuesta.component2();
+		idGranjero = respuesta.component3();
+		idVeterinario = respuesta.component4();
+		idMatadero = respuesta.component5();
+
+	}
+
+	
+uint256 _id, string memory _raza, string memory granjero, string memory _veterinario, string memory _matadero) {
+
+	
 	public Integer getId() {
 		return id;
 	}

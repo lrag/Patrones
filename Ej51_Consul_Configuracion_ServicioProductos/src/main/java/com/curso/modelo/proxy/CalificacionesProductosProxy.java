@@ -27,6 +27,4 @@ public class CalificacionesProductosProxy {
 		return calificaciones = Arrays.asList(calificacionesArray);
 	}
 	
-	
-	
 }
