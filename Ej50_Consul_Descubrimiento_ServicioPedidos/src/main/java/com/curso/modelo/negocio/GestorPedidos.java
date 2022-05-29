@@ -56,6 +56,8 @@ public class GestorPedidos {
 		//Lo ponemos en estado 'ACEPTADO'
 		pedido.setEstado("ACEPTADO");
 		
+		//FACTURAS...COBROS...ENVÍO...
+		
 		//Y lo insertamos
 		pedidoRepo.save(pedido);
 		

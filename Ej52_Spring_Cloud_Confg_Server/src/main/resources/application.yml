@@ -1,0 +1,27 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: "SpringCloudConfigServer"
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+
+    config:
+      server:
+        git: 
+          uri: https://github.com/lrag/spring_2022.git
+          default-label: main
+          clone-on-start: true
+          
+  security:
+    user:
+      name: root
+      password: root
+    
+    
