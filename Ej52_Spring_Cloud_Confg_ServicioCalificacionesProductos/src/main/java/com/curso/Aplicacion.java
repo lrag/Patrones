@@ -12,11 +12,7 @@ import com.curso.modelo.entidad.CalificacionProducto;
 import com.curso.modelo.persistencia.CalificacionProductoRepository;
 
 /*
-config/ServicioCalificacionesProductos/
 
-bbdd.url      = jdbc:h2:file:c:/h2/bbdd_cloud_calificaciones_productos;DB_CLOSE_DELAY=-1
-bbdd.user     = sa
-bbdd.password = 
 */
 
 @SpringBootApplication
