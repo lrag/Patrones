@@ -25,9 +25,9 @@ public class Configuracion {
 	
 	@Bean
 	@RefreshScope
-	public DataSource dataSource(@Value("${bbdd.url:jdbc:h2:file:c:/h2/bbdd_cloud_calificaciones_productos_}") String url, 
-			                     @Value("${bbdd.username:sa}") String username, 
-			                     @Value("${bbdd.password:}") String password ) {
+	public DataSource dataSource(@Value("${bbdd.url}") String url, 
+			                     @Value("${bbdd.username}") String username, 
+			                     @Value("${bbdd.password}") String password ) {
 		HikariDataSource ds = new HikariDataSource();
 		ds.setJdbcUrl(url);
 		ds.setDriverClassName("org.h2.Driver");
