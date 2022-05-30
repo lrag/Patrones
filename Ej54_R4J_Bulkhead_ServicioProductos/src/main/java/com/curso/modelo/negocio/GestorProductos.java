@@ -16,6 +16,8 @@ import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 @Service
 public class GestorProductos {
 
+	private int contador;
+	
 	@Autowired private ProductoRepositorio productoRepo;
 	@Autowired private CalificacionesProductosProxy calificacionesProductosProxy;
 	
@@ -25,7 +27,7 @@ public class GestorProductos {
         	  fallbackMethod = "buscarProductoSinCalificaciones", 
         	  type = Bulkhead.Type.SEMAPHORE)
 	public Optional<Producto> buscarProductoYCalificaciones(String codigo) {
-		return productoRepo
+    	return productoRepo
 			.findByCodigo(codigo)
 			.map(producto -> {
 				List<CalificacionProducto> calificaciones = 

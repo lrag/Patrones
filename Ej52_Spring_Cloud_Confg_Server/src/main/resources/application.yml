@@ -1,21 +1,17 @@
 server:
   port: 8888
 
+logging.level.root: INFO
+
 spring:
   application:
     name: "SpringCloudConfigServer"
 
   cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        instanceId: ${spring.application.name}:${random.value}
-
     config:
       server:
         git: 
-          uri: https://github.com/lrag/spring_2022.git
+          uri: https://github.com/lrag/Patrones.git
           default-label: main
           clone-on-start: true
           

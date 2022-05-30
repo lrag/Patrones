@@ -1,6 +1,9 @@
 server:
   port: 9030
 
+logging.level.root: DEBUG
+
+
 spring:
   application:
     name: "ServicioCalificacionesProductos"
@@ -11,7 +14,7 @@ spring:
   cloud:
     config:
       username: root
-      password: root 
+      password: root
 
     consul:
       host: localhost

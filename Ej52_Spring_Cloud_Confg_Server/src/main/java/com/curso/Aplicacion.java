@@ -12,8 +12,8 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 /{label}/{application}-{profile}.properties
 */
 
-@SpringBootApplication
 @EnableConfigServer
+@SpringBootApplication
 public class Aplicacion{
 
 	public static void main(String[] args) {
