@@ -1,0 +1,46 @@
+package com.curso.modelo.entidad;
+
+import com.curso.modelo.entidad.DetalleFactura;
+
+public class DetalleFactura {
+
+	private Double precio;
+	private Integer cantidad;
+	private Producto producto;		
+	
+	public DetalleFactura() {
+		super();
+	}
+	
+	public DetalleFactura(Double precio, Integer cantidad, Producto producto) {
+		super();
+		this.precio = precio;
+		this.cantidad = cantidad;
+		this.producto = producto;
+	}
+
+	public Double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Double precio) {
+		this.precio = precio;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
+	}	
+	
+}

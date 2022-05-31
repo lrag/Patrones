@@ -36,39 +36,6 @@ public class Configuracion {
 		ds.setPassword(password);		
 		return ds;
 	}		
-	
-	/*
-	//Esto lo ponemos solo para que la aplicación solicite al arrancar la creación de una cola 'durable'
-	//en rabbitMQ
-	//Sin esta bean funciona igual pero se crea una cola temporal
-	@Bean
-	public Queue colaOrdenesDeCompra() {
-        // name: colaPedidosCreados
-        // durable: true
-        // exclusive: false
-        // auto_delete: false
-        return new Queue("colaOrdenesDeCompra", true, false, false);
-	}	
-	*/
-	
-	//Esta necesitamos tenerla
-	//Spring Boot registra una RabbitTemplate, pero que recibe un string (json) como payload del mensaje
-	//Aprovechamos para asociar a la rabbitTemplate un conversor de obj a json 
-    @Bean
-    RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
-        
-    	final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
-    	rabbitTemplate.setMessageConverter(producerJackson2MessageConverter());
-    	rabbitTemplate.setChannelTransacted(true);
-        return rabbitTemplate;
-        
-    }
-
-    //El conversor...
-    @Bean
-    Jackson2JsonMessageConverter producerJackson2MessageConverter() {
-        return new Jackson2JsonMessageConverter();
-    }	
     
 	
 }

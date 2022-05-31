@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 import com.mongodb.client.MongoClients;
 
+/*
 import de.flapdoodle.embed.mongo.MongodExecutable;
 import de.flapdoodle.embed.mongo.MongodStarter;
 import de.flapdoodle.embed.mongo.config.ImmutableMongodConfig;
@@ -15,10 +16,12 @@ import de.flapdoodle.embed.mongo.config.MongodConfig;
 import de.flapdoodle.embed.mongo.config.Net;
 import de.flapdoodle.embed.process.runtime.Network;
 import de.flapdoodle.embed.mongo.distribution.Version;
+*/
 
 @Configuration
 public class ConfiguracionMongoDB {
 
+	/*
 	@Bean
     public MongoTemplate mongoTemplate() throws IOException {
         String ip = "localhost";
@@ -35,6 +38,7 @@ public class ConfiguracionMongoDB {
         MongodExecutable mongodExecutable = starter.prepare(mongodConfig);
         mongodExecutable.start();
         return new MongoTemplate(MongoClients.create(String.format(CONNECTION_STRING, ip, port)), "productos");
-    }		
+    }	
+    */	
 	
 }

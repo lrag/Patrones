@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>Ej57_CQRS_Commands</artifactId>
+	<artifactId>Ej58_CQRS_Commands</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Ej57_CQRS_Commands</name>
+	<name>Ej58_CQRS_Commands</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -41,10 +41,12 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<!-- 
 		<dependency>
 			<groupId>de.flapdoodle.embed</groupId>
 			<artifactId>de.flapdoodle.embed.mongo</artifactId>
 		</dependency>
+		-->
 		
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

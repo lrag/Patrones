@@ -1,0 +1,30 @@
+server:
+  port: 9040
+
+spring:
+  application:
+    name: "ServicioFacturacion"
+    
+  config:
+    import: consul:localhost:8500   
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      config:
+        enabled: true
+        fail-fast: true
+        format: YAML      
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+        
+    function:
+      definition: oyenteOrdenesCompra
+
+    stream:
+      bindings:
+        OyenteOrdenesCompra-in-0.destination: topic-ordenes-compra
+
+
+        
