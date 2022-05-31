@@ -1,9 +1,6 @@
 server:
   port: 9030
 
-logging.level.root: DEBUG
-
-
 spring:
   application:
     name: "ServicioCalificacionesProductos"
