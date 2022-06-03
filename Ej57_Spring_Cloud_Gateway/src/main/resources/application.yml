@@ -10,13 +10,28 @@ spring:
         locator:
           enabled: true #Para indicar que debe llamar al servicio de resgistro y descubrimiento para averguar cuantas aplicaciones hay
       
+      default-filters:
+      - name: FiltroCronometro      
+      - name: FiltroLog
+      - name: FiltroHeaders      
+
       routes:
         - id: ServicioClientes
           uri: lb://ServicioClientes
           predicates:
             - Path=/clientes/**
-          filters:
-            - RewritePath=/foo/(?<segment>.*), /$\{segment}
+        - id: ServicioProductos
+          uri: lb://ServicioProductos
+          predicates:
+            - Path=/productos/**
+        - id: ServicioPedidos
+          uri: lb://ServicioPedidos
+          predicates:
+            - Path=/pedidos/**
+        - id: ServicioCalificacionesProductos
+          uri: lb://ServicioCalificacionesProductos
+          predicates:
+            - Path=/calificaciones_productos/**
 
     consul:
       host: localhost

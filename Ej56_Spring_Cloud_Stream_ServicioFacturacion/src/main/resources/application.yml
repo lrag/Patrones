@@ -24,7 +24,7 @@ spring:
 
     stream:
       bindings:
-        OyenteOrdenesCompra-in-0.destination: topic-ordenes-compra
+        oyenteOrdenesCompra-in-0.destination: topic-ordenes-compra
 
 
         

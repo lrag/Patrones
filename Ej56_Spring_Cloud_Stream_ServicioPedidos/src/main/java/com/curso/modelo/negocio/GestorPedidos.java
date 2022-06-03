@@ -66,9 +66,6 @@ public class GestorPedidos {
 		//Ese mensaje lo recogerá ServicioFacturacion y cualquier otro que esté subscrito
 		//De esta manera ServicioPedidos puede 'ordenar' al ServicioFacturas que emita 
 		//una factura SIN CONOCERLO
-		//
-		//Y aqui deberiamos estar utilizando un PROXY!
-		//
 		
 		supplierOrdenesCompra.enviarPedido(pedido);
 
