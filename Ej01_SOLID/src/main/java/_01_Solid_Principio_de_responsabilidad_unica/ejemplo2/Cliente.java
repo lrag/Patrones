@@ -1,5 +1,6 @@
 package _01_Solid_Principio_de_responsabilidad_unica.ejemplo2;
 
+//@Entity
 public class Cliente {
 
 	private Integer id;

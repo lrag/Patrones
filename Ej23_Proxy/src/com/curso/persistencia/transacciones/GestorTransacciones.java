@@ -17,7 +17,7 @@ public class GestorTransacciones {
 		Long thId = Thread.currentThread().getId();
 		DatosTransaccion datosTx = ems.get(thId);
 		if(datosTx == null) {
-			datosTx = new DatosTransaccion(emf.createEntityManager(), 1);
+			datosTx = new DatosTransaccion(emf.createEntityManager(), 0);
 			ems.put(thId, datosTx);
 		}
 		return datosTx;
@@ -49,10 +49,10 @@ public class GestorTransacciones {
 	}
 
 	public static void rollbackTX() {
-		System.out.println("ROLLBACK TX");
 		DatosTransaccion datosTx = getDatosTransaccion();
 		EntityManager em = datosTx.em;
 		datosTx.contador--;		
+		System.out.println("ROLLBACK TX: "+datosTx.contador);
 		if(datosTx.contador == 0) {
 			em.getTransaction().rollback();
 		}	

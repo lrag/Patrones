@@ -65,7 +65,7 @@ public class GestorPedidosImpl implements GestorPedidos {
 			pedido.setCamion(camion);
 			
 			//EMITIR UNA FACTURA
-			//gestorFacturas.bla bla bl·...
+			//gestorFacturas.bla bla bl√°...
 			
 			pedido.setEstado("ACEPTADO");
 			pedidoDao.modificar(pedido);
@@ -101,9 +101,9 @@ public class GestorPedidosImpl implements GestorPedidos {
 	public void addDetalle(Pedido pedido, DetallePedido detalle) {		
 		//Si invocamos 'buscarConDetalles' en vez de dos selects se hace uno
 		pedido = pedidoDao.buscarConDetalles(pedido.getId());
-		//Modelo anÈmico:
+		//Modelo an√©mico:
 		//pedido.getDetalles().add(e)
-		//Domain Driven Design:
+		//'Domain Driven Design':
 		pedido.addDetalle(detalle);
 		pedidoDao.modificar(pedido);		
 	}	

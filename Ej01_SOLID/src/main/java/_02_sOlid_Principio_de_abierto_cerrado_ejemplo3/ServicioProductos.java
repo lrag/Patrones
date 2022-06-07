@@ -4,6 +4,7 @@ public class ServicioProductos {
 
 	private AltaProductoStrategy altaProductoStrategy;
 	
+	//Tambien podríamos recibir la estrategia en una propiedad
 	public ServicioProductos(AltaProductoStrategy altaProductoStrategy) {
 		super();
 		this.altaProductoStrategy = altaProductoStrategy;
@@ -11,9 +12,7 @@ public class ServicioProductos {
 
 	public void altaProducto(Producto producto) throws Exception {
 		
-		//1-Insertar el producto y poco más
-		
-		//2-Ahora hay que validar algo del producto: bien
+		//1-Validar el producto y otra serie de tareas comunes para todos los tipos de productos
 		if(producto.getNombre() == null) {
 			throw new Exception("Producto invalido");
 		}

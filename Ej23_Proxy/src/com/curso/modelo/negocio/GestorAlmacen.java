@@ -5,7 +5,6 @@ import com.curso.modelo.negocio.excepcion.ExistenciasException;
 import com.curso.persistencia.dao.FactoriaDAO;
 import com.curso.persistencia.dao.ProductoDao;
 
-
 public class GestorAlmacen {
 	
 	private static GestorAlmacen instancia;
@@ -15,7 +14,7 @@ public class GestorAlmacen {
 			instancia = new GestorAlmacen();
 		}
 		return instancia;
-	}	
+	}
 	
 	private ProductoDao productoDao = FactoriaDAO.getProductoDao();
 	

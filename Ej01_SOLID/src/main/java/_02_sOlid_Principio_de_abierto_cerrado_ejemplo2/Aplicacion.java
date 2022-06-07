@@ -14,8 +14,8 @@ public class Aplicacion {
 
 		System.out.println("===============================================");
 
-		ServicioProductosHardware sph = new ServicioProductosHardware();
-		ServicioProductosSoftware sps = new ServicioProductosSoftware();
+		ServicioProductos sph = new ServicioProductosHardware();
+		ServicioProductos sps = new ServicioProductosSoftware();
 		sph.altaProducto(p1);
 		sps.altaProducto(p2);
 		

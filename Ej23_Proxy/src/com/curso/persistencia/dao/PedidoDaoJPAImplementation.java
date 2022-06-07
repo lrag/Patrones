@@ -7,7 +7,7 @@ import com.curso.modelo.entidad.Pedido;
 
 public class PedidoDaoJPAImplementation extends AbstractJPADao<Pedido, Integer> implements PedidoDao{
 
-	private EntityManager em;
+	//private EntityManager em;
 
 	@Override
 	public Pedido buscarConDetalles(Integer id) {

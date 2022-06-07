@@ -15,8 +15,9 @@ public class Aplicacion {
 		Libro libro = new Libro("Los propios Dioses", "Isaac Asimov", 1972, capitulos);
 		
 		//libro.imprimir_MAL();
+		//libro.imprimir_MAL_2();
 		
-		System.out.println(libro.imprimir());
+		System.out.println(libro.formatearTexto());
 	}
 	
 }

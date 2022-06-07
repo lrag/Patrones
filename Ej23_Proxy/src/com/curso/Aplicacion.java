@@ -1,14 +1,8 @@
 package com.curso;
 
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-
 import com.curso.modelo.entidad.Pedido;
-import com.curso.modelo.entidad.Producto;
 import com.curso.modelo.negocio.GestorPedidos;
-import com.curso.modelo.negocio.GestorPedidosImpl;
+import com.curso.modelo.negocio.GestorPedidos_PROXY;
 import com.curso.persistencia.dao.FactoriaDAO;
 import com.curso.persistencia.dao.PedidoDao;
 import com.curso.persistencia.dao.ProductoDao;
@@ -18,8 +12,8 @@ public class Aplicacion {
 	public static void main(String[] args) throws Exception {
 
 		System.out.println("=================================================");		
-	
-		GestorPedidos gp = GestorPedidosImpl.getInstancia();
+
+		GestorPedidos gp = GestorPedidos_PROXY.getInstancia();
 		try {
 			Pedido p = new Pedido();
 			p.setId(3);

@@ -58,8 +58,7 @@ public class GestorPedidos_PROXY implements GestorPedidos {
 		}	
 	}
 	
-	public void aceptar(Pedido pedido) throws Exception{
-	
+	public void aceptar(Pedido pedido) throws Exception{	
 		GestorTransacciones.beginTX();
 		try {
 			target.aceptar(pedido);
@@ -67,8 +66,7 @@ public class GestorPedidos_PROXY implements GestorPedidos {
 		} catch (Exception e) {
 			GestorTransacciones.rollbackTX();
 			throw e;
-		}
-		
+		}		
 	}
 	
 	public Pedido buscar(Integer id){

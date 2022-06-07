@@ -13,8 +13,10 @@ public class Aplicacion {
 	public static void main(String[] args) {
 		
 		System.out.println("===================================");
-		Collection<String> c1 = Aplicacion.listar1();
+		Collection<String> c1 = Aplicacion.listar1(); //List
+		c1.add("EOF");
 		c1.forEach(s -> System.out.println(s));
+		//c1.get(5); Esto solo lo tienen las listas
 		
 		System.out.println("===================================");
 		List<String> l1 = Aplicacion.listar1();
@@ -30,6 +32,7 @@ public class Aplicacion {
 		
 		System.out.println("===================================");
 		Collection<String> c2 = Aplicacion.listar3();
+		c2.add("EOF");
 		c2.forEach(s -> System.out.println(s));
 
 		System.out.println("===================================");
@@ -42,10 +45,27 @@ public class Aplicacion {
 		s2.add("EOF");
 		s2.forEach(s -> System.out.println(s));
 		
+		System.out.println();
+		
+		
+		//Aqui no estamos violando el principio de sustitucion
+		//Entre collection y ArrayList, TreeSet, etc existen otras interfaces
+		//que añaden métodos y distintos comportamientos
+		System.out.println("===================================");
+		Collection<String> c3 = Aplicacion.listar1();		
+		Collection<String> c4 = Aplicacion.listar3();	
+		c3.add("Trololó");
+		c3.add("Trololó");
+		c3.forEach(s -> System.out.println(s));
+		System.out.println("-----------------------------------");
+		c4.add("Trololó");
+		c4.add("Trololó");
+		c4.forEach(s -> System.out.println(s));
+		
 	}
 	
 	static List<String> listar1(){
-		ArrayList<String> lista = new ArrayList<>();
+		List<String> lista = new ArrayList<>();
 		lista.add("HELLO");
 		lista.add("NAME");
 		lista.add("DOCTOR");

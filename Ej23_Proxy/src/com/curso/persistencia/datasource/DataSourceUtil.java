@@ -13,7 +13,7 @@ public class DataSourceUtil {
 		//Lazy inicialization
 		if(dataSource == null) {			
 		    HikariConfig config = new HikariConfig();
-	        config.setJdbcUrl("jdbc:h2:file:c:/h2/bbdd_ejemplo_proxy;DB_CLOSE_DELAY=-1");
+	        config.setJdbcUrl("jdbc:h2:file:c:/h2/bbdd_ejemplo_proxy");
 	        config.setUsername("sa");
 	        config.setPassword("");
 	        config.addDataSourceProperty("cachePrepStmts" , "true");

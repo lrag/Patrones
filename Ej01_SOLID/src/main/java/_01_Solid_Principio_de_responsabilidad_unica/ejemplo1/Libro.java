@@ -1,7 +1,10 @@
 package _01_Solid_Principio_de_responsabilidad_unica.ejemplo1;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+//@Entity
 public class Libro {
 
 	private String titulo;
@@ -53,6 +56,9 @@ public class Libro {
 		this.capitulos = capitulos;
 	}
 
+	//Esto hace tres cosas
+	//Sabe imprimir el libro
+	//Sabe imprimir el capítulo
 	public void imprimir_MAL() {
 		System.out.println(titulo);
 		System.out.println(autor+", "+year);
@@ -68,20 +74,43 @@ public class Libro {
 		System.out.println("FIN");
 	}
 
-	public String imprimir() {
+	//Un poco mejor, delega en el capítulo la responsabilidad de imprimirlo
+	public void imprimir_MAL_2() {
+		System.out.println(titulo);
+		System.out.println(autor+", "+year);
+		System.out.println();
+		capitulos.forEach(capitulo -> {
+			capitulo.imprimir_MAL();
+		});
+		System.out.println("FIN");
+	}
+	
+	public String formatearTexto() {
 
 		//StringBuffer es thread safe
-		
+
+		//StringBuilder no es thread safe pero en esta situación 
+		//no supone ningun problema
 		StringBuilder sb = new StringBuilder();
 		sb.append(titulo);
 		sb.append(autor+", "+year);
 		sb.append("\n\n");
-		sb.append(System.getProperty("line.separator"));
 		capitulos.forEach(capitulo -> {
-			sb.append(capitulo.imprimirCapitulo());
+			sb.append(capitulo.imprimir());
 		});
 		sb.append("FIN");
-		return sb.toString();
+		return sb.toString();		
 	}
+	
+	
+	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	
+	public String formatearFecha(Date fecha) {
+		return sdf.format(fecha);
+	}
+	
+	
 
 }
+
+

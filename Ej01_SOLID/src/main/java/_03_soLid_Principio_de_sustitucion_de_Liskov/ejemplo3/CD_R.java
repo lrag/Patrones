@@ -19,7 +19,5 @@ public class CD_R extends DiscoGrabable {
 		System.out.println("Grabando en el CD-R");
 		grabado = true;
 	}
-
-	
 	
 }

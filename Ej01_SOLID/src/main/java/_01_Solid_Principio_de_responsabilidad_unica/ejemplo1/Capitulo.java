@@ -41,7 +41,7 @@ public class Capitulo {
 		this.texto = texto;
 	}
 
-	public void imprimirCapitulo_MAL() {
+	public void imprimir_MAL() {
 		System.out.println("Capítulo "+numero );
 		System.out.println();
 		System.out.println(titulo);
@@ -50,7 +50,7 @@ public class Capitulo {
 		System.out.println();
 	}
 
-	public String imprimirCapitulo() {
+	public String imprimir() {
 		return new StringBuilder()
 		 .append("Capítulo "+numero )
    		 .append("\n\n")

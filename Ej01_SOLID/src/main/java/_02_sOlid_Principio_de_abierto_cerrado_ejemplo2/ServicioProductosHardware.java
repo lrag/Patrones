@@ -4,9 +4,8 @@ public class ServicioProductosHardware implements ServicioProductos{
 
 	@Override
 	public void altaProducto(Producto producto) throws Exception {
-		//1-Insertar el producto y poco más
 		
-		//2-Ahora hay que validar algo del producto: bien
+		//1-Ahora hay que validar algo del producto y hacer otras cosas comunes a todos los tipos de productos
 		if(producto.getNombre() == null) {
 			throw new Exception("Producto invalido");
 		}
@@ -17,3 +16,7 @@ public class ServicioProductosHardware implements ServicioProductos{
 	}
 
 }
+
+
+
+

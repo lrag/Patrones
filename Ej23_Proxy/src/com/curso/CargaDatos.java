@@ -39,7 +39,7 @@ public class CargaDatos {
 		em.persist(p5);
 		
 		Cliente c1 = new Cliente(null, "Harpo", "Su casa", "123", 1);
-		Cliente c2 = new Cliente(null, "Mongomery Burns", "Su mansión", "123", 9999);
+		Cliente c2 = new Cliente(null, "Mongomery Burns", "Su mansiï¿½n", "123", 9999);
 		
 		Pedido pedido1 = new Pedido(null, "PED-0", LocalDate.now(), "PENDIENTE", c1, null);
 		List<DetallePedido> detalles1 = new ArrayList<DetallePedido>();
@@ -54,7 +54,7 @@ public class CargaDatos {
 		detalles2.add(new DetallePedido(null, pedido2, p5, 125d, 25));
 		pedido2.setDetalles(detalles2);
 		
-		Pedido pedido3 = new Pedido(null, "PED-1", LocalDate.now(), "PENDIENTE", c2, null);
+		Pedido pedido3 = new Pedido(null, "PED-2", LocalDate.now(), "PENDIENTE", c2, null);
 		List<DetallePedido> detalles3 = new ArrayList<DetallePedido>();
 		detalles3.add(new DetallePedido(null, pedido3, p1, 25d, 25));
 		detalles3.add(new DetallePedido(null, pedido3, p3, 75d, 25));

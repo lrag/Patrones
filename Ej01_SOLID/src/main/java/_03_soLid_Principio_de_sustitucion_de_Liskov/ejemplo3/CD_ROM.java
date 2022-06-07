@@ -6,8 +6,6 @@ public class CD_ROM extends Disco {
 	public byte leer(long direccion) {
 		System.out.println("Leyendo del CD-ROM");
 		return 0;
-	}
-
-	
+	}	
 	
 }
