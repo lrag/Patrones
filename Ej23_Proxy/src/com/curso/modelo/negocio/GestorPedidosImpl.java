@@ -2,15 +2,17 @@ package com.curso.modelo.negocio;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import com.curso.modelo.entidad.DetallePedido;
 import com.curso.modelo.entidad.Pedido;
 import com.curso.persistencia.dao.FactoriaDAO;
 import com.curso.persistencia.dao.PedidoDao;
-import com.curso.persistencia.transacciones.GestorTransacciones;
 
 
 public class GestorPedidosImpl implements GestorPedidos {
 
+	//SINGLETON//////////////////////////////////////////////////
 	private static GestorPedidosImpl instancia;
 	
 	public synchronized static GestorPedidosImpl getInstancia() {
@@ -19,6 +21,7 @@ public class GestorPedidosImpl implements GestorPedidos {
 		}
 		return instancia;
 	}
+	/////////////////////////////////////////////////////////////
 	
 	private PedidoDao pedidoDao = FactoriaDAO.getPedidoDao();
 	private GestorBancos gestorBancos = GestorBancos.getInstancia();
@@ -47,7 +50,7 @@ public class GestorPedidosImpl implements GestorPedidos {
 	
 	@Override
 	public void aceptar(Pedido pedido) throws Exception{
-	
+		
 		//GestorTransacciones.beginTX();
 		//try {
 
@@ -76,7 +79,7 @@ public class GestorPedidosImpl implements GestorPedidos {
 		//	GestorTransacciones.rollbackTX();
 		//	throw e;
 		//}
-		
+
 	}
 	
 	@Override

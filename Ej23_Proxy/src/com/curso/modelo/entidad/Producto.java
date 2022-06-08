@@ -20,9 +20,6 @@ public class Producto {
 	private String fabricante;
 	private Double precio;
 	private Integer existencias;
-	@Transient
-	private String datoQueNoQueremosQueSePersista;
-	private transient String datoQueNoQueremosQueSePersistaNiQueSeSerialize;
 
 	public Producto() {
 		super();
@@ -80,8 +77,7 @@ public class Producto {
 	@Override
 	public String toString() {
 		return "Producto [id=" + id + ", nombre=" + nombre + ", fabricante=" + fabricante + ", precio=" + precio
-				+ ", existencias=" + existencias + ", datoQueNoQueremosQueSePersista=" + datoQueNoQueremosQueSePersista
-				+ "]";
+				+ ", existencias=" + existencias + "]";
 	}
 
 }

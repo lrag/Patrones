@@ -7,12 +7,12 @@ import java.util.List;
 //@Entity
 public abstract class Curso {
 
-	private Integer id;
-	private String codigo;
-	private String titulo;
-	private Integer plazas;
+	protected Integer id;
+	protected String codigo;
+	protected String titulo;
+	protected Integer plazas;
 
-	private List<Alumno> alumnos;
+	protected List<Alumno> alumnos;
 
 	public Curso() {
 		super();
@@ -26,7 +26,7 @@ public abstract class Curso {
 		this.plazas = plazas;
 		this.alumnos = alumnos;
 	}
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -56,6 +56,9 @@ public abstract class Curso {
 	}
 
 	public void setPlazas(Integer plazas) {
+		if(plazas<1) {
+			throw new RuntimeException("El número de plazas no puede ser negativo");
+		}
 		this.plazas = plazas;
 	}
 

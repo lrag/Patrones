@@ -20,6 +20,10 @@ public class FacturaBuilderImplementation implements FacturaBuilder{
 	private List<CobroFactura> cobros = new ArrayList<>();
 	private List<EventoFactura> eventos = new ArrayList<>();	
 	
+	public FacturaBuilderImplementation() {
+		super();
+	}
+
 	public FacturaBuilderImplementation(String codigo, LocalDate fecha) {
 		super();
 		this.codigo = codigo;
@@ -29,6 +33,18 @@ public class FacturaBuilderImplementation implements FacturaBuilder{
 	@Override
 	public FacturaBuilder id(int id) {
 		this.id = id;
+		return this;
+	}
+	
+	@Override
+	public FacturaBuilder codigo(String codigo) {
+		this.codigo = codigo;
+		return this;
+	}
+	
+	@Override
+	public FacturaBuilder fecha(LocalDate fecha) {
+		this.fecha = fecha;
 		return this;
 	}
 	

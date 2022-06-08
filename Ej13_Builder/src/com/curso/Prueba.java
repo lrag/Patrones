@@ -41,6 +41,8 @@ public class Prueba {
 		EventoFactura ef3 = new EventoFactura(3, LocalDateTime.now(),"Tal y pascual");
 		List<EventoFactura> eventos = List.of(ef1,ef2,ef3);
 		
+		Factura f0 = new Factura(1, "FAC-1", LocalDate.now(), c, detalles, cobros, eventos);
+		
 		Factura f1 = new FacturaBuilderImplementation("FAC-1", LocalDate.now())
 				.id(1)
 				.cliente(c)
@@ -48,6 +50,26 @@ public class Prueba {
 				.cobros(cobros)
 				.eventos(eventos)
 				.build();
+
+		Factura f2 = new FacturaBuilderImplementation()
+				.id(1)
+				.codigo("FAC-1")
+				.fecha(LocalDate.now())
+				.cliente(c)
+				.detalles(detalles)
+				.cobros(cobros)
+				.eventos(eventos)
+				.build();
+		
+		//Sin el 'fluent api' esto es horrible
+		FacturaBuilderImplementation fbi = new FacturaBuilderImplementation();
+		fbi.id(1);
+		fbi.codigo("FAC-2");
+		fbi.cliente(c);
+		//...
+		Factura f3 = fbi.build();
+		
+		
 		
 		System.out.println("==============================================");
 		System.out.println(f1);
@@ -58,5 +80,5 @@ public class Prueba {
 		f1.getEventos().forEach(e -> System.out.println(e));
 		
 	}
-	
+
 }

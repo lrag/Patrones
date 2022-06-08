@@ -6,11 +6,11 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-import com.curso.persistencia.jpa.JpaEntityManagerFactory_PROXY;
+import com.curso.persistencia.jpa.JPAUtil;
 
 public class GestorTransacciones {
 
-	private static EntityManagerFactory emf = new JpaEntityManagerFactory_PROXY(null).getEntityManagerFactory();
+	private static EntityManagerFactory emf = JPAUtil.getEntityManagerFactory();
 	private static Map<Long, DatosTransaccion> ems = new HashMap<>();
 	
 	private static DatosTransaccion getDatosTransaccion() {		

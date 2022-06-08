@@ -11,13 +11,13 @@ import com.curso.modelo.entidad.Cliente;
 import com.curso.modelo.entidad.DetallePedido;
 import com.curso.modelo.entidad.Pedido;
 import com.curso.modelo.entidad.Producto;
-import com.curso.persistencia.jpa.JpaEntityManagerFactory_PROXY;
+import com.curso.persistencia.jpa.JPAUtil;
 
 public class CargaDatos {
 
 	public static void main(String[] args) {
 
-		EntityManagerFactory emf = new JpaEntityManagerFactory_PROXY(null).getEntityManagerFactory();
+		EntityManagerFactory emf = JPAUtil.getEntityManagerFactory();
 		
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -39,7 +39,7 @@ public class CargaDatos {
 		em.persist(p5);
 		
 		Cliente c1 = new Cliente(null, "Harpo", "Su casa", "123", 1);
-		Cliente c2 = new Cliente(null, "Mongomery Burns", "Su mansi�n", "123", 9999);
+		Cliente c2 = new Cliente(null, "Mongomery Burns", "Su mansión", "123", 9999);
 		
 		Pedido pedido1 = new Pedido(null, "PED-0", LocalDate.now(), "PENDIENTE", c1, null);
 		List<DetallePedido> detalles1 = new ArrayList<DetallePedido>();

@@ -122,7 +122,7 @@ public class Pedido {
 	}
 
 	public void addDetalle(DetallePedido detalle) {
-		//LN para añadir el detalle
+		//LN para aÃ±adir el detalle
 		detalles.add(detalle);
 	}
 	

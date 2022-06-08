@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class ProcesoImagenBuilder {
 
+	//Esto hay que cambiarlo por un enum 
 	public static final String AZUL = "Azul";
 	public static final String VERDE = "Verde";
 	public static final String ROJO = "Rojo";
@@ -17,7 +18,7 @@ public class ProcesoImagenBuilder {
 
 	public ProcesoImagenBuilder(String fichero) {
 		super();
-		abstractReader = new ImageReader(fichero);
+		abstractReader = new FileImageReader(fichero);
 	}
 	
 	public ProcesoImagenBuilder addProceso(String reader) throws Exception {

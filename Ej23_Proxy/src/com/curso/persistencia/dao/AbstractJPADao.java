@@ -12,8 +12,7 @@ import com.curso.persistencia.transacciones.EntityManager_PROXY;
 
 public abstract class AbstractJPADao<T, K> implements InterfaceDao<T, K>{
 
-	//Este proxy podría ser un singleton
-	protected EntityManager em = new EntityManager_PROXY();
+	protected EntityManager em = EntityManager_PROXY.getInstancia();
 	
 	@SuppressWarnings("unchecked")
 	private Class<T> clase = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];

@@ -2,6 +2,11 @@ package _05_soliD_Principio_de_inversion_de_dependencias_parte1;
 
 public class ServicioClientes_2 {
 
+	//Ahora no estamos acoplando la clase de alto nivel con la de bajo nivel
+	//si no con una interfaz. Estamos respetando el principio de inversion de dependencias
+	//Si las posibles implementaciones respetan el principio de sustitución de Liskov 
+	//pues entonces ideal
+	
 	//Retiramos la responsabilidad de crear el objeto
 	//Esto es IoC. Ahora el que sabe crear ClienteDao es otro
 	//Seguimos con los problemas para hacer test doubles

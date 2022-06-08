@@ -5,7 +5,7 @@ import com.curso.modelo.entidad.Curso;
 import com.curso.modelo.entidad.CursoEnlatado;
 import com.curso.modelo.entidad.CursoOnline;
 import com.curso.modelo.entidad.CursoPresencial;
-import com.curso.modelo.negocio.GestorAlumnos;
+import com.curso.modelo.negocio.ServicioAlumnos;
 
 public class Aplicacion {
 
@@ -25,7 +25,7 @@ public class Aplicacion {
 		c3.matricularAlumno(a3);		
 		
 		System.out.println("=================================");
-		GestorAlumnos ga = new GestorAlumnos();
+		ServicioAlumnos ga = new ServicioAlumnos();
 		ga.matricularAlumnoEnCurso(a1, c1);
 		ga.matricularAlumnoEnCurso(a2, c2);
 		ga.matricularAlumnoEnCurso(a3, c3);

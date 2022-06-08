@@ -20,6 +20,20 @@ import javax.persistence.metamodel.Metamodel;
 
 public class EntityManager_PROXY implements EntityManager {
 
+	//SINGLETÓN////////////////////////////////////////////////
+	private static EntityManager_PROXY instancia;
+	
+	public static synchronized EntityManager getInstancia() {
+		if(instancia == null) {
+			instancia = new EntityManager_PROXY();
+		}
+		return instancia;
+	}	
+	///////////////////////////////////////////////////////////
+	
+	private EntityManager_PROXY() {
+	}
+	
 	@Override
 	public void persist(Object entity) {
 		GestorTransacciones.getEntityManager().persist(entity);

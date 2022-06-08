@@ -77,6 +77,7 @@ public class Factura implements Cloneable {
 		detalles.forEach(df -> addDetalle(df));
 	}
 	
+	//Para evitar el modelo anémico
 	public void addDetalle(DetalleFactura detalle) {		
 		detalles
 			.stream()

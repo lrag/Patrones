@@ -14,9 +14,24 @@ public class EmisorMensajes_MAL {
 				break;		
 			case "Paloma mensajera" :
 				System.out.println("Enviando una paloma mensajera a "+destinatario);
-				break;		
+				break;	
+			default: throw new RuntimeException("Método no soportado");
 		}
 		
 	}
+	
+	//Si lo huberamos hecho así también estaríamos dejando esta clase abierta
+	public void enviarMensajeSMS() {
+		
+	}
+	
+	public void enviarMensajeCorreoE() {
+		
+	}
+	
+	public void enviarMensajePalomaMensajera() {
+		
+	}
+	
 	
 }

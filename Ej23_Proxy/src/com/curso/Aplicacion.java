@@ -16,12 +16,13 @@ public class Aplicacion {
 		GestorPedidos gp = GestorPedidos_PROXY.getInstancia();
 		try {
 			Pedido p = new Pedido();
-			p.setId(3);
+			p.setId(2);
 			gp.aceptar(p);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Error:"+e.getMessage());
-		}		
+		}
+			
 			
 		System.out.println("=================================================");
 		ProductoDao productoDao = FactoriaDAO.getProductoDao();

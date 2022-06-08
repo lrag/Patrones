@@ -4,9 +4,10 @@ public class ServicioClientes_3 {
 
 	private ClienteDao clienteDao ;
 	
-	//Esto está bien si tienes un contenedor
+	//Inyección de dependencias: Esto está bien si tienes un contenedor
 	//IoC también
 	//Y ya podemos hacer test doubles
+	//Y no estamos acoplados con una implementación concreta de ClienteDao
 	public ServicioClientes_3(ClienteDao clienteDao) {
 		this.clienteDao = clienteDao;
 	}

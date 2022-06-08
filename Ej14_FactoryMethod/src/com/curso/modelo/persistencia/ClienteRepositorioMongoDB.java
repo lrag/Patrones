@@ -3,7 +3,7 @@ package com.curso.modelo.persistencia;
 import com.curso.modelo.entidad.Cliente;
 
 public class ClienteRepositorioMongoDB implements ClienteRepositorio {
-
+	
 	//SINGLETÓN/////////////////////////////////////////////////////////	
 	
 	private static ClienteRepositorio instancia;
