@@ -36,6 +36,7 @@ public class CursoPresencial extends Curso{
 	public void matricularAlumno(Alumno alumno) {
 		//LN
 		System.out.println("Matriculando a un alumno en un curso presencial");
+
 		if(alumnos.size()<plazas) {
 			alumnos.add(alumno);
 		}

@@ -11,6 +11,7 @@ import com.curso.persistencia.transacciones.GestorTransacciones;
 
 public class GestorPedidos_PROXY implements GestorPedidos {
 
+	//SINGLETON//////////////////////////////////////////////////////
 	private static GestorPedidos_PROXY instancia;
 	
 	public synchronized static GestorPedidos_PROXY getInstancia() {
@@ -19,7 +20,9 @@ public class GestorPedidos_PROXY implements GestorPedidos {
 		}
 		return instancia;
 	}
+	//////////////////////////////////////////////////////////////////
 
+	//El proxy tiene la potestad de crear al objeto delante del cuál se coloca
 	private GestorPedidosImpl target = GestorPedidosImpl.getInstancia();
 
 	private GestorPedidos_PROXY() {
@@ -68,15 +71,18 @@ public class GestorPedidos_PROXY implements GestorPedidos {
 			throw e;
 		}		
 	}
-	
+
+	//Este método es transparente
 	public Pedido buscar(Integer id){
 		return target.buscar(id);
 	}
 	
+	//Este método es transparente
 	public Pedido buscarConDetalles(Integer id){
 		return target.buscarConDetalles(id);
 	}
 	
+	//Este método es transparente
 	public List<Pedido> listar(){
 		return target.listar();
 	}

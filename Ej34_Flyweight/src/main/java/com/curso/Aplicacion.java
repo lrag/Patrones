@@ -1,4 +1,4 @@
-package com.curso.problema;
+package com.curso;
 
 import java.awt.EventQueue;
 

@@ -15,9 +15,9 @@ public class Ventana extends JFrame{
 		int[]y=new int [100000] ;
 		int[]r=new int [100000] ;
 		for(int i=0;i<100000;i++){
-			x[i]=(int)(Math.random()*10);
-			y[i]=(int)(Math.random()*50);
-			r[i]=(int)(Math.random()*10);
+			x[i]=(int)(Math.random()*1000);
+			y[i]=(int)(Math.random()*5000);
+			r[i]=(int)(Math.random()*100);
 			
 			
 		}
