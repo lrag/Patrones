@@ -33,23 +33,34 @@ public class GestorPedidosImpl implements GestorPedidos {
 	
 	@Override
 	public void insertar(Pedido pedido){
+		//Seguridad
+		//GestorTransacciones.beginTX();	
 		pedidoDao.insertar(pedido);
+		//GestorTransacciones.commit()/rollback();
 	}
 	
 	@Override
 	public void modificar(Pedido pedido){
+		//Seguridad
+		//GestorTransacciones.beginTX();	
 		pedidoDao.modificar(pedido);
+		//GestorTransacciones.commit()/rollback();
 	}
 	
 	@Override
 	public void borrar(Integer idPedido){
+		//Seguridad
+		//GestorTransacciones.beginTX();	
 		Pedido pedido = pedidoDao.buscar(idPedido);
 		//if pedido==null...
 		pedidoDao.borrar(pedido);
+		//GestorTransacciones.commit()/rollback();
 	}
 	
 	@Override
 	public void aceptar(Pedido pedido) throws Exception{
+		
+		//Seguridad
 		
 		//GestorTransacciones.beginTX();
 		//try {

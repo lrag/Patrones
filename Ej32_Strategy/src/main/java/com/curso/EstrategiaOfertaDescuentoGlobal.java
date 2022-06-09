@@ -14,6 +14,7 @@ public class EstrategiaOfertaDescuentoGlobal implements EstrategiaOferta{
 	@Override
 	public void calcularOferta(Pedido pedido) {
 		pedido.setDescuento(pedido.getTotal()*(descuento/100));
+		pedido.calcularTotal();
 	}
 	
 }

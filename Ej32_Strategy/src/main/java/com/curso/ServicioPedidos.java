@@ -1,7 +1,5 @@
 package com.curso;
 
-import java.util.stream.Collectors;
-
 import com.curso.modelo.entidad.Pedido;
 
 public class ServicioPedidos {

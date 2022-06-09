@@ -14,7 +14,7 @@ public class Pedido {
 	private Cliente cliente;
 	private List<DetallePedido> detalles;
 	private Double total;
-	private Double descuento;
+	private Double descuento = 0d;
 	
 	public Pedido() {
 		super();

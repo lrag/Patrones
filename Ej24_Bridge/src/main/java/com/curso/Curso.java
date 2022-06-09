@@ -8,7 +8,9 @@ public abstract class Curso {
 	protected String duracion;
 	protected String profesor;
 	protected List<Alumno> alumnos;
-	
+
+	//Este es el 'puente' entre las dos jeraquías que hemos diseñado para que cada una de ellas
+	//exprese una dimensión diferente
 	protected Matriculacion matriculacion;
 
 	public Curso() {
