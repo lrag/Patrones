@@ -1,8 +1,6 @@
 server:
   port: 8888
 
-logging.level.root: INFO
-
 spring:
   application:
     name: "SpringCloudConfigServer"

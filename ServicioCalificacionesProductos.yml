@@ -11,7 +11,7 @@ spring:
         instanceId: ${spring.application.name}:${random.value}
 
   jpa:
-    open-in-view=false
+    open-in-view: false
     show-sql: true
     hibernate:
       ddl-auto: update

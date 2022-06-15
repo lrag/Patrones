@@ -14,20 +14,12 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 public class Configuracion {
 
-	/*
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="org.h2.Driver"/>
-		<property name="url"             value="jdbc:h2:file:c:/h2/bbdd"/>
-		<property name="username"        value="sa"/>
-		<property name="password"        value=""/>	
-	</bean>		
-	*/
-	
+	//no es necesario registrar aqui esta bean
 	@Bean
 	@RefreshScope
-	public DataSource dataSource(@Value("${bbdd.url}") String url, 
-			                     @Value("${bbdd.username}") String username, 
-			                     @Value("${bbdd.password}") String password ) {
+	public DataSource dataSource(@Value("${spring.datasource.url}") String url, 
+			                     @Value("${spring.datasource.username}") String username, 
+			                     @Value("${spring.datasource.password}") String password ) {
 		HikariDataSource ds = new HikariDataSource();
 		ds.setJdbcUrl(url);
 		ds.setDriverClassName("org.h2.Driver");

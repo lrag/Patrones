@@ -1,6 +1,3 @@
-server:
-  port: 9030
-
 spring:
   application:
     name: "ServicioCalificacionesProductos"
@@ -12,19 +9,5 @@ spring:
     config:
       username: root
       password: root
+      fail-fast: true
 
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        instanceId: ${spring.application.name}:${random.value}
-
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    database-platform: org.hibernate.dialect.H2Dialect
-    
-
-    
-    
