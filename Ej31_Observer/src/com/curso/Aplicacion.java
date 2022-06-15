@@ -13,6 +13,7 @@ public class Aplicacion {
 		long inicio = System.currentTimeMillis();
 		
 		GestorPedidos  gp = new GestorPedidos();
+		
 		GestorFacturas gf = new GestorFacturas();
 		GestorEnvios   ge = new GestorEnvios();
 		GestorMensajes gm = new GestorMensajes();

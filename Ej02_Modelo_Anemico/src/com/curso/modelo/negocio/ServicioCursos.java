@@ -31,7 +31,6 @@ public class ServicioCursos {
 	public void matricularAlumno(Alumno alumno, Curso curso) {		
 		
 		//if(curso.getTipo = presencial)
-		
 		List<Alumno> alumnos = curso.getAlumnos();
 		if(alumnos.size()<curso.getPlazas()) {
 			alumnos.add(alumno);
@@ -80,7 +79,7 @@ public class ServicioCursos {
 }
 
 
-//Intentemos cerrar esta clase para respetar el principio abiert/cerrado
+//Intentemos cerrar esta clase para respetar el principio abierto/cerrado
 /*
 //Esta está cerrada para la modificación, abierta para la extension
 public abstract slass ServicioCursos {

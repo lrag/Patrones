@@ -26,7 +26,7 @@ public abstract class SujetoAbstracto<T> implements Sujeto<T> {
 
 	@Override
 	public void emitir(T evento) {
-		observadores.forEach( obs -> obs.procesarEvento(evento));
+		observadores.forEach(obs -> obs.procesarEvento(evento));
 	}
 	
 }

@@ -1,10 +1,12 @@
-package com.curso.util.eventos;
+package com.curso.util.eventos_asincrono;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import com.curso.util.eventos.Observador;
+import com.curso.util.eventos.Sujeto;
 
 public abstract class SujetoAsincronoAbstracto<T> implements Sujeto<T> {
 	
@@ -28,7 +30,7 @@ public abstract class SujetoAsincronoAbstracto<T> implements Sujeto<T> {
 
 	@Override
 	public void emitir(T evento) {
-		//Esto mejor como atributo de la clase, y podría implementarse de otras maneras
+		//Esto podría implementarse de una manera más sofisticada
 		observadores.forEach( obs -> {			
 			terminator.execute(() -> obs.procesarEvento(evento)); //Runnable
 		});

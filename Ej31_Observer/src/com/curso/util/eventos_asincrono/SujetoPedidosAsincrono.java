@@ -1,4 +1,4 @@
-package com.curso.util.eventos;
+package com.curso.util.eventos_asincrono;
 
 import java.util.ArrayList;
 import java.util.List;

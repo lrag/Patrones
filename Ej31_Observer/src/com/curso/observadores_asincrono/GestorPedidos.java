@@ -1,13 +1,13 @@
 package com.curso.observadores_asincrono;
 
 import com.curso.modelo.entidad.Pedido;
-import com.curso.util.eventos.SujetoPedidosAsincrono;
+import com.curso.util.eventos_asincrono.SujetoPedidosAsincrono;
 
 public class GestorPedidos {
 
 	private SujetoPedidosAsincrono sujetoPedidos = SujetoPedidosAsincrono.getInstancia();
 	
-	//Estas son las dependencias de esta clase
+	//Estas son lass dependencias de esta clase
 	//private GestorClientes gestorClientes;
 	//private GestorAlmacen gestorAlmacen;
 	//private GestorCatalogo gestorCatalogo;
