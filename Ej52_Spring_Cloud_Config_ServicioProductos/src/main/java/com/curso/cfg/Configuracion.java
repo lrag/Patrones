@@ -20,11 +20,12 @@ public class Configuracion {
 		return new RestTemplate();
 	}
 	
+	//no es necesario registrar aqui esta bean
 	@Bean
 	@RefreshScope
-	public DataSource dataSource(@Value("${bbdd.url:jdbc:h2:file:c:/h2/bbdd_cloud_productos}") String url, 
-			                     @Value("${bbdd.username:sa}") String username, 
-			                     @Value("${bbdd.password:}") String password ) {
+	public DataSource dataSource(@Value("${spring.datasource.url}") String url, 
+			                     @Value("${spring.datasource.username}") String username, 
+			                     @Value("${spring.datasource.password}") String password ) {
 		HikariDataSource ds = new HikariDataSource();
 		ds.setJdbcUrl(url);
 		ds.setDriverClassName("org.h2.Driver");

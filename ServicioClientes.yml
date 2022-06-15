@@ -1,5 +1,5 @@
 server:
-  port: 9030
+  port: 9000
 
 spring:
 
@@ -18,7 +18,7 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
 
   datasource:
-    url: jdbc:h2:file:c:/h2/bbdd_cloud_calificaciones_productos_SCC
+    url: jdbc:h2:file:c:/h2/bbdd_cloud_clientes_SCC
     driverClassName: org.h2.Driver
     username: sa
     password:

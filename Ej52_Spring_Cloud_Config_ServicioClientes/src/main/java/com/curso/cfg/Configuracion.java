@@ -14,11 +14,12 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 public class Configuracion {
 
+	//no es necesario registrar aquí esta bean
 	@Bean
-	@RefreshScope //Es un singleton que se volverá a crear si cambia la configuracion
-	public DataSource dataSource(@Value("${bbdd.url:jdbc:h2:file:c:/h2/bbdd_cloud_clientes}") String url, 
-			                     @Value("${bbdd.username:sa}") String username, 
-			                     @Value("${bbdd.password:}") String password ) {
+	@RefreshScope
+	public DataSource dataSource(@Value("${spring.datasource.url}") String url, 
+			                     @Value("${spring.datasource.username}") String username, 
+			                     @Value("${spring.datasource.password}") String password ) {
 		
 		System.out.println("=====================================================");
 		System.out.println("Creando el datasource:"+url);

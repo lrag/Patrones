@@ -10,10 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>Ej52_Spring_Cloud_Confg_ServicioCalificacionesProductos</artifactId>
+	<artifactId>Ej52_Spring_Cloud_Config_ServicioCalificacionesProductos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Ej52_Spring_Cloud_Confg_ServicioCalificacionesProductos</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Ej52_Spring_Cloud_Config_ServicioCalificacionesProductos</name>
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2020.0.2</spring-cloud.version>

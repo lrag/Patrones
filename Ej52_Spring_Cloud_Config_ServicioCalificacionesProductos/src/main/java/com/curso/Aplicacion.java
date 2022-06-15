@@ -19,7 +19,7 @@ public class Aplicacion implements CommandLineRunner {
 	@Autowired
 	private CalificacionProductoRepository productoRepo;
 
-	@Value("${bbdd.url:valor_por_defecto}")
+	@Value("${spring.datasource.url}")
 	private String url;
 
 	public static void main(String[] args) {
