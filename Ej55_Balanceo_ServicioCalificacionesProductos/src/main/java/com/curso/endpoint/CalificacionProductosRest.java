@@ -34,7 +34,7 @@ public class CalificacionProductosRest {
 		System.out.println("=======================================");
         String serverPort = environment.getProperty("local.server.port");
 		System.out.println(serverPort+"-Buscando las calificaciones del producto:"+codigoProducto);
-		long fin = System.currentTimeMillis()+1000;		
+		long fin = System.currentTimeMillis()+4000;		
 		while(System.currentTimeMillis()<fin) {
 			//Haciendo cosas y más cosas
 		}		
