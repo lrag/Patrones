@@ -43,8 +43,9 @@ public class GestorProductos {
 	}	
 	
     @CircuitBreaker(name = "gestorProductos-buscarProductoYCalificaciones", 
-    		        fallbackMethod = "buscarProductoSinCalificaciones")    
-	public Optional<Producto> buscarProductoYCalificaciones(String codigo) {
+    		        fallbackMethod = "fallbackBuscarProductoYCalificaciones")    
+	public Optional<Producto> buscarProductoYCalificaciones(String codigo) throws Exception{
+    	System.out.println("========================================");		
     	System.out.println("Ejecutando el método gestorProductos.buscarProductoYCalificaciones");
     	return productoRepo
 			.findByCodigo(codigo)
@@ -59,13 +60,12 @@ public class GestorProductos {
 	}
 	
     //Este método es una suerte de catch
-	public Optional<Producto> buscarProductoSinCalificaciones(String codigo, Exception e) {
+	public Optional<Producto> fallbackBuscarProductoYCalificaciones(String codigo, Exception e) throws Exception {
+		System.out.println("========================================");		
 		System.out.println(e.getClass());
 		//e.printStackTrace();
-		System.out.println("========================================");		
 		System.out.println("FALLBACK!!!! "+e.getMessage());
-		return productoRepo
-			.findByCodigo(codigo);
+		throw new Exception("No se pudo buscar el producto con sus calificaciones :(");
 	}  	
 	
 	public Producto insertar(Producto producto) {
@@ -92,7 +92,7 @@ public class GestorProductos {
 		} catch (Exception e) {
 			//Aumenta el contador de fallos
 			fallos++;
-			p = target.buscarProductoSinCalificaciones(codigo, e);
+			p = target.fallbackBuscarProductoYCalificaciones(codigo, e);
 		}		
 		return p;		
 	}

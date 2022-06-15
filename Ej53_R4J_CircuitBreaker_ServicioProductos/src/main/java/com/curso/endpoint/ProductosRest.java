@@ -43,11 +43,15 @@ public class ProductosRest {
 	//El producto y sus calificaciones
 	@GetMapping(path="/productos/{codigo}/calificaciones")
 	public ResponseEntity<ProductoDTO> buscarConCalificaciones(@PathVariable("codigo") String codigo){
-		return 
-			gestorProductos
-				.buscarProductoYCalificaciones(codigo)
-				.map(p -> new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK))
-				.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
+		//Esto debería ser más bonito
+		try {
+			return gestorProductos
+					.buscarProductoYCalificaciones(codigo)
+					.map(p -> new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK))
+					.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
+		} catch (Exception e) {
+			return new ResponseEntity<ProductoDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@GetMapping(path="/productos")

@@ -37,13 +37,19 @@ public class ProductosRest {
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
+	//Si tenemos un servicio de calificaciones no tiene sentido que se pidan a través de ServicioProductos
+	//Esto está a qui por el interés de la ciencia
 	@GetMapping(path="/productos/{codigo}/calificaciones")
 	public ResponseEntity<ProductoDTO> buscarConCalificaciones(@PathVariable("codigo") String codigo){
-		return 
-			gestorProductos
-				.buscarProductoYCalificaciones(codigo)
-				.map(p -> new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK))
-				.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
+		//Esto debería ser más bonito
+		try {
+			return gestorProductos
+					.buscarProductoYCalificaciones(codigo)
+					.map(p -> new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK))
+					.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
+		} catch (Exception e) {
+			return new ResponseEntity<ProductoDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@GetMapping(path="/productos")

@@ -24,7 +24,7 @@ public class ProductosRest {
 	@Autowired private ProductoRepositorio productoRepo;
 	
 	//GET    /productos/{codigo} 				  - El producto sin calificaciones
-	//GET    /productos/{codigo}/calificaciones   - Las calificaciones de un producto
+	//GET    /productos/{codigo}/calificaciones   - El producto con sus calificaciones
 	//GET    /productos					          - Todos los productos
 	//POST   /productos						      - Insertar un producto
 	//PUT    /productos/{codigo}   			      - Modificar un producto
@@ -33,24 +33,29 @@ public class ProductosRest {
 	@GetMapping(path="/productos/{codigo}")
 	public ResponseEntity<ProductoDTO> buscar(@PathVariable("codigo") String codigo){
 		System.out.println("Buscando por codigo:"+codigo);
-		return 
-			productoRepo
-				.findByCodigo(codigo)
-				.map(p -> {
-					System.out.println("Encontrado:"+p);
-					
-					return new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK);
-				})
-				.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
+		return productoRepo
+			.findByCodigo(codigo)
+			.map(p -> {
+				System.out.println("Encontrado:"+p);
+				
+				return new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK);
+			})
+			.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
 	}
 	
+	//Si tenemos un servicio de calificaciones no tiene sentido que se pidan a través de ServicioProductos
+	//Esto está a qui por el interés de la ciencia
 	@GetMapping(path="/productos/{codigo}/calificaciones")
 	public ResponseEntity<ProductoDTO> buscarConCalificaciones(@PathVariable("codigo") String codigo){
-		return 
-			gestorProductos
-				.buscarProductoYCalificaciones(codigo)
-				.map(p -> new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK))
-				.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
+		//Esto debería ser más bonito
+		try {
+			return gestorProductos
+					.buscarProductoYCalificaciones(codigo)
+					.map(p -> new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK))
+					.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
+		} catch (Exception e) {
+			return new ResponseEntity<ProductoDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@GetMapping(path="/productos")

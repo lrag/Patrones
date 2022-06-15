@@ -1,4 +1,4 @@
-package com.curso;
+ package com.curso;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

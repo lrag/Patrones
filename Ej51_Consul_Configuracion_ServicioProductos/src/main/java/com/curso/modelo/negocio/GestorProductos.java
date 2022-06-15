@@ -21,17 +21,9 @@ public class GestorProductos {
 	public Optional<Producto> buscarProductoYCalificaciones(String codigo) {
 		return productoRepo
 			.findByCodigo(codigo)
-			.map(producto -> {	
-				//Si falla la llamada para buscar las calificaciones devolveremos el producto sin ellas
-				//Deberiamos indicar de algún en la respuesta lo que ha sucedido				
+			.map(producto -> {				
 				List<CalificacionProducto> calificaciones = null;
-				try {
-					calificaciones = calificacionesProductosProxy.buscarCalificacionesProducto(producto.getCodigo());
-				} catch (Exception e) {
-					System.out.println("========================================");
-					System.out.println("Servicio de calificaciones no disponible!");
-					System.out.println(e.getMessage());
-				}		
+				calificaciones = calificacionesProductosProxy.buscarCalificacionesProducto(producto.getCodigo());
 				producto.setCalificaciones(calificaciones);
 				return producto;		
 			})

@@ -27,34 +27,37 @@ public class ProductosRest {
 	@GetMapping(path="/productos/{codigo}")
 	public ResponseEntity<ProductoDTO> buscar(@PathVariable("codigo") String codigo){
 		System.out.println("Buscando por codigo:"+codigo);
-		return 
-			productoRepo
-				.findByCodigo(codigo)
-				.map(p -> {
-					System.out.println("Encontrado:"+p);
-					
-					return new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK);
-				})
-				.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
+		return 	productoRepo
+			.findByCodigo(codigo)
+			.map(p -> {
+				System.out.println("Encontrado:"+p);
+				
+				return new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK);
+			})
+			.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
 	}
 	
 	//Buscar un producto y sus calificaciones (CUATRO SEGUNDOS!!!!)
 	@GetMapping(path="/productos/{codigo}/calificaciones")
 	public ResponseEntity<ProductoDTO> buscarConCalificaciones(@PathVariable("codigo") String codigo){
-		return 
-			gestorProductos
-				.buscarProductoYCalificaciones(codigo)
-				.map(p -> new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK))
-				.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
+		//Esto debería ser más bonito
+		try {
+			return gestorProductos
+					.buscarProductoYCalificaciones(codigo)
+					.map(p -> new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK))
+					.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
+		} catch (Exception e) {
+			return new ResponseEntity<ProductoDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}		
 	}
 	
 	@GetMapping(path="/productos")
 	public List<ProductoDTO> listar(){
 		return productoRepo
-				.findAll()
-				.stream()
-				.map(p -> new ProductoDTO(p))
-				.collect(Collectors.toList());
+			.findAll()
+			.stream()
+			.map(p -> new ProductoDTO(p))
+			.collect(Collectors.toList());
 	}	
 	
 	@PostMapping(path="/productos")

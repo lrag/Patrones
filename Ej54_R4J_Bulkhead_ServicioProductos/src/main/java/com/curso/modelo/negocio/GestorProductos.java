@@ -24,9 +24,11 @@ public class GestorProductos {
 	//Podemos tener @CircuitBreaker y @BulkHead simultaneamente sin problemas
     //@CircuitBreaker(name = "gestorProductos-buscarProductoYCalificaciones", fallbackMethod = "buscarProductoSinCalificaciones")    
     @Bulkhead(name = "gestorProductos-buscarProductoYCalificaciones", 
-        	  fallbackMethod = "buscarProductoSinCalificaciones", 
+        	  fallbackMethod = "fallbackBuscarProductoYCalificaciones", 
         	  type = Bulkhead.Type.SEMAPHORE)
-	public Optional<Producto> buscarProductoYCalificaciones(String codigo) {
+    public Optional<Producto> buscarProductoYCalificaciones(String codigo) throws Exception{
+    	System.out.println("========================================");		
+    	System.out.println("Ejecutando el método gestorProductos.buscarProductoYCalificaciones");
     	return productoRepo
 			.findByCodigo(codigo)
 			.map(producto -> {
@@ -39,10 +41,10 @@ public class GestorProductos {
 			.or(() -> Optional.empty());
 	}
     
-	public Optional<Producto> buscarProductoSinCalificaciones(String codigo, Exception e) {
-		System.out.println("!!!! "+e.getMessage());
-		return productoRepo
-			.findByCodigo(codigo);
+	public Optional<Producto> fallbackBuscarProductoYCalificaciones(String codigo, Exception e) throws Exception {
+		System.out.println("========================================");		
+		System.out.println("FALLBACK!!!! "+e.getMessage());
+		throw new Exception("No tenemos recursos para buscar el producto con sus calificaciones :(");
 	}  	  
 	
 	public Producto insertar(Producto producto) {

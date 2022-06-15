@@ -12,11 +12,11 @@ import com.curso.modelo.persistencia.ClienteRepositorio;
 
 @Service
 @Transactional
-@RefreshScope
+//@RefreshScope
 public class GestorClientes {
 
-	@Value("${valor}")
-	private String valor;
+	//@Value("${valor}")
+	//private String valor;
 
 	@Autowired
 	private ClienteRepositorio clienteRepo;

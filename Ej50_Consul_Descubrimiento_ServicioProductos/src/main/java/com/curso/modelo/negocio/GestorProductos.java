@@ -1,6 +1,5 @@
 package com.curso.modelo.negocio;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,16 +22,7 @@ public class GestorProductos {
 			.findByCodigo(codigo)
 			.map(producto -> {				
 				List<CalificacionProducto> calificaciones = null;
-				
-				//Si falla la llamada para buscar las calificaciones devolveremos el producto sin ellas
-				//Deberías indicar de algún en la respuesta lo que ha sucedido
-				try {
-					calificaciones = calificacionesProductosProxy.buscarCalificacionesProducto(producto.getCodigo());
-				} catch (Exception e) {
-					System.out.println("========================================");
-					System.out.println("Servicio de calificaciones no disponible!");
-					System.out.println(e.getMessage());
-				}		
+				calificaciones = calificacionesProductosProxy.buscarCalificacionesProducto(producto.getCodigo());
 				producto.setCalificaciones(calificaciones);
 				return producto;		
 			})

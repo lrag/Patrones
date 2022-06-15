@@ -29,7 +29,7 @@ public class Aplicacion implements CommandLineRunner{
 
 		System.out.println("=====================================");
 
-        ExecutorService servicio= Executors.newFixedThreadPool(6);
+        ExecutorService servicio = Executors.newFixedThreadPool(6);
         Future<Integer> contadorListar = servicio.submit(new PruebaListar(productosRestProxy));
         Future<Integer> contadorBuscar = servicio.submit(new PruebaBuscar(productosRestProxy));
 
@@ -101,13 +101,13 @@ class PruebaBuscar implements Callable<Integer> {
 			
 			productosRestProxy
 				.buscarConCalificaciones("PROD-1")
-				.subscribe( p -> {
-					System.out.println(p);
-					//Solo lo contamos si ha venido con las calificaciones
-					if(p.getCalificaciones()!=null) {
+				.subscribe( 
+					p -> {
+						System.out.println(p);
 						contador.incrementAndGet();
-					}
-				});			
+					},
+					e -> System.out.println(e.getMessage())
+				);			
 		}
 		return contador.get();		
 	}	
