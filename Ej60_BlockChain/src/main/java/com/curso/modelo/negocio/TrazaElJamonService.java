@@ -1,74 +1,52 @@
 package com.curso.modelo.negocio;
 
-import java.math.BigInteger;
-
-import org.web3j.protocol.Web3j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.web3j.tuples.generated.Tuple5;
-import org.web3j.tx.ClientTransactionManager;
-import org.web3j.tx.TransactionManager;
 
-import com.curso.cfg.TrazaElJamonProperties;
 import com.curso.endpoint.dto.CerdoDTO;
+import com.curso.endpoint.dto.DatosSacrificio;
+import com.curso.endpoint.dto.DatosVacunacion;
 import com.curso.modelo.contrato.proxy.TrazaElJamon;
 
-//Registrado en TrazaElJamonConfiguration
+@Service
 public class TrazaElJamonService {
 
-	private final String contractAddress;
-	private final Web3j web3j;
-	private final TrazaElJamonProperties config;
+	@Autowired
+	private TrazaElJamon trazaElJamon;
 
-	public TrazaElJamonService(String contractAddress, Web3j web3j, TrazaElJamonProperties config) {
-		this.contractAddress = contractAddress;
-		this.web3j = web3j;
-		this.config = config;
-	}
-
-	/*
-    public RemoteFunctionCall<Tuple5<BigInteger, String, String, String, String>> buscarCerdo(BigInteger _cerdoId) {
-    public RemoteFunctionCall<TransactionReceipt> crearCerdo(BigInteger _granjeroId, BigInteger _cerdoId, String _raza) {
-    public RemoteFunctionCall<TransactionReceipt> vacunarCerdo(BigInteger _cerdoId, BigInteger _veterinarioId) {
-    public RemoteFunctionCall<TransactionReceipt> venderCerdo(BigInteger _cerdoId, BigInteger _vendedorId) {
-	*/
-	
-	public void buscarCerdo(BigInteger cerdoId) throws Exception {
-		TrazaElJamon trazaElJamon = loadContract(contractAddress);
-		Tuple5<BigInteger, String, String, String, String> respuesta = trazaElJamon.buscarCerdo(cerdoId).send();
+	public CerdoDTO buscarCerdo(String idCerdo) throws Exception {
+		Tuple5<String, String, String, String, String> respuesta = trazaElJamon
+			.buscarCerdo(idCerdo)
+			.send();
 		CerdoDTO cerdito = new CerdoDTO(respuesta);
 		System.out.println(respuesta);
+		System.out.println(cerdito);
+		return cerdito;
 	}
 
-	/*
-	public BigInteger getBalance() throws IOException {
-		return web3j.ethGetBalance(contractAddress, DefaultBlockParameterName.LATEST).send().getBalance();
+	public void vacunarCerdo(DatosVacunacion datosVacunacion) throws Exception {
+		System.out.println(datosVacunacion);
+		Object r = trazaElJamon
+			.vacunarCerdo(datosVacunacion.getIdCerdo(), datosVacunacion.getIdVeterinario())
+			.send();
+		System.out.println("Respuesta:"+r);
 	}
 
-	public void join(String account, BigDecimal ethers) throws Exception {
-		Lottery lottery = loadContract(account);
-		lottery.enter(Convert.toWei(ethers, Unit.ETHER).toBigInteger()).send();
+	public void sacrificarCerdo(DatosSacrificio datosSacrificio) throws Exception {
+		System.out.println(datosSacrificio);
+		Object r = trazaElJamon
+				.sacrificarCerdo(datosSacrificio.getIdCerdo(), datosSacrificio.getIdMatadero())
+				.send();
+		System.out.println("Respuesta:"+r);
 	}
 
-	@SuppressWarnings("unchecked")
-	public List<String> getPlayers(String ownerAddress) throws Exception {
-		Lottery lottery = loadContract(ownerAddress);
-		return lottery.getPlayers().send();
+	public void crearCerdo(CerdoDTO cerdo) throws Exception {
+		System.out.println(cerdo);
+		Object r = trazaElJamon
+				.crearCerdo(cerdo.getId(), cerdo.getIdGranjero(), cerdo.getRaza())
+				.send();
+		System.out.println("Respuesta:"+r);		
 	}
-
-	public void pickWinner(String ownerAddress) throws Exception {
-		Lottery lottery = loadContract(ownerAddress);
-		lottery.pickWinner().send();
-	}
-
-	private Lottery loadContract(String accountAddress) {
-		return Lottery.load(contractAddress, web3j, txManager(accountAddress), config.gas());
-	}
-	*/
 	
-	private TrazaElJamon loadContract(String accountAddress) {
-		return TrazaElJamon.load(contractAddress, web3j, txManager(accountAddress), config.gas());
-	}
-    
-	private TransactionManager txManager(String accountAddress) {
-        return new ClientTransactionManager(web3j, accountAddress);
-    }
 }

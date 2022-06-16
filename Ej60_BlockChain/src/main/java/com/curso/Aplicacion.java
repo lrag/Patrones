@@ -33,16 +33,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
   trazaeljamon.contract.owner-address=0xD688dB71A52635388c4F6896D1c59d682587Eb91
   
-- Borrar cualquier valor de la propiedad 'trazaeljamon.contract.owner-address=' en application.properties
+- Copiar la clave privada de la cuanta escogida y pegarla en application.properties
+
+  trazaeljamon.contract.owner-privateKey=f76412a5fc4024c0ca17ab4bf0c81b4b61693769c9a898ffd84fef5797477e27
+  
+- Borrar cualquier valor de la propiedad 'trazaeljamon.contract.address=' en application.properties
   
 - Ejecutar la aplicación para ver el despliege. En la consola aparecerá una traza con la dirección que
   le haya correspondido
   
-  Deployed new contract with address:0xea574e3a14aab74663b05850e80643467f4ee12a
+  Desplegado el contrato con la dirección:0xea574e3a14aab74663b05850e80643467f4ee12a
   
 - Colocar el valor en application.properties
 
-  trazaeljamon.contract.owner-address=0xea574e3a14aab74663b05850e80643467f4ee12a   
+  trazaeljamon.contract.address=0xea574e3a14aab74663b05850e80643467f4ee12a   
 
 */
 

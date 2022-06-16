@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import org.web3j.tx.gas.StaticGasProvider;
 
 @Configuration
-
 public class TrazaElJamonProperties {
 	@Value("${trazaeljamon.contract.gasPrice}")
     private BigInteger gasPrice;
@@ -23,5 +22,4 @@ public class TrazaElJamonProperties {
         return new StaticGasProvider(gasPrice, gasLimit);
     }
 
-    // getters and setters
 }

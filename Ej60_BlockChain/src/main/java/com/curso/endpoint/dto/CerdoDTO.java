@@ -6,60 +6,55 @@ import org.web3j.tuples.generated.Tuple5;
 
 /*
 struct Cerdo {
-  uint id;
-  bool vacunado;
-  bool vendido;
-  string raza;
-  uint granjeroId;
-  uint veterinarioId;
-  uint mataderoId;
+    string id;
+    bool   vacunado;
+    bool   sacrificado;
+    string raza;
+    string idGanadero;
+    string idVeterinario;
+    string idMatadero;
 }
 */
 
 public class CerdoDTO {
 
-	private Integer id;
+	private String id;
 	private boolean vacunado;
 	private boolean procesado;
 	private String raza;
-	private Integer idGranjero;
-	private Integer idVeterinario;
-	private Integer idMatadero;
+	private String idGanadero;
+	private String idVeterinario;
+	private String idMatadero;
 
 	public CerdoDTO() {
 		super();
 	}
 
-	public CerdoDTO(Integer id, boolean vacunado, boolean procesado, String raza, Integer idGranjero,
-			Integer idVeterinario, Integer idMatadero) {
+	public CerdoDTO(String id, boolean vacunado, boolean procesado, String raza, String idGanadero,
+			String idVeterinario, String idMatadero) {
 		super();
 		this.id = id;
 		this.vacunado = vacunado;
 		this.procesado = procesado;
 		this.raza = raza;
-		this.idGranjero = idGranjero;
+		this.idGanadero = idGanadero;
 		this.idVeterinario = idVeterinario;
 		this.idMatadero = idMatadero;
 	}
 
-	public CerdoDTO(Tuple5<BigInteger, String, String, String, String> respuesta) {
-		id = respuesta.component1().intValue();
-		raza    = respuesta.component2();
-		idGranjero = respuesta.component3();
+	public CerdoDTO(Tuple5<String, String, String, String, String> respuesta) {
+		id = respuesta.component1();
+		raza = respuesta.component2();
+		idGanadero = respuesta.component3();
 		idVeterinario = respuesta.component4();
 		idMatadero = respuesta.component5();
-
 	}
 
-	
-uint256 _id, string memory _raza, string memory granjero, string memory _veterinario, string memory _matadero) {
-
-	
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -87,34 +82,34 @@ uint256 _id, string memory _raza, string memory granjero, string memory _veterin
 		this.raza = raza;
 	}
 
-	public Integer getIdGranjero() {
-		return idGranjero;
+	public String getIdGranjero() {
+		return idGanadero;
 	}
 
-	public void setIdGranjero(Integer idGranjero) {
-		this.idGranjero = idGranjero;
+	public void setIdGanadero(String idGanadero) {
+		this.idGanadero = idGanadero;
 	}
 
-	public Integer getIdVeterinario() {
+	public String getIdVeterinario() {
 		return idVeterinario;
 	}
 
-	public void setIdVeterinario(Integer idVeterinario) {
+	public void setIdVeterinario(String idVeterinario) {
 		this.idVeterinario = idVeterinario;
 	}
 
-	public Integer getIdMatadero() {
+	public String getIdMatadero() {
 		return idMatadero;
 	}
 
-	public void setIdMatadero(Integer idMatadero) {
+	public void setIdMatadero(String idMatadero) {
 		this.idMatadero = idMatadero;
 	}
 
 	@Override
 	public String toString() {
-		return "Cerdo [id=" + id + ", vacunado=" + vacunado + ", procesado=" + procesado + ", raza=" + raza
-				+ ", idGranjero=" + idGranjero + ", idVeterinario=" + idVeterinario + ", idMatadero=" + idMatadero
+		return "CerdoDTO [id=" + id + ", vacunado=" + vacunado + ", procesado=" + procesado + ", raza=" + raza
+				+ ", idGanadero=" + idGanadero + ", idVeterinario=" + idVeterinario + ", idMatadero=" + idMatadero
 				+ "]";
 	}
 
