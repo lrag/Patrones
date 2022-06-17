@@ -26,9 +26,13 @@ import com.curso.modelo.repositorio.RepositorioProductos;
 @RestController
 public class ProductosEndpoint {
 	
+	//Aqui gestor productos no pinta nada, es solo para pruebas
 	@Autowired private GestorProductos gestorProductos;
 	@Autowired private ColaComandos colaComandos;
 
+	
+	
+	
 	@PostMapping("/productos")
 	public ResponseEntity<Void> altaProducto(@RequestBody ProductoDTO productoDTO){
 		Comando comando = new ComandoInsertarProducto(productoDTO.asProducto(), gestorProductos);

@@ -18,3 +18,5 @@ spring:
         format: YAML      
       discovery:
         instanceId: ${spring.application.name}:${random.value}
+        
+        

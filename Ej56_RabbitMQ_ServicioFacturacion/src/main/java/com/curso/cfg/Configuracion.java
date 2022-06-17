@@ -35,6 +35,11 @@ public class Configuracion {
 		return new RestTemplate();
 	}
 	
+	/////////////////////////////////////////////////
+	// TODAS ESTAS BEANS LAS REGISTRA EL STARTER   //
+	// AQUI LAS VEMOS POR EL INTERÉS DE LA CIENCIA //
+	/////////////////////////////////////////////////
+	
     @Bean
     public ConnectionFactory connectionFactory() {
         CachingConnectionFactory connectionFactory = new CachingConnectionFactory(host, port);

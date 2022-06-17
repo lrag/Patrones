@@ -37,7 +37,7 @@ public class Configuracion {
 		return ds;
 	}		
 	
-	/*
+
 	//Esto lo ponemos solo para que la aplicación solicite al arrancar la creación de una cola 'durable'
 	//en rabbitMQ
 	//Sin esta bean funciona igual pero se crea una cola temporal
@@ -49,7 +49,7 @@ public class Configuracion {
         // auto_delete: false
         return new Queue("colaOrdenesDeCompra", true, false, false);
 	}	
-	*/
+
 	
 	//Esta necesitamos tenerla
 	//Spring Boot registra una RabbitTemplate, pero que recibe un string (json) como payload del mensaje

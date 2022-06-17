@@ -16,6 +16,9 @@ public class OyenteEventos {
 	@Value("${kafka.topic.nombre}") 
 	private String nombreTopic;
 	
+	//En este ejemplo. en vez del projector este yo inyectaría aqui directamente al repositorio
+	//Esto es asi porque el modelo de clases es igual en la aplicacion de los comando y la de las consultas
+	//Si fueran distintas si que vendría bien un projector
 	@Autowired
 	private ProjectorProductos projectorPoductos;
 	

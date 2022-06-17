@@ -37,7 +37,7 @@ public class FacturasRest {
 	}	
 	
 	@PostMapping(path="/facturas")
-	public ResponseEntity<Factura> crearFactura(@RequestBody() Pedido pedido){
+	public ResponseEntity<Factura> facturarPedido(@RequestBody() Pedido pedido){
 		Factura facturaInsertada = gestorFacturas.facturarPedido(pedido);
 		return new ResponseEntity<>(facturaInsertada, HttpStatus.CREATED);
 	}
