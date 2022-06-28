@@ -9,11 +9,8 @@ import com.curso.modelo.entidad.Cliente;
 import com.curso.modelo.entidad.DetallePedido;
 import com.curso.modelo.entidad.Pedido;
 import com.curso.modelo.entidad.Producto;
-import com.curso.modelo.persistencia.ClienteRepositorio;
-import com.curso.modelo.persistencia.DetallePedidoRepositorio;
 import com.curso.modelo.persistencia.PedidoRepositorio;
-import com.curso.modelo.persistencia.ProductoRepositorio;
-import com.curso.modelo.proxy.ClientesRestProxy;
+import com.curso.modelo.proxy.ClientesProxy;
 import com.curso.modelo.proxy.ProductosRestProxy;
 
 @Service
@@ -22,7 +19,7 @@ public class GestorPedidos {
 
 	@Autowired private PedidoRepositorio pedidoRepo;
 	
-	@Autowired private ClientesRestProxy clientesRestProxy;
+	@Autowired private ClientesProxy clientesProxy;
 	@Autowired private ProductosRestProxy productosRestProxy;
 	
 	public Pedido altaPedido(Pedido pedido) {
@@ -33,7 +30,7 @@ public class GestorPedidos {
 		//Buscamos al cliente a partir de su login
 		String login = pedido.getCliente().getLogin();			
 		System.out.println("Login del cliente:"+login);
-		Cliente cliente = clientesRestProxy.buscar(login);
+		Cliente cliente = clientesProxy.buscar(login);
 		pedido.setCliente(cliente);
 		
 		//Comprobamos los datos bancarios

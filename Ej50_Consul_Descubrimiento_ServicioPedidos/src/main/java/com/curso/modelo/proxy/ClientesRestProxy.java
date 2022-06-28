@@ -8,7 +8,7 @@ import com.curso.modelo.entidad.Cliente;
 import com.curso.modelo.persistencia.ClienteRepositorio;
 
 @Component
-public class ClientesRestProxy {
+public class ClientesRestProxy implements ClientesProxy{
 
 	@Autowired private RestTemplate restTemplate;
 	@Autowired private ClienteRepositorio clienteRepo;

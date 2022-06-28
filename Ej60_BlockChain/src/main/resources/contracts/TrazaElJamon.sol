@@ -27,6 +27,7 @@ contract TrazaElJamon {
     string nombre;
   }
   
+  //Los 'atributos' del contrato son el almacenamiento 
   mapping(string => Ganadero) ganaderos;
   mapping(string => Veterinario) veterinarios;
   mapping(string => Matadero) mataderos;

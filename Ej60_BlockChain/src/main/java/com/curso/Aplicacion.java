@@ -33,7 +33,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
   trazaeljamon.contract.owner-address=0xD688dB71A52635388c4F6896D1c59d682587Eb91
   
-- Copiar la clave privada de la cuanta escogida y pegarla en application.properties
+- Copiar la clave privada de la cuenta escogida y pegarla en application.properties
 
   trazaeljamon.contract.owner-privateKey=f76412a5fc4024c0ca17ab4bf0c81b4b61693769c9a898ffd84fef5797477e27
   

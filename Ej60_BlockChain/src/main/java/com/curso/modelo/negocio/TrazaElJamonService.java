@@ -13,6 +13,7 @@ import com.curso.modelo.contrato.proxy.TrazaElJamon;
 public class TrazaElJamonService {
 
 	@Autowired
+	//Este es el proxy que vamos a utilizar para conectar con el blockchain
 	private TrazaElJamon trazaElJamon;
 
 	public CerdoDTO buscarCerdo(String idCerdo) throws Exception {
