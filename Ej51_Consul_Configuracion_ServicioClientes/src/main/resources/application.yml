@@ -27,8 +27,8 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.H2Dialect     
     
-  #bbdd:
-  #  url: ${bbdd.url:jdbc:h2:file:c:/h2/bbdd_cloud_clientes}
+  #datasource:
+  #  url: ${bbdd.url}
   #  driverClassName: org.h2.Driver
   #  username: ${bbdd.username:sa}
   #  password: ${bbdd.password:}    

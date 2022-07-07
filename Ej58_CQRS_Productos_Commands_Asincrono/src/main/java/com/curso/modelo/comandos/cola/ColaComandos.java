@@ -32,9 +32,8 @@ public class ColaComandos {
 	}
 
 	public void offer(Comando comando) {
-		synchronized (colaComandos) {
-			colaComandos.offer(comando);
-		}
+		//LinkedBlockingQueue es thread safe
+		colaComandos.offer(comando);
 	}
 	
 }

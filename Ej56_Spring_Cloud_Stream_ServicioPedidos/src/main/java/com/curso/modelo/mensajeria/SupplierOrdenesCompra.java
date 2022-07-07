@@ -23,7 +23,10 @@ public class SupplierOrdenesCompra implements Supplier<PedidoDTO>{
 	public PedidoDTO get() {
 		PedidoDTO pedido = null;
 		try {
+			System.out.println("==================================================");
+			System.out.println("cola.take()");
 			pedido = cola.take();
+			System.out.println("pedido extraido de la cola!");
 		} catch (InterruptedException e) {
 			System.out.println("==================================================");
 			System.out.println("TAKE");

@@ -1,0 +1,25 @@
+server:
+  port: 9060
+
+spring:
+  application:
+    name: "ServicioProductos_CQRS_Query"
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+      
+    #SPRING CLOUD STREAM:
+    function:
+      definition: oyenteEventos
+
+    stream:
+      bindings:
+        oyenteEventos-in-0.destination: topic-productos-cqrs      
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/productos

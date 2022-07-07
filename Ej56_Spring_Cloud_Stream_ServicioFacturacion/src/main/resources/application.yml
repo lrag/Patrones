@@ -18,13 +18,13 @@ spring:
         format: YAML      
       discovery:
         instanceId: ${spring.application.name}:${random.value}
-        
+       
+    #SPRING CLOUD STREAM:
     function:
-      definition: oyenteOrdenesCompra
+      definition: oyenteEventos
 
     stream:
       bindings:
-        oyenteOrdenesCompra-in-0.destination: topic-ordenes-compra
-
+        oyenteEventos-in-0.destination: topic-productos-cqrs
 
         

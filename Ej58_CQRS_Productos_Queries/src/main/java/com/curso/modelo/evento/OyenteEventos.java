@@ -10,11 +10,6 @@ import com.curso.modelo.negocio.ProjectorProductos;
 
 @Component
 public class OyenteEventos {
-
-	@Value("${kafka.topic.grupo}") 
-	private String idGrupo;
-	@Value("${kafka.topic.nombre}") 
-	private String nombreTopic;
 	
 	//En este ejemplo. en vez del projector este yo inyectaría aqui directamente al repositorio
 	//Esto es asi porque el modelo de clases es igual en la aplicacion de los comando y la de las consultas
@@ -22,20 +17,13 @@ public class OyenteEventos {
 	@Autowired
 	private ProjectorProductos projectorPoductos;
 	
-	public String getIdGrupo() {
-		return idGrupo;
-	}
-
-	public String getNombreTopic() {
-		return nombreTopic;
-	}
-	
-	@KafkaListener(topics = "#{__listener.nombreTopic}", groupId = "#{__listener.idGrupo}")
+	@KafkaListener(topics = "${kafka.topic.nombre}", groupId = "${kafka.topic.grupo}")
 	public void oyenteEventoProducto(EventoProducto eventoProducto) {
 		
 		System.out.println("Evento recibido:"+eventoProducto);
 		
 		Producto producto = eventoProducto.getProducto();
+		//Abierto-Cerrado :)
 		switch (eventoProducto.getTipo()) {
 			case PRODUCTO_CREADO :
 				projectorPoductos.insertar(producto);

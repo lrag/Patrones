@@ -15,18 +15,16 @@ import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 
 @Service
 public class GestorProductos {
-
-	private int contador;
 	
 	@Autowired private ProductoRepositorio productoRepo;
 	@Autowired private CalificacionesProductosProxy calificacionesProductosProxy;
 	
-	//Podemos tener @CircuitBreaker y @BulkHead simultaneamente sin problemas
+	//Podemos tener @CircuitBreaker y @BulkHead simultáneamente sin problemas
     //@CircuitBreaker(name = "gestorProductos-buscarProductoYCalificaciones", fallbackMethod = "buscarProductoSinCalificaciones")    
     @Bulkhead(name = "gestorProductos-buscarProductoYCalificaciones", 
         	  fallbackMethod = "fallbackBuscarProductoYCalificaciones", 
         	  type = Bulkhead.Type.SEMAPHORE)
-    public Optional<Producto> buscarProductoYCalificaciones(String codigo) throws Exception{
+    public synchronized Optional<Producto> buscarProductoYCalificaciones(String codigo) throws Exception{
     	System.out.println("========================================");		
     	System.out.println("Ejecutando el método gestorProductos.buscarProductoYCalificaciones");
     	return productoRepo

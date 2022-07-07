@@ -1,0 +1,25 @@
+server:
+  port: 9050
+
+spring:
+  application:
+    name: "ServicioProductos_CQRS_Command"
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+
+  datasource:
+    url: jdbc:h2:file:c:/h2/bbdd_cloud_productos_cqrs_command_2
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect

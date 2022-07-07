@@ -19,8 +19,7 @@ public class OyenteOrdenesCompra implements Consumer<Pedido>{
 		//Esto es lógica de control
 		System.out.println("========================================");
 		System.out.println("Pedido recibido: " + pedido);
-		gestorFacturas.facturarPedido(pedido);
-		
+		gestorFacturas.facturarPedido(pedido);		
 	}	
 	
 }

@@ -32,7 +32,15 @@ public class GestorClientes {
 		return clienteRepo.save(cliente);
 	}
 
+	public void modificar(Cliente cliente) {
+		//Lógica de negocio...
+		//...
+		clienteRepo.save(cliente);		
+	}
+	
 	public void borrar(String login) {
+		//Lógica de negocio...
+		//...
 		clienteRepo.deleteByLogin(login);		
 	}
 	

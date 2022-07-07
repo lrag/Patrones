@@ -10,9 +10,10 @@ import com.curso.modelo.entidad.Cliente;
 import com.curso.modelo.persistencia.ClienteRepositorio;
 
 @Service
+@RefreshScope
 @Transactional
 public class GestorClientes {
-
+	
 	@Autowired
 	private ClienteRepositorio clienteRepo;
 

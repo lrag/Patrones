@@ -3,6 +3,8 @@ package com.curso.modelo.negocio;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,7 @@ import com.curso.modelo.proxy.CalificacionesProductosProxy;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
 @Service
+@Transactional
 public class GestorProductos {
 
 	@Autowired private ProductoRepositorio productoRepo;
@@ -42,12 +45,12 @@ public class GestorProductos {
 			.or(() -> Optional.empty());
 	}	
 	
-    @CircuitBreaker(name = "gestorProductos-buscarProductoYCalificaciones", 
+	@CircuitBreaker(name = "gestorProductos-buscarProductoYCalificaciones", 
     		        fallbackMethod = "fallbackBuscarProductoYCalificaciones")    
 	public Optional<Producto> buscarProductoYCalificaciones(String codigo) throws Exception{
-    	System.out.println("========================================");		
-    	System.out.println("Ejecutando el método gestorProductos.buscarProductoYCalificaciones");
-    	return productoRepo
+		System.out.println("========================================");		
+		System.out.println("Ejecutando el método gestorProductos.buscarProductoYCalificaciones");
+		return productoRepo
 			.findByCodigo(codigo)
 			.map(producto -> {
 				//NO TIENE TRY CATCH
