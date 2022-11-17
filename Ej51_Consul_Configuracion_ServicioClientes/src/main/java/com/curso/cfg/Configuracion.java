@@ -2,12 +2,10 @@ package com.curso.cfg;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -16,9 +14,9 @@ public class Configuracion {
 	
 	@Bean
 	@RefreshScope //Es un singleton que se volverá a crear si cambia la configuracion
-	public DataSource dataSource(@Value("${bbdd.url}") String url, 
-			                     @Value("${bbdd.username:sa}") String username, 
-			                     @Value("${bbdd.password:}") String password ) {
+	public DataSource dataSource(@Value("${spring.datasource.url}") String url, 
+			                     @Value("${spring.datasource.username:sa}") String username, 
+			                     @Value("${spring.datasource.password:}") String password ) {
 		
 		System.out.println("=====================================================");
 		System.out.println("Creando el datasource:"+url);

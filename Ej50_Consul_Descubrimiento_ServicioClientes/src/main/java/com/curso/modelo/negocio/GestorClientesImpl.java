@@ -1,9 +1,10 @@
 package com.curso.modelo.negocio;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.curso.modelo.entidad.Cliente;
@@ -29,6 +30,10 @@ public class GestorClientesImpl implements GestorClientes {
 		//LN...
 		//...
 		clienteRepo.deleteByLogin(login);		
+	}
+	
+	public List<Cliente> listarTodos(){
+		return clienteRepo.findAll();
 	}
 	
 }

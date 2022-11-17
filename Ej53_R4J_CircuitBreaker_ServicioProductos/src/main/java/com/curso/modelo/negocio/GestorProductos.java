@@ -53,6 +53,13 @@ public class GestorProductos {
 		return productoRepo
 			.findByCodigo(codigo)
 			.map(producto -> {
+				
+				try {
+					Thread.sleep(2500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
 				//NO TIENE TRY CATCH
 				List<CalificacionProducto> calificaciones = calificacionesProductosProxy
 					.buscarCalificacionesProducto(producto.getCodigo());

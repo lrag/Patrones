@@ -2,7 +2,6 @@ package com.curso.cfg;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
@@ -13,7 +12,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 public class Configuracion {
-
+	
 	//no es necesario registrar aquí esta bean
 	@Bean
 	@RefreshScope
@@ -40,7 +39,7 @@ public class Configuracion {
 @Component
 class Clase1 {
 	
-	@Value("${cfg.prefijo")
+	@Value("${cfg.prefijo:valor por defecto}")
 	private String prefijo;
 
 	public void actualizar() {

@@ -21,7 +21,7 @@ public class Prueba {
 		Cliente c = new Cliente(1,"CLI-1","Harry Callahan","C/Falsa,123","555123");
 		
 		Producto p1 = new Producto(1,"PROD-1","Chisme","Chismes de Santa Pola S.A.");
-		Producto p2 = new Producto(2,"PROD-2","Bártulo","Ibérica de Bártulos S.A.");
+		Producto p2 = new Producto(2,"PROD-2","Bï¿½rtulo","Ibï¿½rica de Bï¿½rtulos S.A.");
 		Producto p3 = new Producto(2,"PROD-3","Artilugio","Artilugios Reunidos S.A.");
 
 		DetalleFactura df1 = new DetalleFactura(1,1d,10d,p1);
@@ -41,7 +41,8 @@ public class Prueba {
 		EventoFactura ef3 = new EventoFactura(3, LocalDateTime.now(),"Tal y pascual");
 		List<EventoFactura> eventos = List.of(ef1,ef2,ef3);
 		
-		Factura f0 = new Factura(1, "FAC-1", LocalDate.now(), c, detalles, cobros, eventos);
+		//Raro es que tengamos todos los valores
+		//Factura f0 = new Factura(1, "FAC-1", LocalDate.now(), c, detalles, cobros, eventos);
 		
 		Factura f1 = new FacturaBuilderImplementation("FAC-1", LocalDate.now())
 				.id(1)

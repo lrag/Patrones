@@ -18,6 +18,7 @@ public class Factura {
 	private double total;
 
 	/*
+	//En vez de tener 400 constructores...
 	public Factura() {
 		super();
 	}
@@ -55,21 +56,6 @@ public class Factura {
 	//...
 	
 	*/
-	
-	public Factura() {
-		super();
-	}
-	
-	public Factura(int id, String codigo, LocalDate fecha, Cliente cliente, List<DetalleFactura> detalles, List<CobroFactura> cobros, List<EventoFactura> eventos) {
-		super();
-		this.id = id;
-		this.codigo = codigo;
-		this.fecha = fecha;
-		this.cliente = cliente;
-		setDetalles(detalles);
-		this.cobros = cobros;
-		this.eventos = eventos;
-	}	
 
 	public int getId() {
 		return id;

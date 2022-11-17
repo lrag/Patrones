@@ -30,8 +30,8 @@ consul-config.json:
 }
 
 consul agent -config-file=consul-config.json
-
 */
+
 @SpringBootApplication
 public class Aplicacion implements CommandLineRunner{
 
@@ -42,7 +42,6 @@ public class Aplicacion implements CommandLineRunner{
 	}
 	
 	public void run(String...args) {
-		
 		System.out.println("=============================");		
 		if(clienteRepo.count() == 0) {
 			clienteRepo.save(new Cliente(1,"lew","Lew Archer","C/Tal,123","555","lew@archer.com","banco 1"));
@@ -51,7 +50,6 @@ public class Aplicacion implements CommandLineRunner{
 			clienteRepo.save(new Cliente(4,"jesus","Jesus Witness","C/Falsa,123","555","jotero@greatfarandulaindustries.es","banco 4"));
 			clienteRepo.save(new Cliente(5,"agente","El agente de la Continental","C/Pascualillo,123","555","agente@continental.com","banco 5"));
 		}
-			
 	}
 
 }

@@ -12,6 +12,8 @@ import com.curso.modelo.entidad.Factura;
 
 public class FacturaBuilderImplementation implements FacturaBuilder{
 
+	//El builder tiene un estado. Lo utilizará para crear la factura
+	//El builder NO ES UNA FACTURA
 	private int id;
 	private String codigo;
 	private LocalDate fecha;
@@ -74,7 +76,15 @@ public class FacturaBuilderImplementation implements FacturaBuilder{
 	
 	@Override
 	public Factura build() {
-		return new Factura(id, codigo, fecha, cliente, detalles, cobros, eventos);
+		Factura f = new Factura();
+		f.setId(id);
+		f.setCodigo(codigo);
+		f.setFecha(fecha);
+		f.setCliente(cliente);
+		f.setDetalles(detalles);
+		f.setCobros(cobros);
+		f.setEventos(eventos);
+		return f;		
 	}
 
 }

@@ -10,3 +10,4 @@ spring:
       username: root
       password: root
       fail-fast: true    
+
