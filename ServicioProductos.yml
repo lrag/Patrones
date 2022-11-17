@@ -3,6 +3,9 @@ server:
   tomcat:
     threads:
       max: 6
+      
+management:
+  endpoints.web.exposure.include: "*"      
 
 spring:
 
