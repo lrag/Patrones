@@ -2,6 +2,7 @@ package com.curso.modelo.mensajeria;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import org.springframework.stereotype.Component;
@@ -35,5 +36,30 @@ public class SupplierOrdenesCompra implements Supplier<PedidoDTO>{
 		}
 		return pedido;
 	}
-
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

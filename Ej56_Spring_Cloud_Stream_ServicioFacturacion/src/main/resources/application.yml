@@ -21,10 +21,10 @@ spring:
        
     #SPRING CLOUD STREAM:
     function:
-      definition: oyenteEventos
+      definition: oyenteOrdenesCompra
 
     stream:
       bindings:
-        oyenteEventos-in-0.destination: topic-productos-cqrs
+        oyenteOrdenesCompra-in-0.destination: cola-pedidos
 
         

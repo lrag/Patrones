@@ -20,6 +20,10 @@ spring:
         watch:
           enabled: true
           delay: 5000  
+          
+    #SPRING CLOUD STREAM:
+    function:
+      definition: supplierOrdenesDeCompra          
  
   rabbitmq:
     host: localhost

@@ -22,13 +22,12 @@ spring:
           delay: 5000 
     
     #SPRING CLOUD STREAM
-             
     function:
       definition: supplierOrdenesCompra
 
     stream:
       bindings:
-        supplierOrdenesCompra-out-0.destination: topic-ordenes-compra
+        supplierOrdenesCompra-out-0.destination: cola-pedidos
 
   rabbitmq:
     host: localhost

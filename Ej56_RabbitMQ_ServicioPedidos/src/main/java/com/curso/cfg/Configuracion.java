@@ -35,8 +35,7 @@ public class Configuracion {
 		ds.setUsername(username);
 		ds.setPassword(password);		
 		return ds;
-	}		
-	
+	}
 
 	//Esto lo ponemos solo para que la aplicación solicite al arrancar la creación de una cola 'durable'
 	//en rabbitMQ

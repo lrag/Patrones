@@ -11,10 +11,7 @@ import com.curso.modelo.entidad.Cliente;
 import com.curso.modelo.entidad.DetallePedido;
 import com.curso.modelo.entidad.Pedido;
 import com.curso.modelo.entidad.Producto;
-import com.curso.modelo.persistencia.ClienteRepositorio;
-import com.curso.modelo.persistencia.DetallePedidoRepositorio;
 import com.curso.modelo.persistencia.PedidoRepositorio;
-import com.curso.modelo.persistencia.ProductoRepositorio;
 import com.curso.modelo.proxy.ClientesRestProxy;
 import com.curso.modelo.proxy.ProductosRestProxy;
 
