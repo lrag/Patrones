@@ -17,16 +17,16 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class Configuracion {
 
-	@Value("localhost")
+	@Value("${spring.rabbitmq.host}")
 	private String host;
 
-	@Value("5672")
+	@Value("${spring.rabbitmq.port}")
 	private int port;
 
-	@Value("guest")
+	@Value("${spring.rabbitmq.username}")
 	private String username;
 
-	@Value("guest")
+	@Value("${spring.rabbitmq.password}")
 	private String password;
 	
 	@Bean
@@ -41,7 +41,7 @@ public class Configuracion {
 	/////////////////////////////////////////////////
 	
     @Bean
-    public ConnectionFactory connectionFactory() {
+    ConnectionFactory connectionFactory() {
         CachingConnectionFactory connectionFactory = new CachingConnectionFactory(host, port);
         connectionFactory.setUsername(username);
         connectionFactory.setPassword(password);
@@ -50,12 +50,12 @@ public class Configuracion {
     }
 
     @Bean
-    public AmqpAdmin amqpAdmin() {
+    AmqpAdmin amqpAdmin() {
         return new RabbitAdmin(connectionFactory());
     }
 
     @Bean
-    public Queue colaOrdenesDeCompra() {
+    Queue colaOrdenesDeCompra() {
         // name: colaOrdenesDeCompra
         // durable    : true  <--
         // exclusive  : false
@@ -64,14 +64,14 @@ public class Configuracion {
     }	
 	
     @Bean
-    public MessageHandlerMethodFactory messageHandlerMethodFactory() {
+    MessageHandlerMethodFactory messageHandlerMethodFactory() {
         DefaultMessageHandlerMethodFactory messageHandlerMethodFactory = new DefaultMessageHandlerMethodFactory();
         messageHandlerMethodFactory.setMessageConverter(consumerJackson2MessageConverter());
         return messageHandlerMethodFactory;
     }
 
     @Bean
-    public MappingJackson2MessageConverter consumerJackson2MessageConverter() {
+    MappingJackson2MessageConverter consumerJackson2MessageConverter() {
         return new MappingJackson2MessageConverter();
     }	
 	

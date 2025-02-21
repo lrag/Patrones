@@ -40,7 +40,7 @@ public class Aplicacion implements CommandLineRunner{
 	public static void main(String[] args) {
 		SpringApplication.run(Aplicacion.class, args);
 	}
-	
+
 	public void run(String...args) {
 		System.out.println("=============================");		
 		if(clienteRepo.count() == 0) {

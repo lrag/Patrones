@@ -64,8 +64,7 @@ public class GestorPedidos {
 		//una factura SIN CONOCERLO
 		//
 		//Y aqui deberiamos estar utilizando un PROXY!
-		//
-		
+		//		
 		rabbitTemplate.convertAndSend("colaOrdenesDeCompra",new PedidoDTO(pedido));	
 
 		/*

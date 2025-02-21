@@ -12,9 +12,12 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 public class Configuracion {
 	
+	
 	@Bean
-	@RefreshScope //Es un singleton que se volverá a crear si cambia la configuracion
-	public DataSource dataSource(@Value("${spring.datasource.url}") String url, 
+	//@Scope("singleton")
+	@RefreshScope
+	//public DataSource dataSource(@Value("${spring.datasource.url}") String url, 
+	public DataSource dataSource(@Value("${bbdd.url}") String url, 
 			                     @Value("${spring.datasource.username:sa}") String username, 
 			                     @Value("${spring.datasource.password:}") String password ) {
 		
@@ -28,6 +31,8 @@ public class Configuracion {
 		ds.setPassword(password);		
 		return ds;
 	}
+	
+	
 	
 }
 

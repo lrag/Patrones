@@ -23,6 +23,8 @@ public class GestorClientesImpl implements GestorClientes {
 		return clienteRepo.save(cliente);
 	}
 	
+	//public void modificar()
+	
 	@Override
 	public void borrar(String login) {
 		//LN...

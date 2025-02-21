@@ -7,18 +7,19 @@ spring:
 
   cloud:
     consul:
-      host: localhost
-      port: 8500
+      #host: localhost
+      #port: 8500
       discovery:
         instanceId: ${spring.application.name}:${random.value}
 
   datasource:
-    url: jdbc:h2:file:c:/h2/bbdd_cloud_clientes_OTRA
+    url: jdbc:h2:file:c:/h2/bbdd_cloud_clientes
     driverClassName: org.h2.Driver
     username: sa
     password: 
         
-  jpa:
+  jpa: 
+    open-in-view: false
     show-sql: true
     hibernate:
       ddl-auto: update

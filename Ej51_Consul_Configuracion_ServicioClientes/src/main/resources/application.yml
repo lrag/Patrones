@@ -17,6 +17,8 @@ spring:
       config:
         enabled: true
         fail-fast: true
+        #'config' es el valor por defecto'
+        prefix: config         
         watch:
           enabled: true
           delay: 10000  
@@ -27,12 +29,16 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.H2Dialect     
     
-  #datasource:
-  #  url: ${bbdd.url}
-  #  driverClassName: org.h2.Driver
-  #  username: ${bbdd.username:sa}
-  #  password: ${bbdd.password:}    
+  datasource:
+    #url: ${spring.datasource.url}
+    #url: ${bbdd.url}
+    driverClassName: org.h2.Driver
+    username: sa
+    #username: ${spring.datasource.username}
+    #password: ${spring.datasource.password}
+    password:    
     
+
 
 
 

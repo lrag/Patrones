@@ -2,6 +2,7 @@ package com.curso.modelo.negocio;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import com.curso.modelo.persistencia.ProductoRepositorio;
 import com.curso.modelo.proxy.CalificacionesProductosProxy;
 
 import io.github.resilience4j.bulkhead.annotation.Bulkhead;
+import io.github.resilience4j.retry.annotation.Retry;
 
 @Service
 public class GestorProductos {
@@ -24,7 +26,7 @@ public class GestorProductos {
     @Bulkhead(name = "gestorProductos-buscarProductoYCalificaciones", 
         	  fallbackMethod = "fallbackBuscarProductoYCalificaciones", 
         	  type = Bulkhead.Type.SEMAPHORE)
-    public synchronized Optional<Producto> buscarProductoYCalificaciones(String codigo) throws Exception{
+    public Optional<Producto> buscarProductoYCalificaciones(String codigo) throws Exception{
     	System.out.println("========================================");		
     	System.out.println("Ejecutando el método gestorProductos.buscarProductoYCalificaciones");
     	return productoRepo
@@ -42,7 +44,7 @@ public class GestorProductos {
 	public Optional<Producto> fallbackBuscarProductoYCalificaciones(String codigo, Exception e) throws Exception {
 		System.out.println("========================================");		
 		System.out.println("FALLBACK!!!! "+e.getMessage());
-		throw new Exception("No tenemos recursos para buscar el producto con sus calificaciones :(");
+		throw new Exception("No tenemos recursos para buscar el producto con sus calificaciones :( ");
 	}  	  
 	
 	public Producto insertar(Producto producto) {

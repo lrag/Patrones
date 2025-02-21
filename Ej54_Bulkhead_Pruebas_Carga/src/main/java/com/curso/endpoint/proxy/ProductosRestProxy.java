@@ -16,11 +16,11 @@ public class ProductosRestProxy {
 	//private WebClient webClient = WebClient.create("http://localhost:8080");
 
 	@Autowired
-	private WebClient webClientClientes;
+	private WebClient webClientProductos;
 	
 	//Este va como un tiro
 	public Flux<Producto> listar() {		
-		return webClientClientes
+		return webClientProductos
 				.get()
 				.uri("/productos")
 				.retrieve()
@@ -30,7 +30,7 @@ public class ProductosRestProxy {
 
 	//Este tardará 4 segundos
 	public Mono<Producto> buscarConCalificaciones(String codigo) {		
-		return webClientClientes
+		return webClientProductos
 				.get()
 				.uri("/productos/"+codigo+"/calificaciones")
 				.retrieve()
@@ -39,7 +39,7 @@ public class ProductosRestProxy {
 	}
 
 	public Mono<Producto> insertar(Producto cliente) {
-	    return webClientClientes
+	    return webClientProductos
 	    	.post()
 	        .uri("/productos")
 	        .body(Mono.just(cliente), Producto.class)

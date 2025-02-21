@@ -17,8 +17,8 @@ public class Configuracion {
 	@Bean
 	@RefreshScope
 	public DataSource dataSource(@Value("${spring.datasource.url}") String url, 
-			                     @Value("${spring.datasource.username}") String username, 
-			                     @Value("${spring.datasource.password}") String password ) {
+			                     @Value("${spring.datasource.username:sa}") String username, 
+			                     @Value("${spring.datasource.password:}") String password ) {
 		
 		System.out.println("=====================================================");
 		System.out.println("Creando el datasource:"+url);

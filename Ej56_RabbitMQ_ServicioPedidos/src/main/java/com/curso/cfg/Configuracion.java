@@ -48,7 +48,6 @@ public class Configuracion {
         // auto_delete: false
         return new Queue("colaOrdenesDeCompra", true, false, false);
 	}	
-
 	
 	//Esta necesitamos tenerla
 	//Spring Boot registra una RabbitTemplate, pero que recibe un string (json) como payload del mensaje

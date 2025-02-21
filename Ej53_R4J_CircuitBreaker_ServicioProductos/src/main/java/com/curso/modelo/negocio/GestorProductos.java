@@ -1,5 +1,6 @@
 package com.curso.modelo.negocio;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +26,7 @@ public class GestorProductos {
 	///////////////////////
 	//SIN CIRCUIT BREAKER//
 	///////////////////////
+	
 	public Optional<Producto> buscarProductoYCalificaciones_Sin_CircuitBreaker(String codigo) {
     	return productoRepo
 			.findByCodigo(codigo)
@@ -38,12 +40,14 @@ public class GestorProductos {
 					System.out.println("========================================");
 					System.out.println("Servicio de calificaciones no disponible!");
 					System.out.println(e.getMessage());
+					calificaciones = new ArrayList<>();
 				}		
 				producto.setCalificaciones(calificaciones);
 				return producto;					
 			})
 			.or(() -> Optional.empty());
 	}	
+	
 	
 	@CircuitBreaker(name = "gestorProductos-buscarProductoYCalificaciones", 
     		        fallbackMethod = "fallbackBuscarProductoYCalificaciones")    
@@ -60,7 +64,7 @@ public class GestorProductos {
 					e.printStackTrace();
 				}
 				
-				//NO TIENE TRY CATCH
+				//NO TIENE TRY-CATCH
 				List<CalificacionProducto> calificaciones = calificacionesProductosProxy
 					.buscarCalificacionesProducto(producto.getCodigo());
 				producto.setCalificaciones(calificaciones);

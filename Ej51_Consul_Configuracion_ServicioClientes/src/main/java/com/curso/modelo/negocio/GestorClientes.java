@@ -12,18 +12,18 @@ import com.curso.modelo.persistencia.ClienteRepositorio;
 
 @Service
 @Transactional
-//@RefreshScope
+@RefreshScope
 public class GestorClientes {
 
-	//@Value("${valor}")
-	//private String valor;
+	private String valor;
 
 	@Autowired
 	private ClienteRepositorio clienteRepo;
 
-	public GestorClientes() {
+	public GestorClientes(@Value("${bbdd.url}") String valor) {
 		super();
-		System.out.println("Instanciando GestorClientes");
+		this.valor = valor;
+		System.out.println("Instanciando GestorClientes: "+this.valor);
 	}
 
 	public Cliente insertar(Cliente cliente) {

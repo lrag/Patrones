@@ -18,7 +18,9 @@ public class OyenteOrdenesDeCompra {
     @RabbitListener(queues = "colaOrdenesDeCompra")
     public void listen(String json) {
     	
+    	//
     	//Esto es lógica de control
+    	//
     	
     	System.out.println("========================================");
         System.out.println("Pedido recibido: " + json);

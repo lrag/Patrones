@@ -33,7 +33,7 @@ public class ClientesRest {
 				.map(c -> new ResponseEntity<ClienteDTO>(new ClienteDTO(c), HttpStatus.OK))
 				.orElse(new ResponseEntity<ClienteDTO>(HttpStatus.NOT_FOUND));
 	}
-
+	
 	@GetMapping(path="/clientes")
 	public List<ClienteDTO> listar(){
 		return clienteRepo
@@ -48,6 +48,9 @@ public class ClientesRest {
 		Cliente clienteInsertado = gestorClientes.insertar(clienteDto.asCliente());
 		return new ResponseEntity<ClienteDTO>(new ClienteDTO(clienteInsertado), HttpStatus.CREATED);
 	}
+	
+	//@PutMapping(path="/clientes/{login}
+	
 	
 	@DeleteMapping(path="/clientes/{login}")
 	public ResponseEntity<Object> borrar(@PathVariable() String login){

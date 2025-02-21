@@ -22,6 +22,7 @@ public class CalificacionProductosRest {
 	@Autowired private GestorCalificacionesProducto gestorCalificacionesProductos;
 	@Autowired private CalificacionProductoRepository calificacionProductoRepo;
 	
+	//GET /productos/id/calificacione
 	@GetMapping(path="/calificaciones_productos/{id}")
 	public ResponseEntity<CalificacionProducto> buscar(@PathVariable("id") Integer id){
 		return calificacionProductoRepo
@@ -44,6 +45,7 @@ public class CalificacionProductosRest {
 
 		System.out.println("=======================================");
 		System.out.println("Buscando las calificaciones del producto:"+codigoProducto);
+		
 		long fin = System.currentTimeMillis()+4000;
 		while(System.currentTimeMillis()<fin) {
 			//Haciendo cosas y más cosas

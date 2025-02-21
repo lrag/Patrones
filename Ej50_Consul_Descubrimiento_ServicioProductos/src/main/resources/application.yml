@@ -16,7 +16,7 @@ spring:
         instanceId: ${spring.application.name}:${random.value}
 
   datasource:
-    url: jdbc:h2:file:c:/h2/bbdd_cloud_productos_
+    url: jdbc:h2:file:c:/h2/bbdd_cloud_productos
     driverClassName: org.h2.Driver
     username: sa
     password: 

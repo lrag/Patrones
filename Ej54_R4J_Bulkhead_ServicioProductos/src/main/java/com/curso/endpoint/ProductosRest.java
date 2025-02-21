@@ -30,8 +30,7 @@ public class ProductosRest {
 		return 	productoRepo
 			.findByCodigo(codigo)
 			.map(p -> {
-				System.out.println("Encontrado:"+p);
-				
+				System.out.println("Encontrado:"+p);				
 				return new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK);
 			})
 			.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));

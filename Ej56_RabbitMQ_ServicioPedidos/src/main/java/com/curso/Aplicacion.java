@@ -13,6 +13,8 @@ import com.curso.modelo.persistencia.PedidoRepositorio;
 
 /*
 
+docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.13-management
+
 RabbitMQ :
 http://localhost:15672/#/connections
 guest
@@ -48,59 +50,10 @@ guest
 */
 
 @SpringBootApplication
-public class Aplicacion implements CommandLineRunner {
+public class Aplicacion {
 
-	@Autowired private ClienteRepositorio clienteRepo;
-	@Autowired private PedidoRepositorio pedidoRepo;
-	@Autowired private GestorPedidos gestorPedidos;
-	
-	@Value("${bbdd.url:valor_por_defecto}")
-	private String url;	
-	
 	public static void main(String[] args) {
 		SpringApplication.run(Aplicacion.class, args);
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		
-		System.out.println("========================================");
-		System.out.println("Url a la base de datos: "+url);
-		if(clienteRepo.count() == 0) {
-			clienteRepo.save(new Cliente(2,"philip","Philip Marlowe","banco 2"));
-		}
-		
-		System.out.println("================================");
-		pedidoRepo.findAll().forEach( p -> System.out.println());
-		
-		/*
-		Pedido p = new Pedido();
-		Cliente c = new Cliente();
-		c.setLogin("sam");
-		p.setCliente(c);
-		
-		Producto p1 = new Producto();
-		p1.setCodigo("PROD-1");
-		Producto p2 = new Producto();
-		p2.setCodigo("PROD-3");
-		
-		DetallePedido dp1 = new DetallePedido();
-		dp1.setProducto(p1);
-		dp1.setCantidad(1);
-		
-		DetallePedido dp2 = new DetallePedido();
-		dp2.setProducto(p2);
-		dp2.setCantidad(5);
-		
-		List<DetallePedido> detalles = new ArrayList<>();
-		detalles.add(dp1);
-		detalles.add(dp2);
-		
-		p.setDetalles(detalles);
-		
-		gestorPedidos.altaPedido(p);
-		*/
-		
 	}
 
 }

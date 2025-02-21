@@ -19,7 +19,7 @@ import com.curso.modelo.persistencia.PedidoRepositorio;
 
 /*
 {
-	"fecha" : "5/5/2021",
+	"fecha" : "27/11/2023",
 	"estado" : "pendiente",
 	"cliente" : {
 		"login" : "sam"
@@ -62,9 +62,11 @@ public class Aplicacion implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		System.out.println("================================");
+		/*
 		if(clienteRepo.count() == 0) {
 			clienteRepo.save(new Cliente(null,"philip","Philip Marlowe","banco 2"));
 		}
+		*/
 		
 		//System.out.println("================================");
 		//pedidoRepo.findAll().forEach( p -> System.out.println(p.getDetalles()));

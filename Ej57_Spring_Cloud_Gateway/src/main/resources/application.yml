@@ -40,3 +40,9 @@ spring:
       discovery:
         register: false
         registerHealthCheck: false
+        
+  
+  
+            
+        
+        
