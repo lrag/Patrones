@@ -42,6 +42,9 @@ public class GestorPedidos {
 		for(DetallePedido dp : pedido.getDetalles()) {
 			String codigoProducto = dp.getProducto().getCodigo();
 			Producto producto = productosRestProxy.buscar(codigoProducto);
+			
+			System.out.println("PRODUCTO: "+producto);
+			
 			dp.setProducto(producto);
 			dp.setPrecio(producto.getPrecio());
 			dp.setPedido(pedido);

@@ -28,6 +28,9 @@ public class ClientesRest {
 	
 	@GetMapping(path="/clientes/{login}")
 	public ResponseEntity<ClienteDTO> buscar(@PathVariable("login") String login){
+		
+		System.out.println("BUSCAR");
+		
 		return clienteRepo
 				.findByLogin(login)
 				.map(c -> new ResponseEntity<ClienteDTO>(new ClienteDTO(c), HttpStatus.OK))
@@ -45,6 +48,9 @@ public class ClientesRest {
 	
 	@PostMapping(path="/clientes")
 	public ResponseEntity<ClienteDTO> insertar(@RequestBody() ClienteDTO clienteDto){
+		
+		System.out.println("INSERTAR");
+		
 		Cliente clienteInsertado = gestorClientes.insertar(clienteDto.asCliente());
 		return new ResponseEntity<ClienteDTO>(new ClienteDTO(clienteInsertado), HttpStatus.CREATED);
 	}

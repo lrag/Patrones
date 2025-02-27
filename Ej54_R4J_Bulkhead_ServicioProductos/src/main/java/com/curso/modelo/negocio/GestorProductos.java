@@ -21,6 +21,25 @@ public class GestorProductos {
 	@Autowired private ProductoRepositorio productoRepo;
 	@Autowired private CalificacionesProductosProxy calificacionesProductosProxy;
 	
+	/////////////////////////////////
+	int numeroHilos;	
+    public Producto buscarProductoYCalificaciones_BULKHEAD_A_MANO(String codigo) throws Exception{
+    	synchronized(this) {
+	    	if(numeroHilos > 5) {
+	    		throw new Exception("NO MAS");
+	    	}    	
+	    	numeroHilos++;
+    	}
+    	System.out.println("========================================");		
+    	//
+    	// LN
+    	//
+    	synchronized(this) {
+    		numeroHilos--;
+    	}
+    	return new Producto();
+	}	
+	
 	//Podemos tener @CircuitBreaker y @BulkHead simultáneamente sin problemas
     //@CircuitBreaker(name = "gestorProductos-buscarProductoYCalificaciones", fallbackMethod = "buscarProductoSinCalificaciones")    
     @Bulkhead(name = "gestorProductos-buscarProductoYCalificaciones", 

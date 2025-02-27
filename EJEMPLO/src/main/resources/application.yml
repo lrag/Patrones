@@ -1,0 +1,20 @@
+server:
+  port: 10000
+
+spring:
+  application:
+    name: "ServicioPeliculas"
+
+  datasource:
+    url: jdbc:h2:file:c:/h2/bbdd_flin
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 
+        
+  jpa: 
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect        
+

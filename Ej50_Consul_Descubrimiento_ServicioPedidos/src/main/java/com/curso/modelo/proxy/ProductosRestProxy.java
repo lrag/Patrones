@@ -29,4 +29,10 @@ public class ProductosRestProxy {
 				});				
 	}
 	
+	/*
+	public Producto buscar_(String codigo){
+		return restTemplate.getForEntity("http://ServicioProductos/productos/"+codigo, Producto.class).getBody();
+	}
+	*/	
+	
 }

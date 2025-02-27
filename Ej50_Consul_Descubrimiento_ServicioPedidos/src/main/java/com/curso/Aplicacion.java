@@ -1,18 +1,10 @@
 package com.curso;
 
-import java.lang.reflect.Modifier;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.curso.modelo.entidad.Cliente;
-import com.curso.modelo.entidad.Pedido;
 import com.curso.modelo.negocio.GestorPedidos;
 import com.curso.modelo.persistencia.ClienteRepositorio;
 import com.curso.modelo.persistencia.PedidoRepositorio;

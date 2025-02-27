@@ -23,7 +23,7 @@ public class Configuracion {
 	
 	@Bean
 	@RefreshScope
-	DataSource dataSource(@Value("${bbdd.url:jdbc:h2:file:c:/h2/bbdd_cloud_productos}") String url, 
+	DataSource dataSource(@Value("${bbdd.url:jdbc:h2:file:c:/h2/bbdd_cloud_productos_3}") String url, 
 			              @Value("${bbdd.username:sa}") String username, 
 			              @Value("${bbdd.password:}") String password ) {
 		HikariDataSource ds = new HikariDataSource();

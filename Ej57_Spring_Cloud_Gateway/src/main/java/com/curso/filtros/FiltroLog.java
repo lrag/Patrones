@@ -5,6 +5,7 @@ import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFac
 import org.springframework.stereotype.Component;
 
 @Component
+//Esta bean NO es el filtro: su responsabilidad de esta bean es crearlo y devolverlo
 public class FiltroLog extends AbstractGatewayFilterFactory{
 
 	@Override
@@ -17,6 +18,16 @@ public class FiltroLog extends AbstractGatewayFilterFactory{
 
 }
 
+/*
+class GF implements GatewayFilter {
 
+	@Override
+	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+		System.out.println("Petición recibida:"+exchange.getRequest().getURI());
+		return chain.filter(exchange);
+	}
+	
+}
+*/
 
 
