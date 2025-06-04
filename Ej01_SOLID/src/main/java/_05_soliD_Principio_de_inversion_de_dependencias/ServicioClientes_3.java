@@ -1,8 +1,8 @@
-package _05_soliD_Principio_de_inversion_de_dependencias_parte1;
+package _05_soliD_Principio_de_inversion_de_dependencias;
 
 public class ServicioClientes_3 {
 
-	private ClienteDao clienteDao ;
+	private ClienteDao clienteDao;
 	
 	//Inyección de dependencias: Esto está bien si tienes un contenedor
 	//IoC también
@@ -20,3 +20,4 @@ public class ServicioClientes_3 {
 	}
 	
 }
+

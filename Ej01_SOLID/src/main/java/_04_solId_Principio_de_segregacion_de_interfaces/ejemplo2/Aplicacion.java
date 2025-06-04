@@ -4,9 +4,9 @@ public class Aplicacion {
 
 	public static void main(String[] args) {
 		
-		Gallina ga = new Gallina();
-		Gorrion go = new Gorrion();
-		Pato lucas = new Pato();
+		Andador ga = new Gallina();
+		Volador go = new Gorrion();
+		Nadador lucas = new Pato();
 		
 		//ga.volar(); //Para qué?
 		//go.nadar(); //??

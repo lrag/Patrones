@@ -21,6 +21,25 @@ public class EmisorMensajes_MAL {
 	}
 	
 	//Si lo huberamos hecho así también estaríamos dejando esta clase abierta
+	//Pero estaríamos respetando la S
+	public void enviarMensaje_BIS(String destinatario, String texto, String tipo) {
+
+		//Tantas cosas aqui...
+		switch(tipo) {
+			case "SMS" :
+				enviarMensajeSMS();
+				break;		
+			case "CorreoE" :
+				enviarMensajeCorreoE();
+				break;		
+			case "Paloma mensajera" :
+				enviarMensajePalomaMensajera();
+				break;	
+			default: throw new RuntimeException("Método no soportado");
+		}
+		
+	}	
+		
 	public void enviarMensajeSMS() {
 		
 	}

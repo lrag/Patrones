@@ -10,6 +10,10 @@ public class CD_R extends DiscoGrabable {
 		return 0;
 	}
 
+	public boolean isGrabado() {
+		return grabado;
+	}
+
 	@Override
 	//No hace lo que dicta la superclase
 	public void escribir(long direccion) {

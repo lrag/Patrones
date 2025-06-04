@@ -10,7 +10,7 @@ public class Factura implements Cloneable {
 	private int id;
 	private String codigo;
 	private LocalDate fecha;
-	private Cliente cliente;
+	private Cliente_ActiveRecord cliente;
 	private List<DetalleFactura> detalles = new ArrayList<>();
 	
 	//Solo tiene get
@@ -20,7 +20,7 @@ public class Factura implements Cloneable {
 		super();
 	}
 
-	public Factura(int id, String codigo, LocalDate fecha, Cliente cliente) {
+	public Factura(int id, String codigo, LocalDate fecha, Cliente_ActiveRecord cliente) {
 		super();
 		this.id = id;
 		this.codigo = codigo;
@@ -28,7 +28,7 @@ public class Factura implements Cloneable {
 		this.cliente = cliente;
 	}
 	
-	public Factura(int id, String codigo, LocalDate fecha, Cliente cliente, List<DetalleFactura> detalles) {
+	public Factura(int id, String codigo, LocalDate fecha, Cliente_ActiveRecord cliente, List<DetalleFactura> detalles) {
 		super();
 		this.id = id;
 		this.codigo = codigo;
@@ -61,11 +61,11 @@ public class Factura implements Cloneable {
 		this.fecha = fecha;
 	}
 
-	public Cliente getCliente() {
+	public Cliente_ActiveRecord getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
+	public void setCliente(Cliente_ActiveRecord cliente) {
 		this.cliente = cliente;
 	}
 
@@ -109,7 +109,7 @@ public class Factura implements Cloneable {
 	
 	@Override
 	public Object clone() {
-		Factura clon = new Factura(id,codigo,fecha,(Cliente) cliente.clone());
+		Factura clon = new Factura(id,codigo,fecha,(Cliente_ActiveRecord) cliente.clone());
 		clon.total = total;
 		List<DetalleFactura> clonDetalles = 
 			detalles
@@ -128,3 +128,36 @@ public class Factura implements Cloneable {
 	}
 
 }
+
+
+class ServicioFacturas {
+	
+	
+	public void addDetalleFactura(DetalleFactura detalle, Factura factura) {
+		
+		/*
+		//Con modelo anémico:
+		List<DetalleFactura> detalles = factura.getDetalles();
+		detalles
+			.stream()
+			.filter(df -> {
+				return df.getProducto().getId()==detalle.getProducto().getId() && df.getPrecio()==detalle.getPrecio();
+			})
+			.findAny()
+			.ifPresentOrElse(
+				df -> {	
+					df.setCantidad(df.getCantidad()+detalle.getCantidad());
+				}, 
+				() -> {
+					detalles.add(detalle);
+				}
+			);
+		factura.calcularTotal();
+		*/
+		
+		factura.addDetalle(detalle);
+	}
+	
+}
+
+

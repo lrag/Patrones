@@ -29,6 +29,13 @@ public class GestorPedidos_PROXY implements GestorPedidos {
 	}
 	
 	public void insertar(Pedido pedido){
+		
+		/*
+		if( usuario.rol != "EMPLEADO"){
+			throw new Exception
+		}		
+		*/
+		
 		GestorTransacciones.beginTX();
 		try {
 			target.insertar(pedido);

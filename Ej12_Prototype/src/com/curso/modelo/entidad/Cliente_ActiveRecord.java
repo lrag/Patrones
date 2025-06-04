@@ -1,18 +1,25 @@
 package com.curso.modelo.entidad;
 
-public class Cliente implements Cloneable {
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+public class Cliente_ActiveRecord implements Cloneable {
 
 	private int id;
 	private String codigo;
 	private String nombre;
 	private String direccion;
 	private String telefono;
+	
+	private DataSource dataSource;
 
-	public Cliente() {
+	public Cliente_ActiveRecord() {
 		super();
 	}
 
-	public Cliente(int id, String codigo, String nombre, String direccion, String telefono) {
+	public Cliente_ActiveRecord(int id, String codigo, String nombre, String direccion, String telefono) {
 		super();
 		this.id = id;
 		this.codigo = codigo;
@@ -60,7 +67,7 @@ public class Cliente implements Cloneable {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-
+	
 	@Override
 	public String toString() {
 		return super.toString()+" [id=" + id + ", codigo=" + codigo + ", nombre=" + nombre + ", direccion=" + direccion
@@ -69,7 +76,35 @@ public class Cliente implements Cloneable {
 	
 	@Override
 	public Object clone() {
-		return new Cliente(id, codigo, nombre, direccion, telefono);
+		return new Cliente_ActiveRecord(id, codigo, nombre, direccion, telefono);
+	}
+
+	//ACTIVE RECORD/////////////////////
+	
+	public DataSource getDataSource() {
+		return dataSource;
+	}
+
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+	
+	public void insertar() throws Exception {
+		System.out.println("Insertandome en la bb.dd...");
+		try {
+			Connection cx = dataSource.getConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new Exception("Fallo al acceder a la bb.dd");
+		}
+	}
+	
+	public void modificar() {
+		System.out.println("Modificandome en la bb.dd...");
+	}
+	
+	public void borrar() {
+		System.out.println("Modificandome en la bb.dd...");
 	}
 
 }

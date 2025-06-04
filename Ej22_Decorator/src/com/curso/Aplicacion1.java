@@ -2,6 +2,7 @@ package com.curso;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.OutputStream;
 import java.util.Base64;
 
@@ -12,15 +13,12 @@ public class Aplicacion1 {
 		// Ejemplo de decorator en el api de java
 
 		
-		//FileWriter fw1 = new FileWriter("tocoto.txt"); fw1.write("H");
-		//fw1.write("O"); 
-		//fw1.write("L"); 
-		//fw1.write("A"); 
-		//fw1.close();
+		FileWriter fw1 = new FileWriter("tocoto.txt"); fw1.write("H");
+		fw1.write("O"); 
+		fw1.write("L"); 
+		fw1.write("A"); 
+		fw1.close();
 		
-		// FileWriterConBuffer fwb= new FileWriterConBuffer("fichero");
-		// fwb.write("H");
-
 		// FileWriterB64 fwB64 = new
 		// fwB64.write("H");
 
@@ -37,5 +35,13 @@ public class Aplicacion1 {
 	}
 
 }
+
+
+
+
+
+
+
+
 
 

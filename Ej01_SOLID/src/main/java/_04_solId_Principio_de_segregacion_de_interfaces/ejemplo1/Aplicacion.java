@@ -8,7 +8,7 @@ public class Aplicacion {
 		Gorrion go = new Gorrion();
 		Pato lucas = new Pato();
 		
-		//El cliente tiene más métodos de los que necesita
+		//El cliente tiene acceso a más métodos de los que necesita
 		
 		ga.volar(); //Para qué?
 		go.nadar(); //??

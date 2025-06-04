@@ -4,20 +4,20 @@ import com.curso.modelo.entidad.Cliente;
 import com.curso.modelo.persistencia.ClienteRepositorio;
 import com.curso.modelo.persistencia.util.FactoriaClienteRepositorio;
 
-public class GestorClientes {
+public class ServicioClientes {
 	
 	//SINGLETÓN/////////////////////////////////////////////////////////	
 	
-	private static GestorClientes instancia;
+	private static ServicioClientes instancia;
 
-	public static synchronized GestorClientes getInstancia() {
+	public static synchronized ServicioClientes getInstancia() {
 		if(instancia == null) {
-			instancia = new GestorClientes();
+			instancia = new ServicioClientes();
 		}
 		return instancia;
 	}
 
-	private GestorClientes(){
+	private ServicioClientes(){
 	}
 	
 	////////////////////////////////////////////////////////////////////

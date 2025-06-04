@@ -27,6 +27,7 @@ public class Aplicacion2 {
 		air = new ProcesoImagenBuilder("imagenes/atariST.jpg")
 				.addProceso(ProcesoImagenBuilder.AZUL)
 				.build();
+		
 		iw = new ImageWriter("imagenesProcesadas/atariST_1.jpg");
 		iw.write(air.read());
 		

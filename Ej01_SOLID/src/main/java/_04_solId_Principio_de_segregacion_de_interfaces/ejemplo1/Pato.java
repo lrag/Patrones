@@ -3,7 +3,7 @@ package _04_solId_Principio_de_segregacion_de_interfaces.ejemplo1;
 public class Pato implements Pajaro{
 
 	public void volar() {
-		System.out.println("Soy el pato y no vuelo!");
+		System.out.println("Soy el pato y vuelo!");
 	}
 	
 	public void nadar() {

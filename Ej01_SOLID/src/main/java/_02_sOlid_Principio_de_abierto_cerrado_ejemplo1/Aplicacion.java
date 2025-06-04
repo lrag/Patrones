@@ -14,6 +14,7 @@ public class Aplicacion {
 		EmisorMensajes em1 = new EmisorMensajesSMS();
 		EmisorMensajes em2 = new EmisorMensajesCorreoE();
 		EmisorMensajes em3 = new EmisorMensajesPalomaMensajera();
+		
 		em1.enviarMensaje(m);
 		em2.enviarMensaje(m);
 		em3.enviarMensaje(m);

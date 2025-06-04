@@ -34,6 +34,12 @@ public class GestorPedidosImpl implements GestorPedidos {
 	@Override
 	public void insertar(Pedido pedido){
 		//Seguridad
+		/*
+		if(usuario.rol != "EMPLEADO") {
+			throw new Ex
+		}
+		*/
+		
 		//GestorTransacciones.beginTX();	
 		pedidoDao.insertar(pedido);
 		//GestorTransacciones.commit()/rollback();
@@ -58,6 +64,7 @@ public class GestorPedidosImpl implements GestorPedidos {
 	}
 	
 	@Override
+	
 	public void aceptar(Pedido pedido) throws Exception{
 		
 		//Seguridad

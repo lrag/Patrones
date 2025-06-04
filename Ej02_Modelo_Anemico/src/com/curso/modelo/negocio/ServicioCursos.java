@@ -28,6 +28,7 @@ public class ServicioCursos {
 	}	
 	
 	//MODELO ANÉMICO
+	/*
 	public void matricularAlumno(Alumno alumno, Curso curso) {		
 		
 		//if(curso.getTipo = presencial)
@@ -44,6 +45,7 @@ public class ServicioCursos {
 		
 		matriculaRepo.save("matricula");	
 	}
+	*/
 	
 	/*
 	//Aqui al menos estamos respetando el principio de responsabilidad única
@@ -51,8 +53,8 @@ public class ServicioCursos {
 	public void matricularAlumno(Alumno alumno, Curso curso) {		
 		switch(curso.tipo)
 			case presencial matricularPresencial()
-			case online     matricularPresencial()
-			case enlatado   matricularPresencial()
+			case online     matricularOnline()
+			case enlatado   matricularEnlatado()
 	}	
 	
 	private void matricularPresencial(Alumno alumno, Curso curso){
@@ -66,48 +68,46 @@ public class ServicioCursos {
 	private void matricularEnlatado(Alumno alumno, Curso curso){
 		//LN3
 	}
-	
 	*/
 	
-	/*
+	
 	public void matricularAlumno(Alumno alumno, Curso curso) {		
 		//OO
 		curso.matricularAlumno(alumno);
 	}	
-	*/
 	
 }
 
-
-//Intentemos cerrar esta clase para respetar el principio abierto/cerrado
 /*
+//Intentemos cerrar esta clase para respetar el principio abierto/cerrado
+
 //Esta está cerrada para la modificación, abierta para la extension
-public abstract slass ServicioCursos {
+abstract class ServicioCursos_ {
 	public void insertar(Curso curso){
-		LN...
+		//LN...
 	}
 	
 	public abstract void matricularAlumno(Alumno alumno, Curso curso);
 }
 
-public class ServicioCursosPresenciales implements ServicioCursos {
+class ServicioCursosPresenciales extends ServicioCursos_ {
 	public void matricularAlumno(Alumno alumno, Curso curso){
-		LN 1
+		//LN 1
 	}
 }
-public class ServicioCursosOnline implements ServicioCursos {
+class ServicioCursosOnline extends ServicioCursos_ {
 	public void matricularAlumno(Alumno alumno, Curso curso){
-		LN 2
+		//LN 2
 	}
 }
-public class ServicioCursosEnlatados implements ServicioCursos {
+class ServicioCursosEnlatados extends ServicioCursos_ {
 	public void matricularAlumno(Alumno alumno, Curso curso){
-		LN 3
+		//LN 3
 	}
 }
-
-
 */
+
+
 
 
 

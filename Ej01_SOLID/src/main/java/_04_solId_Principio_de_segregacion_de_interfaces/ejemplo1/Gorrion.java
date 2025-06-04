@@ -7,15 +7,15 @@ public class Gorrion implements Pajaro{
 	}
 	
 	public void nadar() {
-		throw new RuntimeException("Soy la gorrión y me ahogo");
+		throw new RuntimeException("Soy el gorrión y me ahogo");
 	}
 	
 	public void andar() {
-		System.out.println("Soy la gorrión y ando");
+		System.out.println("Soy el gorrión y ando");
 	}
 	
 	public void voz() {
-		System.out.println("Soy la gorrión y pio pio");
+		System.out.println("Soy el gorrión y pio pio");
 	}
 	
 }

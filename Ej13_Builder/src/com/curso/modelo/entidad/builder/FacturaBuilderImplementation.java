@@ -12,7 +12,7 @@ import com.curso.modelo.entidad.Factura;
 
 public class FacturaBuilderImplementation implements FacturaBuilder{
 
-	//El builder tiene un estado. Lo utilizar√° para crear la factura
+	//El builder tiene un estado. Lo utilizar· para crear la factura
 	//El builder NO ES UNA FACTURA
 	private int id;
 	private String codigo;

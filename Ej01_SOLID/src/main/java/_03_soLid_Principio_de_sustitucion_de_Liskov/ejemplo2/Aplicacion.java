@@ -20,10 +20,13 @@ public class Aplicacion {
 			m.leer(1);
 			//m.escribir(1l, (byte)0);
 		}
-
+		
+		
 		System.out.println("===================================");
 		for(Memoria m : memorias) {
 			m.leer(1);
+			//Como no esta respetando el principio de suustitución de Barbara necesitamos este
+			//horrendo if y su instanceof
 			if(m instanceof RAM || m instanceof EEPROM) {
 				m.escribir(1l, (byte)0);
 			}

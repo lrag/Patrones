@@ -62,6 +62,34 @@ public class Aplicacion {
 		c4.add("Trololó");
 		c4.forEach(s -> System.out.println(s));
 		
+		
+		
+		
+		/*
+		
+		
+		Collection c1 = new ArrayList();
+		Collection c2 = new LinkedList();
+		Collection c3 = new TreeSet();
+		
+		
+		c1.add("");
+		c2.add("");
+		c3.add("");
+		
+		c3.get(10);
+		
+		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	static List<String> listar1(){

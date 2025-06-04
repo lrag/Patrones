@@ -2,8 +2,6 @@ package com.curso;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import com.curso.modelo.entidad.Cliente;
@@ -12,16 +10,25 @@ import com.curso.modelo.entidad.DetalleFactura;
 import com.curso.modelo.entidad.EventoFactura;
 import com.curso.modelo.entidad.Factura;
 import com.curso.modelo.entidad.Producto;
+import com.curso.modelo.entidad.builder.FacturaBuilder;
 import com.curso.modelo.entidad.builder.FacturaBuilderImplementation;
 
 public class Prueba {
 
 	public static void main(String[] args) {
 		
-		Cliente c = new Cliente(1,"CLI-1","Harry Callahan","C/Falsa,123","555123");
+		Cliente c1 = new Cliente(1,"CLI-1","Harry Callahan","C/Falsa,123","555123");
+
+		//Cliente implementa el patrón builder
+		Cliente c = new Cliente()
+			.setId(1)
+			.setCodigo("CLI-1")
+			.setNombre("Harry Callahan")
+			.setDireccion("C/Falsa,123, SF")
+			.setTelefono("555123456");		
 		
 		Producto p1 = new Producto(1,"PROD-1","Chisme","Chismes de Santa Pola S.A.");
-		Producto p2 = new Producto(2,"PROD-2","Bï¿½rtulo","Ibï¿½rica de Bï¿½rtulos S.A.");
+		Producto p2 = new Producto(2,"PROD-2","Bártulo","Ibérica de Bártulos S.A.");
 		Producto p3 = new Producto(2,"PROD-3","Artilugio","Artilugios Reunidos S.A.");
 
 		DetalleFactura df1 = new DetalleFactura(1,1d,10d,p1);
@@ -68,8 +75,7 @@ public class Prueba {
 		fbi.codigo("FAC-2");
 		fbi.cliente(c);
 		//...
-		Factura f3 = fbi.build();
-		
+		Factura f3 = fbi.build();		
 		
 		
 		System.out.println("==============================================");

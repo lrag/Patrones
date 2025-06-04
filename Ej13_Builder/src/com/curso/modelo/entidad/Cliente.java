@@ -25,40 +25,45 @@ public class Cliente {
 		return id;
 	}
 
-	public void setId(int id) {
+	public Cliente setId(int id) {
 		this.id = id;
+		return this;
 	}
 
 	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public Cliente setCodigo(String codigo) {
 		this.codigo = codigo;
+		return this;
 	}
 
 	public String getNombre() {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public Cliente setNombre(String nombre) {
 		this.nombre = nombre;
+		return this;
 	}
 
 	public String getDireccion() {
 		return direccion;
 	}
 
-	public void setDireccion(String direccion) {
+	public Cliente setDireccion(String direccion) {
 		this.direccion = direccion;
+		return this;
 	}
 
 	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(String telefono) {
+	public Cliente setTelefono(String telefono) {
 		this.telefono = telefono;
+		return this;
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 package com.curso;
 
 import com.curso.modelo.entidad.Cliente;
-import com.curso.modelo.negocio.GestorClientes;
+import com.curso.modelo.negocio.ServicioClientes;
 
 public class Prueba {
 
@@ -9,7 +9,7 @@ public class Prueba {
 		
 		Cliente c = new Cliente(1,"Bart","C/Evergreen Terrace","555");
 		
-		GestorClientes gc = GestorClientes.getInstancia();
+		ServicioClientes gc = ServicioClientes.getInstancia();
 		gc.insertar(c);		
 		
 	}

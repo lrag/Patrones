@@ -48,7 +48,7 @@ public class JPAUtil {
     }
     
     private static List<String> getEntityClassNames() {
-        return Arrays.asList(getEntities())
+        return Arrays.asList(Cliente.class, Producto.class, Pedido.class, DetallePedido.class)
           .stream()
           .map(Class::getName)
           .collect(Collectors.toList());
@@ -65,8 +65,10 @@ public class JPAUtil {
         return properties;
     }
     
+    /*
     private static Class[] getEntities() {
 		return new Class[]{Cliente.class, Producto.class, Pedido.class, DetallePedido.class};
     }
+    */
     
 }

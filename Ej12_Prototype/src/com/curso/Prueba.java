@@ -1,20 +1,19 @@
 package com.curso;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import com.curso.modelo.entidad.Cliente;
+import com.curso.modelo.entidad.Cliente_ActiveRecord;
 import com.curso.modelo.entidad.DetalleFactura;
 import com.curso.modelo.entidad.Factura;
 import com.curso.modelo.entidad.Producto;
 
 public class Prueba {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
-		Cliente c = new Cliente(1,"CLI-1","Harry Callahan","C/Falsa,123","555123");
+		
+		Cliente_ActiveRecord c = new Cliente_ActiveRecord(1,"CLI-1","Harry Callahan","C/Falsa,123","555123");
 		
 		Producto p1 = new Producto(1,"PROD-1","Chisme","Chismes de Santa Pola S.A.");
 		Producto p2 = new Producto(2,"PROD-2","Bártulo","Ibérica de Bártulos S.A.");
@@ -51,3 +50,39 @@ public class Prueba {
 	}
 	
 }
+
+
+/*
+class Cliente {
+	
+	private String nombre;
+	private String direccion;	
+	private String telefono;	
+	private DataSource dataSource;
+	
+	public static Cliente getInstancia(String nombre, String direccion, String telefono) {
+
+		Cliente c = new Cliente();
+		c.nombre = nombre;
+		c.direccion = direccion;
+		c.telefono = telefono;
+		c.dataSource = DataSourceUtil.getDataSource();		
+		
+		return c;
+		
+	}
+	
+	
+	private Cliente() {
+		
+	}
+	
+	
+}
+*/
+
+
+
+
+
+
