@@ -1,6 +1,6 @@
 package _05_soliD_Principio_de_inversion_de_dependencias;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 //ServicioClientes es una clase de alto nivel
@@ -20,12 +20,10 @@ public class ServicioClientes_1 {
 		System.out.println("Buscando una sucursal");
 		System.out.println("Asignando un comercial");
 		clienteDao.insertar(cliente);		
-		
-		List<Cliente> x = listarClientes();		
 	}
 	
-	public LinkedList<Cliente> listarClientes(){
-		return new LinkedList<>();
+	public List<Cliente> listarClientes(){
+		return new ArrayList<>();
 	}
 	
 }

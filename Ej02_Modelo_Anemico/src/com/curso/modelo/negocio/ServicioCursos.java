@@ -29,7 +29,7 @@ public class ServicioCursos {
 	
 	//MODELO ANÉMICO
 	/*
-	public void matricularAlumno(Alumno alumno, Curso curso) {		
+	public void matricularAlumno_(Alumno alumno, Curso curso) {		
 		
 		//if(curso.getTipo = presencial)
 		List<Alumno> alumnos = curso.getAlumnos();
@@ -68,8 +68,7 @@ public class ServicioCursos {
 	private void matricularEnlatado(Alumno alumno, Curso curso){
 		//LN3
 	}
-	*/
-	
+	*/	
 	
 	public void matricularAlumno(Alumno alumno, Curso curso) {		
 		//OO

@@ -1,4 +1,4 @@
-package _04_solId_Principio_de_segregacion_de_interfaces.ejemplo1;
+package _04_solId_Principio_de_segregacion_de_interfaces.ejemplo;
 
 public class Gorrion implements Pajaro{
 

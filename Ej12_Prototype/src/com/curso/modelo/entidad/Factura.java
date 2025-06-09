@@ -152,7 +152,11 @@ class ServicioFacturas {
 					detalles.add(detalle);
 				}
 			);
-		factura.calcularTotal();
+		Double total = detalles
+			.stream()
+			.mapToDouble(df -> df.getCantidad()*df.getPrecio())
+			.sum();
+		factura.setTotal(total);
 		*/
 		
 		factura.addDetalle(detalle);

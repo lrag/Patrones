@@ -33,14 +33,19 @@ public class Aplicacion {
 		EstrategiaOfertaDescuentoProductos ofertaDescuentoProductos = new EstrategiaOfertaDescuentoProductos(productosOferta, 10d);
 		
 		ServicioPedidos sp = new ServicioPedidos();
-		sp.aceptarPedido(getPedido1(), ofertaDiezPorCiento);
+		
+		sp.aceptarPedido(getPedido1(), pedido -> { 
+				pedido.setDescuento(pedido.getTotal()*(10/100));
+				pedido.calcularTotal();			
+			} ); //ofertaDiezPorCiento);
+		
 		sp.aceptarPedido(getPedido1(), ofertaVeintePorCiento);
 		sp.aceptarPedido(getPedido1(), ofertaPerritoPiloto);
 		sp.aceptarPedido(getPedido2(), sinOferta);
 		sp.aceptarPedido(getPedido2(), oferta3x2);
-		sp.aceptarPedido(getPedido2(), ofertaDescuentoProductos);
-				
+		sp.aceptarPedido(getPedido2(), ofertaDescuentoProductos);			
 	}
+	
 	
 	public static Cliente getCliente() {
 		LocalDate fechaAlta = LocalDate.parse("10/10/2000", dtf);		

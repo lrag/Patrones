@@ -59,6 +59,7 @@ public class Libro {
 	//Esto hace tres cosas
 	//Sabe imprimir el libro
 	//Sabe imprimir el capítulo
+	//Y lo hace por consola
 	public void imprimir_MAL() {
 		System.out.println(titulo);
 		System.out.println(autor+", "+year);
@@ -74,7 +75,7 @@ public class Libro {
 		System.out.println("FIN");
 	}
 
-	//Un poco mejor, delega en el capítulo la responsabilidad de imprimirlo
+	//Un poco mejor, delega en el capítulo la responsabilidad de imprimirse
 	public void imprimir_MAL_2() {
 		System.out.println(titulo);
 		System.out.println(autor+", "+year);
@@ -93,6 +94,7 @@ public class Libro {
 		//no supone ningun problema
 		StringBuilder sb = new StringBuilder();
 		sb.append(titulo);
+		sb.append("\n\n");
 		sb.append(autor+", "+year);
 		sb.append("\n\n");
 		capitulos.forEach(capitulo -> {
@@ -101,15 +103,6 @@ public class Libro {
 		sb.append("FIN");
 		return sb.toString();		
 	}
-	
-	
-	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-	
-	public String formatearFecha(Date fecha) {
-		return sdf.format(fecha);
-	}
-	
-	
 
 }
 

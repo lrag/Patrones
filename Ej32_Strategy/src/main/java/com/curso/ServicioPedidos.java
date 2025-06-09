@@ -12,7 +12,7 @@ public class ServicioPedidos {
 		//Comprobar datos bancarios del cliente
 		//Comprobar las existencias
 		//Reservar un camión para el envío
-
+		
 		pedido.calcularTotal();
 		estrategiaOferta.calcularOferta(pedido);
 		pedido.calcularTotal();

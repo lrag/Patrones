@@ -6,7 +6,7 @@ public class ServicioProductos_MAL {
 		
 		//1-Insertar el producto y poco más
 		
-		//2-Ahora hay que validar algo del producto: bien
+		//2-Validar algo del producto: bien
 		if(producto.getNombre() == null) {
 			throw new Exception("Producto invalido");
 		}

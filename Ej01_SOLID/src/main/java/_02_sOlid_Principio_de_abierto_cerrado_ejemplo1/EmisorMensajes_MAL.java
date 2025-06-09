@@ -7,12 +7,15 @@ public class EmisorMensajes_MAL {
 		//Tantas cosas aqui...
 		switch(tipo) {
 			case "SMS" :
+				//Código para enviar el SMS
 				System.out.println("Enviando SMS a "+destinatario);
 				break;		
 			case "CorreoE" :
+				//Código para enviar el CorreoE
 				System.out.println("Enviando CorreoE a "+destinatario);
 				break;		
 			case "Paloma mensajera" :
+				//Código para enviar una paloma mensajera
 				System.out.println("Enviando una paloma mensajera a "+destinatario);
 				break;	
 			default: throw new RuntimeException("Método no soportado");
@@ -41,15 +44,15 @@ public class EmisorMensajes_MAL {
 	}	
 		
 	public void enviarMensajeSMS() {
-		
+		//Código para enviar el SMS
 	}
 	
 	public void enviarMensajeCorreoE() {
-		
+		//Código para enviar el CorreoE
 	}
 	
 	public void enviarMensajePalomaMensajera() {
-		
+		//Código para enviar una paloma mensajera
 	}
 	
 	
