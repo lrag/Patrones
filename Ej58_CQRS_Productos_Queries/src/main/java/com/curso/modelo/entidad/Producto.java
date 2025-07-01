@@ -15,7 +15,7 @@ Colección de productos:
 		"nombre"    : "Chintáfonos de la Armuña S.A",
 		"direccion" : "C/Tal";
 		"telefono"  : "923 123 456";	
-	}
+	},
 	"caracteristicas" : [
 		{
 			"nombre":"aaa",

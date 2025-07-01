@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.curso.modelo.entidad.Cliente;
 
 @FeignClient(name="ServicioClientes")
-public interface ClientesClientXD {
+public interface ClientesClient {
 	
-	@GetMapping( path="/clientes/{codigo}", produces = "application/json")
-	Cliente buscar(@PathVariable("codigo") String login);
+	@GetMapping( path="/clientes/{login}", produces = "application/json")
+	Cliente buscar(@PathVariable() String login);
 	
 }
 

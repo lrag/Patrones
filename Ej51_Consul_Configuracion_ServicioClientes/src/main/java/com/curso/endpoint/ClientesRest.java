@@ -3,7 +3,6 @@ package com.curso.endpoint;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,9 +20,15 @@ import com.curso.modelo.persistencia.ClienteRepositorio;
 @RestController
 public class ClientesRest {
 
-	@Autowired private GestorClientes gestorClientes;
-	@Autowired private ClienteRepositorio clienteRepo;
+	private GestorClientes gestorClientes;
+	private ClienteRepositorio clienteRepo;
 	
+	public ClientesRest(GestorClientes gestorClientes, ClienteRepositorio clienteRepo) {
+		super();
+		this.gestorClientes = gestorClientes;
+		this.clienteRepo = clienteRepo;
+	}
+
 	@GetMapping(path="/clientes/{login}")
 	public ResponseEntity<ClienteDTO> buscar(@PathVariable("login") String login){
 		return clienteRepo

@@ -21,6 +21,8 @@ public class ProxyMensajeria {
 	
 	public void enviarMensaje(String clave, EventoProducto valor) {
 		
+		//kafkaTemplate.send(nombreTopic, clave, valor);
+		
 		System.out.println("Enviando el mensaje...");
 		ListenableFuture<SendResult<String, EventoProducto>> future = kafkaTemplate.send(nombreTopic, clave, valor);
 

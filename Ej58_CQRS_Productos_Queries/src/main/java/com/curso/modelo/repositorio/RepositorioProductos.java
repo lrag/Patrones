@@ -8,3 +8,4 @@ import com.curso.modelo.entidad.Producto;
 @Repository
 public interface RepositorioProductos extends MongoRepository<Producto, String>{
 }
+

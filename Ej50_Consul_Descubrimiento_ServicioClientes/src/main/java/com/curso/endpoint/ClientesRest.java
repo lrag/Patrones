@@ -26,8 +26,8 @@ public class ClientesRest {
 	@Autowired private GestorClientes gestorClientes;
 	@Autowired private ClienteRepositorio clienteRepo;
 	
-	@GetMapping(path="/clientes/{login}")
-	public ResponseEntity<ClienteDTO> buscar(@PathVariable("login") String login){
+	@GetMapping(path="/clientes/{login}", produces="application/json")
+	public ResponseEntity<ClienteDTO> buscar(@PathVariable() String login){
 		
 		System.out.println("BUSCAR");
 		

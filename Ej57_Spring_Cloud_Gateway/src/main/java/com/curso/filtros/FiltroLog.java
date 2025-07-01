@@ -11,7 +11,7 @@ public class FiltroLog extends AbstractGatewayFilterFactory{
 	@Override
 	public GatewayFilter apply(Object config) {
 		return (exchange, chain) -> {
-			System.out.println("Petición recibida:"+exchange.getRequest().getURI());
+			System.out.println("Petición recibida:"+exchange.getRequest().getMethod()+" "+exchange.getRequest().getURI());
 			return chain.filter(exchange);
 		};
 	}

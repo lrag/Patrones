@@ -11,7 +11,7 @@ import com.curso.modelo.persistencia.ClienteRepositorio;
 @Component
 public class ServicioClientesProxy {
 
-	@Autowired private ClientesClientXD clientesClientXD;
+	@Autowired private ClientesClient clientesClientXD;
 	@Autowired private ClienteRepositorio clienteRepo;
 	
 	public Cliente buscar(String login){

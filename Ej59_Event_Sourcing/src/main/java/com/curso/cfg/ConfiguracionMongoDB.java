@@ -20,7 +20,7 @@ import de.flapdoodle.embed.mongo.distribution.Version;
 public class ConfiguracionMongoDB {
 
 	@Bean
-    public MongoTemplate mongoTemplate() throws IOException {
+    MongoTemplate mongoTemplate() throws IOException {
         String ip = "localhost";
         int port = 27017;
         String CONNECTION_STRING = "mongodb://%s:%d";

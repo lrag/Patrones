@@ -22,8 +22,8 @@ spring:
           delay: 5000  
           
     #SPRING CLOUD STREAM:
-    function:
-      definition: supplierOrdenesDeCompra          
+    #function:
+    #  definition: supplierOrdenesDeCompra          
  
   rabbitmq:
     host: localhost

@@ -53,6 +53,8 @@ public class GestorProductos {
 	public Optional<Producto> buscarProductoYCalificaciones(String codigo) throws Exception{
 		System.out.println("========================================");		
 		System.out.println("Ejecutando el método gestorProductos.buscarProductoYCalificaciones");
+		
+		
 		return productoRepo
 			.findByCodigo(codigo)
 			.map(producto -> {
@@ -69,7 +71,8 @@ public class GestorProductos {
 				producto.setCalificaciones(calificaciones);
 				return producto;		
 			})
-			.or(() -> Optional.empty());
+			.or(() -> Optional.empty());	
+		
 	}
 	
     //Este método es una suerte de catch
@@ -86,6 +89,7 @@ public class GestorProductos {
 		//...
 		return productoRepo.save(producto);
 	}
+	
 	
 	/*
 	GestorProductos target;
@@ -109,6 +113,7 @@ public class GestorProductos {
 		}		
 		return p;		
 	}
-	*/	
+	*/
+		
 	
 }

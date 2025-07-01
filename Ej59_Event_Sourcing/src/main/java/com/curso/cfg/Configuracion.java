@@ -28,13 +28,13 @@ public class Configuracion {
 	private String nombreTopic;
 	
 	@Bean
-	public NewTopic topic() {
+	NewTopic topic() {
 		System.out.println("Topic:"+nombreTopic);
 		return TopicBuilder.name(nombreTopic).partitions(4).replicas(1).build();
 	}
 	
     @Bean
-    public ConsumerFactory<String, EventoProducto> consumerFactory() {
+    ConsumerFactory<String, EventoProducto> consumerFactory() {
         Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, direccionKafka);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, idGrupo);
@@ -44,7 +44,7 @@ public class Configuracion {
     }
     
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, EventoProducto> kafkaListenerContainerFactory() {
+    ConcurrentKafkaListenerContainerFactory<String, EventoProducto> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, EventoProducto> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         return factory;

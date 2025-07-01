@@ -12,14 +12,27 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 public class Configuracion {
 	
+	//tipo
+	//name/id
+	//ámbito (scope)
+	
+	//singleton
+	//prototype
+	//
+	//request
+	//session
+	
+	
+	
+	
 	
 	@Bean
 	//@Scope("singleton")
 	@RefreshScope
 	//public DataSource dataSource(@Value("${spring.datasource.url}") String url, 
-	public DataSource dataSource(@Value("${bbdd.url}") String url, 
-			                     @Value("${spring.datasource.username:sa}") String username, 
-			                     @Value("${spring.datasource.password:}") String password ) {
+	DataSource dataSource(@Value("${bbdd.url}") String url, 
+			              @Value("${spring.datasource.username:sa}") String username, 
+			              @Value("${spring.datasource.password:}") String password ) {
 		
 		System.out.println("=====================================================");
 		System.out.println("Creando el datasource:"+url);

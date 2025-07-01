@@ -20,6 +20,7 @@ spring:
         instanceId: ${spring.application.name}:${random.value}
        
     #SPRING CLOUD STREAM:
+    #Si solo tenemos un supplier, o un consumer o una function no hace falta registrarlos			
     function:
       definition: oyenteOrdenesCompra
 

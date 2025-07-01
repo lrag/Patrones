@@ -14,3 +14,4 @@ public interface ClienteRepositorio extends JpaRepository<Cliente, Integer>{
 	void deleteByLogin(String login);
 
 }
+

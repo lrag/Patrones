@@ -20,6 +20,16 @@ public class GestorProductos {
 	@Autowired private RepositorioFabricantes repoFabricantes;
 	@Autowired private ProxyMensajeria proxyMensajeria;
 	
+
+	/*
+	{
+		id : null
+		nombre : "X"
+		fabricante: {
+			id: 12
+		}	
+	}
+	*/
 	public void insertar(Producto producto) {
 		//LN...
 		System.out.println("Insertando el producto:"+producto);
@@ -53,3 +63,24 @@ public class GestorProductos {
 	}
 
 }
+
+/*
+
+evento = tipo: producto_insertado
+         producto:
+        	 referencia: 123
+        	 nombre:
+        	 fabricante:
+        	 ...
+
+
+
+'topic-productos-cqrs', 123, evento
+
+*/
+
+
+
+
+
+
