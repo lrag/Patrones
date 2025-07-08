@@ -1,6 +1,6 @@
 package _04_solId_Principio_de_segregacion_de_interfaces.ejemplo_Solucion;
 
-public class Gorrion implements Pajaro, Volador, Andador {
+public class Gorrion extends Pajaro implements Volador, Andador {
 
 	public void volar() {
 		System.out.println("Soy el gorrión y vuelo");

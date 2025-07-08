@@ -24,4 +24,6 @@ public class ServicioProductos_MAL {
 		System.out.println("Alta del producto: "+producto);
 	}
 	
+	
+	
 }

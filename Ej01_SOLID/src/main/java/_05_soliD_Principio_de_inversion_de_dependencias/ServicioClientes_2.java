@@ -10,8 +10,22 @@ public class ServicioClientes_2 {
 	//Retiramos la responsabilidad de crear el objeto
 	//Esto es IoC. Ahora el que sabe crear ClienteDao es otro
 	//Seguimos con los problemas para hacer test doubles
-	private ClienteDao clienteDao = FactoriaClienteDao.getClienteDao();
 	
+	/*
+	private ClienteDao clienteDao;
+		
+	public ServicioClientes_2() {
+		String tipoBBDD = "mongodb"; //Esto lo habríamos leído de un fichero de configuracion
+		if(tipoBBDD.equals("mongodb")) {
+			clienteDao = new ClienteDaoMongoDBImplementation();
+		} else if(tipoBBDD.equals("mysql")) {
+			clienteDao = new ClienteDaoMysqlImplementation();
+		}
+	}
+	*/
+	
+	private ClienteDao clienteDao = FactoriaClienteDao.getClienteDao();
+
 	public ServicioClientes_2(ClienteDao clienteDao) {
 		this.clienteDao = clienteDao;
 	}

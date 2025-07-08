@@ -1,5 +1,7 @@
 package _05_soliD_Principio_de_inversion_de_dependencias;
 
+import java.util.List;
+
 public class ClienteDaoMongoDBImplementation implements ClienteDao{
 
 	public void insertar(Cliente cliente) {
@@ -15,11 +17,13 @@ public class ClienteDaoMongoDBImplementation implements ClienteDao{
 	}
 	
 	@Override
-	public void listar(String criterio) {
+	public List<Cliente> listar(String criterio) {
+		return null;
 	}
 
 	@Override
-	public void buscarPorId(Integer id) {
+	public Cliente buscarPorId(Integer id) {
+		return null;
 	}
 	
 }

@@ -64,6 +64,17 @@ public class Libro {
 		System.out.println(titulo);
 		System.out.println(autor+", "+year);
 		System.out.println();
+		
+		for(Capitulo capitulo: capitulos) {
+			System.out.println("Capítulo " + capitulo.getNumero());
+			System.out.println();
+			System.out.println(capitulo.getTitulo());
+			System.out.println();
+			System.out.println(capitulo.getTexto());
+			System.out.println();			
+		}
+		
+		/*
 		capitulos.forEach(capitulo -> {
 			System.out.println("Capítulo " + capitulo.getNumero());
 			System.out.println();
@@ -72,6 +83,8 @@ public class Libro {
 			System.out.println(capitulo.getTexto());
 			System.out.println();
 		});
+		*/
+		
 		System.out.println("FIN");
 	}
 

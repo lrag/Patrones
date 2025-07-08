@@ -27,7 +27,6 @@ public class EmisorMensajes_MAL {
 	//Pero estaríamos respetando la S
 	public void enviarMensaje_BIS(String destinatario, String texto, String tipo) {
 
-		//Tantas cosas aqui...
 		switch(tipo) {
 			case "SMS" :
 				enviarMensajeSMS();
