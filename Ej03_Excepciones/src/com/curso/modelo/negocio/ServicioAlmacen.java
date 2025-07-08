@@ -1,7 +1,6 @@
 package com.curso.modelo.negocio;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import com.curso.modelo.negocio.excepcion.ExistenciasException;
 
 public class ServicioAlmacen {
 

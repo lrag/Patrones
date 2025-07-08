@@ -3,6 +3,9 @@ package com.curso.modelo.negocio;
 import java.util.Arrays;
 import java.util.List;
 
+import com.curso.modelo.negocio.excepcion.ExistenciasException;
+import com.curso.modelo.negocio.excepcion.OrdenCompraException;
+
 public class ServicioOrdenesCompra {
 	
 	private ServicioAlmacen servicioAlmacen; 

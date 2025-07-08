@@ -66,22 +66,9 @@ class Error {
 	
 }
 
-class OrdenCompraException extends Exception{
-	public OrdenCompraException(String message) {
-		super(message);
-	}	
-}
 
-class ExistenciasException extends Exception{
-	
-	private String producto;
-	private int cantidadSolicitada;
-	private int existencias;
-	
-	public ExistenciasException(String message) {
-		super(message);
-	}	
-}
+
+
 
 
 

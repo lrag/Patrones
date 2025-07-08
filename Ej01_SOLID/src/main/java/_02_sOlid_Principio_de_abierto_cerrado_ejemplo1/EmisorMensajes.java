@@ -1,5 +1,7 @@
 package _02_sOlid_Principio_de_abierto_cerrado_ejemplo1;
 
+import java.util.List;
+
 //
 //Esta interfaz es la 'clase que se queda cerrada'
 //Está abierta a la extensión porque en cualquier momento podemos programar una nueva
