@@ -21,7 +21,7 @@ public class Aplicacion {
 			//m.escribir(1l, (byte)0);
 		}
 		
-		System.out.println("===================================");
+		System.out.println("==================================");
 		for(Memoria m : memorias) {
 			m.leer(1);
 			//Como no esta respetando el principio de suustitución de Barbara necesitamos este

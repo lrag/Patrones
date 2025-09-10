@@ -45,8 +45,7 @@ public class ProductosRest {
 	public ResponseEntity<ProductoDTO> buscarConCalificaciones(@PathVariable("codigo") String codigo){
 		//Esto debería ser más bonito
 		try {
-			return gestorProductos
-					.buscarProductoYCalificaciones(codigo)
+			return gestorProductos.buscarProductoYCalificaciones(codigo)
 					.map(p -> new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK))
 					.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
 		} catch (Exception e) {

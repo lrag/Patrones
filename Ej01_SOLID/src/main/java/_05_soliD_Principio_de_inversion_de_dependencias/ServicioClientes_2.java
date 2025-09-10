@@ -6,6 +6,7 @@ public class ServicioClientes_2 {
 	//sino con una interfaz. Estamos respetando el principio de inversion de dependencias
 	//Si las posibles implementaciones respetan el principio de sustitución de Liskov 
 	//pues entonces ideal
+	//private ClienteDao clienteDao = new ClienteDaoMysqlImplementation();
 	
 	//Retiramos la responsabilidad de crear el objeto
 	//Esto es IoC. Ahora el que sabe crear ClienteDao es otro

@@ -1,3 +1,4 @@
+
 server:
   port: 9000
 
@@ -7,8 +8,8 @@ spring:
 
   cloud:
     consul:
-      #host: localhost
-      #port: 8500
+      host: ${CONSUL_IP:localhost}
+      port: ${CONSUL_PORT:8500}
       discovery:
         instanceId: ${spring.application.name}:${random.value}
 

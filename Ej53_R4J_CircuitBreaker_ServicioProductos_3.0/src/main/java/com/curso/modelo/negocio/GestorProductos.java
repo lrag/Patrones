@@ -54,7 +54,6 @@ public class GestorProductos {
 		System.out.println("========================================");		
 		System.out.println("Ejecutando el método gestorProductos.buscarProductoYCalificaciones");
 		
-		
 		return productoRepo
 			.findByCodigo(codigo)
 			.map(producto -> {

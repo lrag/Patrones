@@ -39,6 +39,8 @@ public class Perro extends Animal {
 		
 		String str = super.toString();
 		
+		System.out.println(this.peso);
+		
 		return str+"[numeroPulgas=" + numeroPulgas + "]";
 	}
 	

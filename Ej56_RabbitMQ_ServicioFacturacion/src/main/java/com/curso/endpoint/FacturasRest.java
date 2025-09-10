@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.modelo.entidad.Factura;
 import com.curso.modelo.entidad.Pedido;
-import com.curso.modelo.negocio.GestorFacturas;
+import com.curso.modelo.negocio.ServicioFacturas;
 import com.curso.modelo.persistencia.FacturaRepositorio;
 
 @RestController
 public class FacturasRest {
 
-	@Autowired private GestorFacturas gestorFacturas;
+	@Autowired private ServicioFacturas gestorFacturas;
 	@Autowired private FacturaRepositorio facturaRepo;
 	
 	@GetMapping(path="/facturas/{id}")

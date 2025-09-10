@@ -1,10 +1,10 @@
 package com.curso;
 
 import com.curso.modelo.entidad.Pedido;
-import com.curso.observadores.GestorEnvios;
-import com.curso.observadores.GestorFacturas;
-import com.curso.observadores.GestorMensajes;
-import com.curso.observadores.GestorPedidos;
+import com.curso.observadores.ServicioEnvios;
+import com.curso.observadores.ServicioFacturas;
+import com.curso.observadores.ServicioMensajes;
+import com.curso.observadores.ServicioPedidos;
 
 public class Aplicacion {
 
@@ -12,11 +12,12 @@ public class Aplicacion {
 		
 		long inicio = System.currentTimeMillis();
 		
-		GestorPedidos  gp = new GestorPedidos();
+		ServicioPedidos  gp = new ServicioPedidos();
 		
-		GestorFacturas gf = new GestorFacturas();
-		GestorEnvios   ge = new GestorEnvios();
-		GestorMensajes gm = new GestorMensajes();
+		ServicioFacturas gf = new ServicioFacturas();
+		ServicioEnvios   ge = new ServicioEnvios();
+		ServicioMensajes gm = new ServicioMensajes();
+		
 		
 		for(int a=0; a<10; a++) {	
 			Pedido p = new Pedido("PED-"+a,"Fecha"+a, "Cliente"+a,a*25d);

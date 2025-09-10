@@ -1,14 +1,14 @@
-package com.curso.observadores;
+package com.curso.observadores_asincrono;
 
 import com.curso.modelo.entidad.Pedido;
 import com.curso.util.eventos.Observador;
-import com.curso.util.eventos.SujetoPedidos;
+import com.curso.util.eventos_asincrono.SujetoPedidosAsincrono;
 
-public class GestorEnvios implements Observador<Pedido> {
+public class ServicioEnvios implements Observador<Pedido> {
 
-	private SujetoPedidos sujetoPedidos = SujetoPedidos.getInstancia();
+	private SujetoPedidosAsincrono sujetoPedidos = SujetoPedidosAsincrono.getInstancia();
 	
-	public GestorEnvios() {
+	public ServicioEnvios() {
 		super();
 		sujetoPedidos.registro(this);
 	}

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.curso.modelo.entidad.Pedido;
-import com.curso.modelo.negocio.GestorFacturas;
+import com.curso.modelo.negocio.ServicioFacturas;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class OyenteOrdenesDeCompra {
 
 	@Autowired
-	private GestorFacturas gestorFacturas;
+	private ServicioFacturas gestorFacturas;
 	
     @RabbitListener(queues = "colaOrdenesDeCompra")
     public void listen(String json) {
@@ -32,8 +32,55 @@ public class OyenteOrdenesDeCompra {
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}	
+        
         System.out.println(pedido);
         gestorFacturas.facturarPedido(pedido);
     }	
 	
 }
+
+
+
+/*
+
+CONTROLADOR
+
+extraer de la petición la info
+convertirla a los obtejos que entiende la LN
+llamar al método correspondiente de la capa de modelo
+escoger la siguiente vista
+preparar los datos para la vista
+'pasarle la pelota a la vista'
+
+
+ENDPOINT
+
+extraer de la petición la info
+convertirla a los obtejos que entiende la LN
+llamar al método correspondiente de la capa de modelo
+preparar los datos para la respuesta
+dar a respuesta
+
+
+OYENTE/SUBSCRIPTOR
+
+extraer del mensaje la info
+convertirla a los obtejos que entiende la LN
+llamar al método correspondiente de la capa de modelo
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

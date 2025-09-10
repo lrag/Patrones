@@ -19,10 +19,10 @@ public class CalificacionesProductosProxy {
 	private RestTemplate restTemplate;
 	
 	public List<CalificacionProducto> buscarCalificacionesProducto(String codigoProducto){		
-		CalificacionProducto[] calificacionesArray = restTemplate
-			.getForEntity(
+		CalificacionProducto[] calificacionesArray = restTemplate.getForEntity(
 				"http://ServicioCalificacionesProductos/calificaciones_productos?codigoProducto="+codigoProducto
-				,CalificacionProducto[].class)
+				,CalificacionProducto[].class
+			)
 			.getBody();
 		return Arrays.asList(calificacionesArray);
 	}

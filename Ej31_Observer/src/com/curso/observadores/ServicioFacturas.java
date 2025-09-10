@@ -5,11 +5,11 @@ import com.curso.modelo.entidad.Pedido;
 import com.curso.util.eventos.Observador;
 import com.curso.util.eventos.SujetoPedidos;
 
-public class GestorFacturas implements Observador<Pedido> {
+public class ServicioFacturas implements Observador<Pedido> {
 
 	private SujetoPedidos sujetoPedidos = SujetoPedidos.getInstancia();
 	
-	public GestorFacturas() {
+	public ServicioFacturas() {
 		super();
 		sujetoPedidos.registro(this);
 	}

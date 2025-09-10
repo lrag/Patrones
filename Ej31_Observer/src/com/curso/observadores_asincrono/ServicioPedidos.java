@@ -3,7 +3,7 @@ package com.curso.observadores_asincrono;
 import com.curso.modelo.entidad.Pedido;
 import com.curso.util.eventos_asincrono.SujetoPedidosAsincrono;
 
-public class GestorPedidos {
+public class ServicioPedidos {
 
 	private SujetoPedidosAsincrono sujetoPedidos = SujetoPedidosAsincrono.getInstancia();
 	

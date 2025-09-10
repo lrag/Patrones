@@ -3,14 +3,14 @@ package com.curso.observadores;
 import com.curso.modelo.entidad.Pedido;
 import com.curso.util.eventos.SujetoPedidos;
 
-public class GestorPedidos {
+public class ServicioPedidos {
 
 	private SujetoPedidos sujetoPedidos = SujetoPedidos.getInstancia();
 	
 	//Estas serian las dependencias de esta clase, con las que está de verdad acoplada
-	//private GestorClientes gestorClientes;
-	//private GestorAlmacen gestorAlmacen;
-	//private GestorCatalogo gestorCatalogo;
+	//private ServicioClientes gestorClientes;
+	//private ServicioAlmacen gestorAlmacen;
+	//private ServicioCatalogo gestorCatalogo;
 	
 	public void crearOrdenDeCompra(Pedido pedido) {
 		

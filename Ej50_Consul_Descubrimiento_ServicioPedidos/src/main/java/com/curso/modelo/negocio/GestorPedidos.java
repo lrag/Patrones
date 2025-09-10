@@ -1,7 +1,6 @@
 package com.curso.modelo.negocio;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,11 +16,21 @@ import com.curso.modelo.proxy.ProductosRestProxy;
 @Transactional
 public class GestorPedidos {
 
-	@Autowired private PedidoRepositorio pedidoRepo;
+	private PedidoRepositorio pedidoRepo;
+	private ClientesProxy clientesProxy;
+	private ProductosRestProxy productosRestProxy;
 	
-	@Autowired private ClientesProxy clientesProxy;
-	@Autowired private ProductosRestProxy productosRestProxy;
-	
+	public GestorPedidos(
+			PedidoRepositorio pedidoRepo, 
+			ClientesProxy clientesProxy,	
+			ProductosRestProxy productosRestProxy
+		) {
+		super();
+		this.pedidoRepo = pedidoRepo;
+		this.clientesProxy = clientesProxy;
+		this.productosRestProxy = productosRestProxy;
+	}
+
 	@Transactional
 	public Pedido altaPedido(Pedido pedido) {
 

@@ -6,8 +6,9 @@ import com.curso.modelo.entidad.Factura;
 import com.curso.modelo.entidad.Pedido;
 
 @Service
-public class GestorFacturas {
+public class ServicioFacturasImpl implements ServicioFacturas {
 
+	@Override
 	public Factura facturarPedido(Pedido pedido) {
 		//Lógica de negocio...
 		//...

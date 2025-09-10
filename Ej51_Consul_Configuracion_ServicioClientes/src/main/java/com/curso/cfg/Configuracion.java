@@ -12,20 +12,6 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 public class Configuracion {
 	
-	//tipo
-	//name/id
-	//ámbito (scope)
-	
-	//singleton
-	//prototype
-	//
-	//request
-	//session
-	
-	
-	
-	
-	
 	@Bean
 	//@Scope("singleton")
 	@RefreshScope
@@ -44,8 +30,6 @@ public class Configuracion {
 		ds.setPassword(password);		
 		return ds;
 	}
-	
-	
 	
 }
 

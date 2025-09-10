@@ -1,10 +1,10 @@
 package com.curso;
 
 import com.curso.modelo.entidad.Pedido;
-import com.curso.observadores_asincrono.GestorEnvios;
-import com.curso.observadores_asincrono.GestorFacturas;
-import com.curso.observadores_asincrono.GestorMensajes;
-import com.curso.observadores_asincrono.GestorPedidos;
+import com.curso.observadores_asincrono.ServicioEnvios;
+import com.curso.observadores_asincrono.ServicioFacturas;
+import com.curso.observadores_asincrono.ServiciorMensajes;
+import com.curso.observadores_asincrono.ServicioPedidos;
 
 public class AplicacionAsincrono {
 
@@ -12,10 +12,10 @@ public class AplicacionAsincrono {
 		
 		long inicio = System.currentTimeMillis();		
 		
-		GestorPedidos  gp = new GestorPedidos();
-		GestorFacturas gf = new GestorFacturas();
-		GestorEnvios   ge = new GestorEnvios();
-		GestorMensajes gm = new GestorMensajes();
+		ServicioPedidos  gp = new ServicioPedidos();
+		ServicioFacturas gf = new ServicioFacturas();
+		ServicioEnvios   ge = new ServicioEnvios();
+		ServiciorMensajes gm = new ServiciorMensajes();
 		
 		for(int a=0; a<10; a++) {	
 			Pedido p = new Pedido("PED-"+a,"Fecha"+a, "Cliente"+a,a*25d);

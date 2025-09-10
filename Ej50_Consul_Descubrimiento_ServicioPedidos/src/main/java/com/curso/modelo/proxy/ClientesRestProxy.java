@@ -1,7 +1,8 @@
 package com.curso.modelo.proxy;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,6 +16,19 @@ public class ClientesRestProxy implements ClientesProxy{
 	@Autowired private ClienteRepositorio clienteRepo;
 	
 	public Cliente buscar(String login){
+		
+		/*
+		Optional<Cliente> clienteOp = clienteRepo.findByLogin(login);
+		if(clienteOp.isPresent()) {
+			return clienteOp.get();
+		} else {
+			Cliente cliAux = restTemplate.getForEntity("http://ServicioClientes/clientes/"+login, Cliente.class).getBody();
+			System.out.println("Cliente obtenido:"+cliAux);
+			clienteRepo.save(cliAux);
+			return cliAux;			
+		}
+		*/
+	
 		return clienteRepo
 			.findByLogin(login)
 			.orElseGet( () -> {
@@ -26,7 +40,7 @@ public class ClientesRestProxy implements ClientesProxy{
 				System.out.println("Cliente obtenido:"+cliAux);
 				clienteRepo.save(cliAux);
 				return cliAux;
-			});		
+			});
 	}
 
 }

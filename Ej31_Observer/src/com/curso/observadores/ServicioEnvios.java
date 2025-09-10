@@ -4,22 +4,25 @@ import com.curso.modelo.entidad.Pedido;
 import com.curso.util.eventos.Observador;
 import com.curso.util.eventos.SujetoPedidos;
 
-public class GestorMensajes implements Observador<Pedido> {
+public class ServicioEnvios implements Observador<Pedido> {
 
 	private SujetoPedidos sujetoPedidos = SujetoPedidos.getInstancia();
 	
-	public GestorMensajes() {
+	public ServicioEnvios() {
 		super();
 		sujetoPedidos.registro(this);
-	}	
-	
+	}
+
 	@Override
 	public void procesarEvento(Pedido evento) {
-		enviarCorreoElectronico(evento);
+		//Aqui no hay lógica de negocio
+		//AQUI HAY LÓGICA DE CONTROL!
+		crearEnvio(evento);
 	}
 	
-	public void enviarCorreoElectronico(Pedido pedido) {
-		System.out.println("GestorMensajes.enviarCorreoElectronico:"+pedido);
+	public void crearEnvio(Pedido pedido) {
+		System.out.println("GestorEnvios.crearEnvio:"+pedido);
+		//LN
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {

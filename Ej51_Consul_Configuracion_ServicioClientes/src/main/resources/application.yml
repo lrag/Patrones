@@ -37,9 +37,4 @@ spring:
     #username: ${spring.datasource.username}
     #password: ${spring.datasource.password}
     password:    
-    
 
-
-
-
-  

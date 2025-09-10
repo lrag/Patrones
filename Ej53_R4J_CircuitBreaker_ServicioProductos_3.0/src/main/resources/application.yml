@@ -17,7 +17,7 @@ resilience4j:
          #- org.springframework.web.client.HttpServerErrorException      
   instances:
     gestorProductos-buscarProductoYCalificaciones:
-      baseConfig: default    
+      baseConfig: default   
 
 spring:
   application:

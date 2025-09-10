@@ -11,6 +11,12 @@ public class Gato extends Animal {
 		System.out.println("Hola, soy el gato "+nombre+" y digo MIAU MIAU!");		
 	}
 	
-	
+	public void ignorar() {
+		
+		//System.out.println(this.peso);
+		System.out.println(getPeso());
+		System.out.println(this.nombre);
+		
+	}
 	
 }
