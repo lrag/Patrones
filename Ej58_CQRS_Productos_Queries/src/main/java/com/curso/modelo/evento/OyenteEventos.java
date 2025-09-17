@@ -23,7 +23,7 @@ public class OyenteEventos {
 		System.out.println("Evento recibido:"+eventoProducto);
 		
 		Producto producto = eventoProducto.getProducto();
-		//Abierto-Cerrado :)
+		//Abierto-Cerrado ;)
 		switch (eventoProducto.getTipo()) {
 			case PRODUCTO_CREADO :
 				projectorPoductos.insertar(producto);

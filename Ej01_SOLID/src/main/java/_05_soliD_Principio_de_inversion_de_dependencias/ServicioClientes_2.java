@@ -1,18 +1,27 @@
 package _05_soliD_Principio_de_inversion_de_dependencias;
 
+//ServicioClientes es una clase de alto nivel
+//Depende de ClienteDao, que es de bajo nivel
+//Tiene una relación de uso, no de composición
 public class ServicioClientes_2 {
 
 	//Ahora no estamos acoplando la clase de alto nivel con la de bajo nivel
 	//sino con una interfaz. Estamos respetando el principio de inversion de dependencias
 	//Si las posibles implementaciones respetan el principio de sustitución de Liskov 
 	//pues entonces ideal
-	//private ClienteDao clienteDao = new ClienteDaoMysqlImplementation();
+	
+	/*
+	private ClienteDao clienteDao = new ClienteDaoMysqlImplementation();
+	
+	public ServicioClientes_2() {
+		super();
+	}
+	*/
 	
 	//Retiramos la responsabilidad de crear el objeto
 	//Esto es IoC. Ahora el que sabe crear ClienteDao es otro
 	//Seguimos con los problemas para hacer test doubles
-	
-	/*
+	/*	
 	private ClienteDao clienteDao;
 		
 	public ServicioClientes_2() {
@@ -25,6 +34,7 @@ public class ServicioClientes_2 {
 	}
 	*/
 	
+
 	private ClienteDao clienteDao = FactoriaClienteDao.getClienteDao();
 
 	public ServicioClientes_2(ClienteDao clienteDao) {

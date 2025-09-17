@@ -62,11 +62,7 @@ public class Aplicacion {
 		c4.add("Trololó");
 		c4.forEach(s -> System.out.println(s));
 		
-		
-		
-		
 		/*
-		
 		
 		Collection c1 = new ArrayList();
 		Collection c2 = new LinkedList();
@@ -81,14 +77,7 @@ public class Aplicacion {
 		
 		*/
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		List<String> movidas = listar1();
 		
 	}
 	

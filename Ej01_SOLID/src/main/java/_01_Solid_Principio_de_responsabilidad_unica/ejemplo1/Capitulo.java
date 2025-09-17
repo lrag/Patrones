@@ -22,6 +22,9 @@ public class Capitulo {
 	}
 
 	public void setNumero(Integer numero) {
+		if(numero<0) {
+			//throw exception
+		}
 		this.numero = numero;
 	}
 
@@ -50,7 +53,7 @@ public class Capitulo {
 		System.out.println();
 	}
 
-	public String imprimir() {
+	public String formatearTexto() {
 		return new StringBuilder()
 		 .append("Capítulo "+numero )
    		 .append("\n\n")

@@ -32,7 +32,7 @@ public class ProductosEndpoint {
 	@PostMapping("/productos")
 	public ResponseEntity<Void> altaProducto(@RequestBody ProductoDTO productoDTO){
 		Comando comando = new ComandoInsertarProducto(productoDTO.asProducto(), gestorProductos);
-		colaComandos.offer(comando);
+		colaComandos.offer(comando); 
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 	

@@ -17,8 +17,6 @@ import com.curso.modelo.entidad.Producto;
 import com.curso.modelo.negocio.GestorProductos;
 import com.curso.modelo.persistencia.ProductoRepositorio;
 
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-
 @RestController
 public class ProductosRest {
 

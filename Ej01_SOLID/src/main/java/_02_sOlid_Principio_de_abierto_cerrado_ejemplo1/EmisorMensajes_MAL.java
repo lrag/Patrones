@@ -8,14 +8,20 @@ public class EmisorMensajes_MAL {
 		switch(tipo) {
 			case "SMS" :
 				//Código para enviar el SMS
+				//
+				//
 				System.out.println("Enviando SMS a "+destinatario);
 				break;		
 			case "CorreoE" :
 				//Código para enviar el CorreoE
+				//
+				//
 				System.out.println("Enviando CorreoE a "+destinatario);
 				break;		
 			case "Paloma mensajera" :
 				//Código para enviar una paloma mensajera
+				//
+				//
 				System.out.println("Enviando una paloma mensajera a "+destinatario);
 				break;	
 			default: throw new RuntimeException("Método no soportado");
@@ -23,7 +29,7 @@ public class EmisorMensajes_MAL {
 		
 	}
 	
-	//Si lo huberamos hecho así también estaríamos dejando esta clase abierta
+	//Si lo hubieramos hecho así también estaríamos dejando esta clase abierta
 	//Pero estaríamos respetando la S
 	public void enviarMensaje_BIS(String destinatario, String texto, String tipo) {
 
@@ -53,6 +59,5 @@ public class EmisorMensajes_MAL {
 	public void enviarMensajePalomaMensajera() {
 		//Código para enviar una paloma mensajera
 	}
-	
 	
 }

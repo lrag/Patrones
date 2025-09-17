@@ -47,7 +47,6 @@ public class GestorProductos {
 			.or(() -> Optional.empty());
 	}	
 	
-	
 	@CircuitBreaker(name = "gestorProductos-buscarProductoYCalificaciones", 
     		        fallbackMethod = "fallbackBuscarProductoYCalificaciones")    
 	public Optional<Producto> buscarProductoYCalificaciones(String codigo) throws Exception{
@@ -89,13 +88,13 @@ public class GestorProductos {
 		return productoRepo.save(producto);
 	}
 	
-	
-	/*
+	/*	
 	GestorProductos target;
 	Integer fallos = 0;
 	Integer umbral = 5;
+	long timestamp;
 	
-	public Optional<Producto> buscarProductoYCalificaciones(String codigo) {
+	public Optional<Producto> buscarProductoYCalificaciones_XD(String codigo) {
 		
 		Optional<Producto> p = null;
 		
@@ -112,7 +111,8 @@ public class GestorProductos {
 		}		
 		return p;		
 	}
-	*/
+    */
+	
 		
 	
 }

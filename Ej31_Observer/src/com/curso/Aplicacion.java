@@ -18,7 +18,6 @@ public class Aplicacion {
 		ServicioEnvios   ge = new ServicioEnvios();
 		ServicioMensajes gm = new ServicioMensajes();
 		
-		
 		for(int a=0; a<10; a++) {	
 			Pedido p = new Pedido("PED-"+a,"Fecha"+a, "Cliente"+a,a*25d);
 			gp.crearOrdenDeCompra(p);

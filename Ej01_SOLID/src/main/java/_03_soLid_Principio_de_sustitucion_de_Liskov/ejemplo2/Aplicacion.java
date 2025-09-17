@@ -24,7 +24,7 @@ public class Aplicacion {
 		System.out.println("==================================");
 		for(Memoria m : memorias) {
 			m.leer(1);
-			//Como no esta respetando el principio de suustitución de Barbara necesitamos este
+			//Como no esta respetando el principio de sustitución de Barbara necesitamos este
 			//horrendo if y su instanceof
 			if(m instanceof RAM || m instanceof EEPROM) {
 				m.escribir(1l, (byte)0);

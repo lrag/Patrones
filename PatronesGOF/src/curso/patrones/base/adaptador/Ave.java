@@ -14,4 +14,5 @@ public abstract  class Ave {
 	//funcionalidad añadida más tarde que obliga
 	// a retocar todas las clases
 	public abstract void cantar();
+	
 }

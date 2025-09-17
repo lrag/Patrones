@@ -1,6 +1,6 @@
 package com.curso;
 
-import com.curso.modelo.negocio.GestorClientes;
+import com.curso.modelo.negocio.ServicioClientes;
 
 public class Prueba {
 
@@ -8,10 +8,10 @@ public class Prueba {
 		
 		//GestorClientes gc = new GestorClientes();
 		
-		GestorClientes gc1 = GestorClientes.getInstancia();
-		GestorClientes gc2 = GestorClientes.getInstancia();
-		GestorClientes gc3 = GestorClientes.getInstancia();
-		GestorClientes gc4 = GestorClientes.getInstancia();
+		ServicioClientes gc1 = ServicioClientes.getInstancia();
+		ServicioClientes gc2 = ServicioClientes.getInstancia();
+		ServicioClientes gc3 = ServicioClientes.getInstancia();
+		ServicioClientes gc4 = ServicioClientes.getInstancia();
 		
 		System.out.println(gc1);
 		System.out.println(gc2);

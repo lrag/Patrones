@@ -32,6 +32,10 @@ public class FacturaBuilderImplementation implements FacturaBuilder{
 		this.fecha = fecha;
 	}
 
+	//////////////
+	//FLUENT API//
+	//////////////
+	
 	@Override
 	public FacturaBuilder id(int id) {
 		this.id = id;
@@ -86,5 +90,5 @@ public class FacturaBuilderImplementation implements FacturaBuilder{
 		f.setEventos(eventos);
 		return f;		
 	}
-
+	
 }

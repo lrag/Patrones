@@ -93,6 +93,7 @@ public class Cliente_ActiveRecord implements Cloneable {
 		System.out.println("Insertandome en la bb.dd...");
 		try {
 			Connection cx = dataSource.getConnection();
+			System.out.println(cx);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new Exception("Fallo al acceder a la bb.dd");

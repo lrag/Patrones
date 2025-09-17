@@ -27,8 +27,8 @@ public class ServicioCursos {
 		//...		
 	}	
 	
+		
 	//MODELO ANÉMICO
-	/*
 	public void matricularAlumno_(Alumno alumno, Curso curso) {		
 		
 		//if(curso.getTipo = presencial)
@@ -45,7 +45,6 @@ public class ServicioCursos {
 		
 		matriculaRepo.save("matricula");	
 	}
-	*/
 	
 	/*
 	//Aqui al menos estamos respetando el principio de responsabilidad única

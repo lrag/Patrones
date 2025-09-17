@@ -111,7 +111,7 @@ public class Libro {
 		sb.append(autor+", "+year);
 		sb.append("\n\n");
 		capitulos.forEach(capitulo -> {
-			sb.append(capitulo.imprimir());
+			sb.append(capitulo.formatearTexto());
 		});
 		sb.append("FIN");
 		return sb.toString();		
