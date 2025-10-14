@@ -47,8 +47,10 @@ public class CalificacionProductosRest {
 		System.out.println("Buscando las calificaciones del producto:"+codigoProducto);
 		
 		long fin = System.currentTimeMillis()+4000;
-		while(System.currentTimeMillis()<fin) {
+		long smith = System.currentTimeMillis();
+		while(smith < fin) {
 			//Haciendo cosas y más cosas
+			smith = System.currentTimeMillis();
 		}
 		
 		return calificacionProductoRepo.findAllByCodigoProducto(codigoProducto);

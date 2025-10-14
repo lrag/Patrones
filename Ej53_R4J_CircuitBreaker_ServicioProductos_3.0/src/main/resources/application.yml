@@ -13,11 +13,19 @@ resilience4j:
         failureRateThreshold: 10
         waitDurationInOpenState: 10s #Cuidado que sin la 's' son milisegundos 
         permittedNumberOfCallsInHalfOpenState: 5
+        registerHealthIndicator: true
         #recordExceptions:
-         #- org.springframework.web.client.HttpServerErrorException      
-  instances:
-    gestorProductos-buscarProductoYCalificaciones:
-      baseConfig: default   
+        # - org.springframework.web.client.HttpServerErrorException      
+    instances:
+      gestorProductos-buscarProductoYCalificaciones:
+        baseConfig: default  
+
+management:
+  endpoints.web.exposure.include: "*"
+  endpoint.health.show-details: always
+
+  health.circuitbreakers.enabled: true
+  health.ratelimiters.enabled: true			 
 
 spring:
   application:

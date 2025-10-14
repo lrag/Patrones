@@ -2,6 +2,8 @@ package curso.patrones.base.adaptador.problema;
 
 public class Pterodactilo extends Dinosaurio {
 
+	
+	
 	@Override
 	public void pasarPorElAgua() {
 		System.out.println("caminando entre las aguas");

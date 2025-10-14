@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import com.curso.modelo.entidad.Cliente;
 import com.curso.modelo.persistencia.ClienteRepositorio;
 
@@ -36,7 +38,7 @@ consul agent -config-file=consul-config.json
 public class Aplicacion implements CommandLineRunner{
 
 	@Autowired ClienteRepositorio clienteRepo;
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(Aplicacion.class, args);
 	}

@@ -16,18 +16,6 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class Configuracion {
-
-	@Value("${spring.rabbitmq.host}")
-	private String host;
-
-	@Value("${spring.rabbitmq.port}")
-	private int port;
-
-	@Value("${spring.rabbitmq.username}")
-	private String username;
-
-	@Value("${spring.rabbitmq.password}")
-	private String password;
 	
 	@Bean
 	@LoadBalanced
@@ -41,7 +29,12 @@ public class Configuracion {
 	/////////////////////////////////////////////////
 	
     @Bean
-    ConnectionFactory connectionFactory() {
+    ConnectionFactory connectionFactory(
+    		@Value("${spring.rabbitmq.host}") String host,
+    		@Value("${spring.rabbitmq.port}") int port,
+    		@Value("${spring.rabbitmq.username}") String username,
+    		@Value("${spring.rabbitmq.password}") String password
+    	) {
         CachingConnectionFactory connectionFactory = new CachingConnectionFactory(host, port);
         connectionFactory.setUsername(username);
         connectionFactory.setPassword(password);
@@ -50,8 +43,8 @@ public class Configuracion {
     }
 
     @Bean
-    AmqpAdmin amqpAdmin() {
-        return new RabbitAdmin(connectionFactory());
+    AmqpAdmin amqpAdmin(ConnectionFactory connectionFactory) {
+        return new RabbitAdmin(connectionFactory);
     }
 
     @Bean

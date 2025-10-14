@@ -45,7 +45,36 @@ public class GestorProductos {
 				return producto;					
 			})
 			.or(() -> Optional.empty());
-	}	
+	}
+	
+		
+	private static int nFallos = 0;
+	private static int umbral = 5;	
+	public Optional<Producto> buscarProductoYCalificaciones_Con_CircuitBreaker_de_andar_por_casa(String codigo) throws Exception {
+    	
+		if(nFallos>= umbral) {
+			throw new Exception("ZASCA TARRASCA!");
+		}
+		
+		try {
+			return productoRepo
+				.findByCodigo(codigo)
+				.map(producto -> {
+					//Si falla la llamada para buscar las calificaciones devolveremos el producto sin ellas
+					//Deberíamos indicar en la respuesta lo que ha sucedido				
+					List<CalificacionProducto> calificaciones = null;
+					calificaciones = calificacionesProductosProxy.buscarCalificacionesProducto(producto.getCodigo());
+					producto.setCalificaciones(calificaciones);
+					return producto;					
+				})
+				.or(() -> Optional.empty());
+		} catch (Exception e) {
+			nFallos++;
+			throw e;
+		}
+		
+	}
+	
 	
 	@CircuitBreaker(name = "gestorProductos-buscarProductoYCalificaciones", 
     		        fallbackMethod = "fallbackBuscarProductoYCalificaciones")    
@@ -89,6 +118,12 @@ public class GestorProductos {
 	}
 	
 	/*	
+
+	
+	
+	
+	
+	
 	GestorProductos target;
 	Integer fallos = 0;
 	Integer umbral = 5;

@@ -18,6 +18,14 @@ import com.curso.modelo.entidad.Cliente;
 import com.curso.modelo.negocio.GestorClientes;
 import com.curso.modelo.persistencia.ClienteRepositorio;
 
+/*
+GET    /clientes/{id}
+GET    /clientes
+POST   /clientes
+PUT    /clientes/{id}
+DELETE /clientes/{id}
+*/
+
 @RestController
 public class ClientesRest {
 
@@ -26,9 +34,6 @@ public class ClientesRest {
 	
 	@GetMapping(path="/clientes/{login}", produces="application/json")
 	public ResponseEntity<ClienteDTO> buscar(@PathVariable() String login){
-		
-		System.out.println("BUSCAR");
-		
 		return clienteRepo
 				.findByLogin(login)
 				.map(c -> new ResponseEntity<ClienteDTO>(new ClienteDTO(c), HttpStatus.OK))
@@ -48,13 +53,11 @@ public class ClientesRest {
 	public ResponseEntity<ClienteDTO> insertar(@RequestBody() ClienteDTO clienteDto){
 		
 		System.out.println("INSERTAR");
-		
 		Cliente clienteInsertado = gestorClientes.insertar(clienteDto.asCliente());
 		return new ResponseEntity<ClienteDTO>(new ClienteDTO(clienteInsertado), HttpStatus.CREATED);
 	}
 	
-	//@PutMapping(path="/clientes/{login}
-	
+	//@PutMapping(path="/clientes/{login}	
 	
 	@DeleteMapping(path="/clientes/{login}")
 	public ResponseEntity<Object> borrar(@PathVariable() String login){

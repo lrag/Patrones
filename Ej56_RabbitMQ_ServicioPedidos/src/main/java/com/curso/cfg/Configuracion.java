@@ -2,6 +2,9 @@ package com.curso.cfg;
 
 import javax.sql.DataSource;
 
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -41,25 +44,57 @@ public class Configuracion {
 	//en rabbitMQ
 	//Sin esta bean funciona igual pero se crea una cola temporal
 	@Bean
-	public Queue colaOrdenesDeCompra() {
+	Queue colaOrdenesDeCompra() {
         // name: colaPedidosCreados
         // durable: true
         // exclusive: false
         // auto_delete: false
         return new Queue("colaOrdenesDeCompra", true, false, false);
-	}	
+	}
+	
+	/*
+	@Bean
+	Queue colaIncidenciasPedidos() {
+		// name: colaPedidosCreados
+		// durable: true
+		// exclusive: false
+		// auto_delete: false
+		return new Queue("colaIncidenciasPedidos", true, false, false);
+	}
+	*/	
+	
+    @Bean
+    DirectExchange exchangeColas() {
+        return new DirectExchange("exchangeColas", true, false);
+    }	
+    
+    @Bean
+    Binding bindingOrdenesDeCompra(Queue colaOrdenesDeCompra, DirectExchange exchangeColas) {
+        return BindingBuilder
+                .bind(colaOrdenesDeCompra)
+                .to(exchangeColas) 
+                .with("nuevaOrdenDeCompra"); 
+    }
+    
+    /*
+    @Bean
+    Binding bindingIncidenciasPedidos(Queue colaIncidenciasPedidos, DirectExchange exchangeColas) {
+    	return BindingBuilder
+    			.bind(colaIncidenciasPedidos)
+    			.to(exchangeColas) 
+    			.with("nuevaIncidenciaPedido"); 
+    }
+    */    
 	
 	//Esta necesitamos tenerla
 	//Spring Boot registra una RabbitTemplate, pero que recibe un string (json) como payload del mensaje
 	//Aprovechamos para asociar a la rabbitTemplate un conversor de obj a json 
     @Bean
     RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
-        
     	final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
     	rabbitTemplate.setMessageConverter(producerJackson2MessageConverter());
     	rabbitTemplate.setChannelTransacted(true);
         return rabbitTemplate;
-        
     }
 
     //El conversor...

@@ -14,7 +14,7 @@ import com.curso.modelo.repositorio.RepositorioProductos;
 
 @Service
 @Transactional
-public class GestorProductos {
+public class ServicioProductosImpl implements ServicioProductos {
 
 	@Autowired private RepositorioProductos repoProductos;
 	@Autowired private RepositorioFabricantes repoFabricantes;
@@ -30,6 +30,7 @@ public class GestorProductos {
 		}	
 	}
 	*/
+	@Override
 	public void insertar(Producto producto) {
 		//LN...
 		System.out.println("Insertando el producto:"+producto);
@@ -41,6 +42,7 @@ public class GestorProductos {
 		proxyMensajeria.enviarMensaje(producto.getReferencia(), ep);
 	}
 
+	@Override
 	public void modificar(Producto producto) {
 		//LN...
 		System.out.println("Modificando el producto:"+producto);
@@ -50,6 +52,7 @@ public class GestorProductos {
 		proxyMensajeria.enviarMensaje(producto.getReferencia(), ep);		
 	}
 
+	@Override
 	public void borrar(String referencia) {
 		//LN...
 		

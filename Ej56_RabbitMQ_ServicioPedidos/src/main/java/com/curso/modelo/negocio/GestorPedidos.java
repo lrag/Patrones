@@ -65,7 +65,7 @@ public class GestorPedidos {
 		//
 		//Y aqui deberiamos estar utilizando un PROXY!
 		//		
-		rabbitTemplate.convertAndSend("colaOrdenesDeCompra",new PedidoDTO(pedido));	
+		rabbitTemplate.convertAndSend("exchangeColas", "nuevaOrdenDeCompra", new PedidoDTO(pedido));	
 
 		/*
 		System.out.println("------------------------------------");

@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 import com.curso.modelo.entidad.Cliente;
 import com.curso.modelo.entidad.DetallePedido;
@@ -23,10 +24,16 @@ public class Aplicacion {
 
 	public static void main(String[] args) {
 		
+		/*
 		EstrategiaOfertaCero sinOferta = new EstrategiaOfertaCero();
 		EstrategiaOfertaDescuentoGlobal ofertaDiezPorCiento = new EstrategiaOfertaDescuentoGlobal(10d);
 		EstrategiaOfertaDescuentoGlobal ofertaVeintePorCiento = new EstrategiaOfertaDescuentoGlobal(20d);
 		EstrategiaOfertaPerritoPiloto ofertaPerritoPiloto = new EstrategiaOfertaPerritoPiloto();
+		*/
+		EstrategiaOferta sinOferta             = new EstrategiaOfertaCero();
+		EstrategiaOferta ofertaDiezPorCiento   = new EstrategiaOfertaDescuentoGlobal(10d);
+		EstrategiaOferta ofertaVeintePorCiento = new EstrategiaOfertaDescuentoGlobal(20d);
+		EstrategiaOferta ofertaPerritoPiloto   = new EstrategiaOfertaPerritoPiloto();
 		
 		List<Producto> productosOferta = Arrays.asList(p2,p3,p5);
 		EstrategiaOferta3x2 oferta3x2 = new EstrategiaOferta3x2(productosOferta);
@@ -34,16 +41,19 @@ public class Aplicacion {
 		
 		ServicioPedidos sp = new ServicioPedidos();
 		
+		sp.aceptarPedido(getPedido1(), ofertaDiezPorCiento);
+		sp.aceptarPedido(getPedido1(), ofertaVeintePorCiento);
+		
+		sp.aceptarPedido(getPedido1(), ofertaPerritoPiloto);
+		sp.aceptarPedido(getPedido2(), sinOferta);
+		sp.aceptarPedido(getPedido2(), oferta3x2);
+		sp.aceptarPedido(getPedido2(), ofertaDescuentoProductos);
+		
 		sp.aceptarPedido(getPedido1(), pedido -> { 
 				pedido.setDescuento(pedido.getTotal()*(10/100));
 				pedido.calcularTotal();			
 			} ); //ofertaDiezPorCiento);
 		
-		sp.aceptarPedido(getPedido1(), ofertaVeintePorCiento);
-		sp.aceptarPedido(getPedido1(), ofertaPerritoPiloto);
-		sp.aceptarPedido(getPedido2(), sinOferta);
-		sp.aceptarPedido(getPedido2(), oferta3x2);
-		sp.aceptarPedido(getPedido2(), ofertaDescuentoProductos);			
 	}
 	
 	
@@ -75,3 +85,16 @@ public class Aplicacion {
 	}
 	
 }
+
+/*
+class Movida implements Consumer<String> {
+
+	@Override
+	public void accept(String t) {
+		System.out.println(">>>"+t);
+		
+	}	
+	
+}
+*/
+

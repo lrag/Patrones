@@ -22,7 +22,7 @@ public class Aplicacion implements CommandLineRunner{
 
 	@Autowired ClienteRepositorio clienteRepo;
 	
-	@Value("${spring.datasource.url:valor_por_defecto}")
+	@Value("${bbdd.url:valor_por_defecto}")
 	private String url;	
 	
 	public static void main(String[] args) {

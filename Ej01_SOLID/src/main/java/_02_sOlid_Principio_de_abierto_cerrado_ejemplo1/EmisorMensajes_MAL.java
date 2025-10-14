@@ -35,28 +35,28 @@ public class EmisorMensajes_MAL {
 
 		switch(tipo) {
 			case "SMS" :
-				enviarMensajeSMS();
+				enviarMensajeSMS(destinatario, texto, tipo);
 				break;		
 			case "CorreoE" :
-				enviarMensajeCorreoE();
+				enviarMensajeCorreoE(destinatario, texto, tipo);
 				break;		
 			case "Paloma mensajera" :
-				enviarMensajePalomaMensajera();
+				enviarMensajePalomaMensajera(destinatario, texto, tipo);
 				break;	
 			default: throw new RuntimeException("Método no soportado");
 		}
 		
 	}	
 		
-	public void enviarMensajeSMS() {
+	public void enviarMensajeSMS(String destinatario, String texto, String tipo) {
 		//Código para enviar el SMS
 	}
 	
-	public void enviarMensajeCorreoE() {
+	public void enviarMensajeCorreoE(String destinatario, String texto, String tipo) {
 		//Código para enviar el CorreoE
 	}
 	
-	public void enviarMensajePalomaMensajera() {
+	public void enviarMensajePalomaMensajera(String destinatario, String texto, String tipo) {
 		//Código para enviar una paloma mensajera
 	}
 	

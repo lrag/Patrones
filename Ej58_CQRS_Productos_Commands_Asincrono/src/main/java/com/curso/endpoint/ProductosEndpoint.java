@@ -20,13 +20,13 @@ import com.curso.modelo.comandos.ComandoBorrarProducto;
 import com.curso.modelo.comandos.ComandoInsertarProducto;
 import com.curso.modelo.comandos.ComandoModificarProducto;
 import com.curso.modelo.comandos.cola.ColaComandos;
-import com.curso.modelo.negocio.GestorProductos;
+import com.curso.modelo.negocio.ServicioProductos;
 import com.curso.modelo.repositorio.RepositorioProductos;
 
 @RestController
 public class ProductosEndpoint {
 	
-	@Autowired private GestorProductos gestorProductos;
+	@Autowired private ServicioProductos gestorProductos;
 	@Autowired private ColaComandos colaComandos;
 	
 	@PostMapping("/productos")

@@ -21,7 +21,7 @@ public class ServicioClientes_2 {
 	//Retiramos la responsabilidad de crear el objeto
 	//Esto es IoC. Ahora el que sabe crear ClienteDao es otro
 	//Seguimos con los problemas para hacer test doubles
-	/*	
+	/*
 	private ClienteDao clienteDao;
 		
 	public ServicioClientes_2() {

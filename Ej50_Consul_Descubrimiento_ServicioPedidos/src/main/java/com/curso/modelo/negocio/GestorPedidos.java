@@ -10,7 +10,7 @@ import com.curso.modelo.entidad.Pedido;
 import com.curso.modelo.entidad.Producto;
 import com.curso.modelo.persistencia.PedidoRepositorio;
 import com.curso.modelo.proxy.ClientesProxy;
-import com.curso.modelo.proxy.ProductosRestProxy;
+import com.curso.modelo.proxy.ProductosProxy;
 
 @Service
 @Transactional
@@ -18,12 +18,12 @@ public class GestorPedidos {
 
 	private PedidoRepositorio pedidoRepo;
 	private ClientesProxy clientesProxy;
-	private ProductosRestProxy productosRestProxy;
+	private ProductosProxy productosRestProxy;
 	
 	public GestorPedidos(
 			PedidoRepositorio pedidoRepo, 
 			ClientesProxy clientesProxy,	
-			ProductosRestProxy productosRestProxy
+			ProductosProxy productosRestProxy
 		) {
 		super();
 		this.pedidoRepo = pedidoRepo;

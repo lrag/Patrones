@@ -29,12 +29,11 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.H2Dialect     
 
-  datasource:
-    #url: ${spring.datasource.url}
-    #url: ${bbdd.url}
-    driverClassName: org.h2.Driver
-    username: sa
-    #username: ${spring.datasource.username}
-    #password: ${spring.datasource.password}
-    password:    
+  #datasource:
+    #url: ${bbdd.url:VALOR_POR_DEFECTO}  
+    #driverClassName: org.h2.Driver
+    #username: sa
+    #password:
 
+arsa:
+  tocoto: OLA KE TAL

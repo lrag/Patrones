@@ -10,19 +10,19 @@ import org.springframework.stereotype.Service;
 import com.curso.modelo.entidad.Cliente;
 import com.curso.modelo.persistencia.ClienteRepositorio;
 
+@RefreshScope
 @Service
 @Transactional
-@RefreshScope
 public class GestorClientes {
 
 	private String valor;
 
-	@Autowired
 	private ClienteRepositorio clienteRepo;
 
-	public GestorClientes(@Value("${bbdd.url}") String valor) {
+	public GestorClientes(@Value("${bbdd.url}") String valor, ClienteRepositorio clienteRepo) {
 		super();
 		this.valor = valor;
+		this.clienteRepo = clienteRepo;
 		System.out.println("Instanciando GestorClientes: "+this.valor);
 	}
 

@@ -5,6 +5,7 @@ public class Programa {
 		DVD dvd =new DVD();
 		TV tv=new TV();
 		EquipoHIFI equipoHIFI=new EquipoHIFI();
+		
 		//vamos a ver una peli
 		dvd.setEncendido(true);
 		tv.setEncendido(true);

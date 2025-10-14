@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.endpoint.dto.ClienteDTO;
 import com.curso.modelo.entidad.Cliente;
-import com.curso.modelo.negocio.GestorClientes;
+import com.curso.modelo.negocio.ServicioClientes;
 import com.curso.modelo.persistencia.ClienteRepositorio;
 
 @RestController
 public class ClientesRest {
 
-	@Autowired private GestorClientes gestorClientes;
+	@Autowired private ServicioClientes gestorClientes;
 	@Autowired private ClienteRepositorio clienteRepo;
 	
 	@GetMapping(path="/clientes/{login}")

@@ -21,6 +21,8 @@ public class Aplicacion2 {
 		
 		ImageWriter iw = new ImageWriter("imagenesProcesadas/amiga500.jpg");		
 		iw.write(er.read());
+	
+		
 		
 		AbstractImageReader air = null;
 		

@@ -8,9 +8,9 @@ public class ServicioPedidos {
 	private SujetoPedidos sujetoPedidos = SujetoPedidos.getInstancia();
 	
 	//Estas serian las dependencias de esta clase, con las que está de verdad acoplada
-	//private ServicioClientes gestorClientes;
-	//private ServicioAlmacen gestorAlmacen;
-	//private ServicioCatalogo gestorCatalogo;
+	//private ServicioClientes servicioClientes;
+	//private ServicioAlmacen servicioAlmacen;
+	//private ServicioCatalogo servicioCatalogo;
 	
 	public void crearOrdenDeCompra(Pedido pedido) {
 		

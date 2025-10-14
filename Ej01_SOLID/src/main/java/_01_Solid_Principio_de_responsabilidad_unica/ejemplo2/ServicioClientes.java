@@ -25,7 +25,7 @@ public class ServicioClientes {
 		//Comercial comercial = servicioComerciales.encotrarComercial(sucursal);
 		//Asociarle un comercial...
 		//cliente.setComercial(comercial);
-		clienteDao.insertar(cliente);		
+		clienteDao.insertar(cliente);	
 	}
 	
 }

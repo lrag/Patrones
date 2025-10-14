@@ -2,13 +2,11 @@ package com.curso.modelo.negocio;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
 import com.curso.modelo.entidad.DetallePedido;
 import com.curso.modelo.entidad.Pedido;
 import com.curso.persistencia.dao.FactoriaDAO;
 import com.curso.persistencia.dao.PedidoDao;
-
+import com.curso.persistencia.transacciones.GestorTransacciones;
 
 public class GestorPedidosImpl implements GestorPedidos {
 
@@ -63,9 +61,12 @@ public class GestorPedidosImpl implements GestorPedidos {
 		//GestorTransacciones.commit()/rollback();
 	}
 	
-	@Override
-	
+	@Override	
 	public void aceptar(Pedido pedido) throws Exception{
+		
+		//hora inicio
+		
+		//log
 		
 		//Seguridad
 		
@@ -82,6 +83,9 @@ public class GestorPedidosImpl implements GestorPedidos {
 				gestorAlmacen.reducirExistencias(dp.getProducto(), dp.getCantidad());
 			}
 			
+			//calcular ofertas
+			
+			
 			String camion = gestorTransportes.obtenerCamion(true);
 			pedido.setCamion(camion);
 			
@@ -92,12 +96,15 @@ public class GestorPedidosImpl implements GestorPedidos {
 			pedidoDao.modificar(pedido);
 			System.out.println("FIN");
 			
-		//  GestorTransacciones.commitTX();			
+		//  GestorTransacciones.commitTX();		
+		//    
 		//} catch (Exception e) {
 		//	GestorTransacciones.rollbackTX();
 		//	throw e;
 		//}
 
+		//hora-fin 
+		
 	}
 	
 	@Override

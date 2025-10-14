@@ -30,6 +30,7 @@ public class ServicioClientesAdapter {
 	}
 	
 	private Cliente getClienteFrom(ClienteDTO clienteDTO) {
+		
 		Cliente cAux = servicioClientes.buscar(clienteDTO.getId());
 		String datosBancarios = null;
 		if(cAux!=null) {

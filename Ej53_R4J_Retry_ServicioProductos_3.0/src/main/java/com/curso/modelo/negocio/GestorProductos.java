@@ -1,0 +1,129 @@
+package com.curso.modelo.negocio;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.curso.modelo.entidad.CalificacionProducto;
+import com.curso.modelo.entidad.Producto;
+import com.curso.modelo.persistencia.ProductoRepositorio;
+import com.curso.modelo.proxy.CalificacionesProductosProxy;
+
+import io.github.resilience4j.retry.annotation.Retry;
+
+@Service
+@Transactional
+public class GestorProductos {
+
+	@Autowired private ProductoRepositorio productoRepo;
+	@Autowired private CalificacionesProductosProxy calificacionesProductosProxy;
+	
+	public Optional<Producto> buscarProductoYCalificaciones_Con_Retry_de_andar_por_casa(String codigo) throws Exception {
+		
+		int intentos = 0;
+		int umbral = 5;	
+    	
+		Exception ex = null;
+		while(intentos < umbral) {
+			try {
+				return productoRepo
+					.findByCodigo(codigo)
+					.map(producto -> {
+						//Si falla la llamada para buscar las calificaciones devolveremos el producto sin ellas
+						//Deberíamos indicar en la respuesta lo que ha sucedido				
+						List<CalificacionProducto> calificaciones = null;
+						calificaciones = calificacionesProductosProxy.buscarCalificacionesProducto(producto.getCodigo());
+						producto.setCalificaciones(calificaciones);
+						return producto;					
+					})
+					.or(() -> Optional.empty());
+			} catch (Exception e) {
+				intentos++;
+				ex = e;
+			}
+		}
+				
+		throw ex;
+	}
+	
+	
+	@Retry(
+		name = "gestorProductos-buscarProductoYCalificaciones", 
+    	fallbackMethod = "fallbackBuscarProductoYCalificaciones"
+    )    
+	public Optional<Producto> buscarProductoYCalificaciones(String codigo) throws Exception{
+		System.out.println("========================================");		
+		System.out.println("Ejecutando el método gestorProductos.buscarProductoYCalificaciones");
+		
+		return productoRepo
+			.findByCodigo(codigo)
+			.map(producto -> {
+				
+				try {
+					Thread.sleep(2500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				
+				//NO TIENE TRY-CATCH
+				List<CalificacionProducto> calificaciones = calificacionesProductosProxy
+					.buscarCalificacionesProducto(producto.getCodigo());
+				producto.setCalificaciones(calificaciones);
+				return producto;		
+			})
+			.or(() -> Optional.empty());	
+		
+	}
+	
+    //Este método es una suerte de catch
+	public Optional<Producto> fallbackBuscarProductoYCalificaciones(String codigo, Exception e) throws Exception {
+		System.out.println("========================================");		
+		System.out.println(e.getClass());
+		//e.printStackTrace();
+		System.out.println("FALLBACK!!!! "+e.getMessage());
+		throw new Exception("No se pudo buscar el producto con sus calificaciones :(");
+	}  	
+	
+	public Producto insertar(Producto producto) {
+		//Lógica de negocio...
+		//...
+		return productoRepo.save(producto);
+	}
+	
+	/*	
+
+	
+	
+	
+	
+	
+	GestorProductos target;
+	Integer fallos = 0;
+	Integer umbral = 5;
+	long timestamp;
+	
+	public Optional<Producto> buscarProductoYCalificaciones_XD(String codigo) {
+		
+		Optional<Producto> p = null;
+		
+		if(fallos > 5) {
+			return target.buscarProductoSinCalificaciones(codigo, null);
+		}
+
+		try {
+			p = target.buscarProductoYCalificaciones(codigo);
+		} catch (Exception e) {
+			//Aumenta el contador de fallos
+			fallos++;
+			p = target.fallbackBuscarProductoYCalificaciones(codigo, e);
+		}		
+		return p;		
+	}
+    */
+	
+		
+	
+}

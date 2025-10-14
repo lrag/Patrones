@@ -10,7 +10,6 @@ import com.curso.modelo.entidad.DetalleFactura;
 import com.curso.modelo.entidad.EventoFactura;
 import com.curso.modelo.entidad.Factura;
 import com.curso.modelo.entidad.Producto;
-import com.curso.modelo.entidad.builder.FacturaBuilder;
 import com.curso.modelo.entidad.builder.FacturaBuilderImplementation;
 
 public class Prueba {
@@ -65,8 +64,6 @@ public class Prueba {
 				.fecha(LocalDate.now())
 				.cliente(c)
 				.detalles(detalles)
-				.cobros(cobros)
-				.eventos(eventos)
 				.build();
 		
 		//Sin el 'fluent api' esto es horrible

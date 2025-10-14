@@ -12,17 +12,19 @@ import com.curso.modelo.persistencia.ClienteRepositorio;
 @Service
 @RefreshScope
 @Transactional
-public class GestorClientes {
+public class ServicioClientesImpl implements ServicioClientes {
 	
 	@Autowired
 	private ClienteRepositorio clienteRepo;
 
+	@Override
 	public Cliente insertar(Cliente cliente) {
 		//Lógica de negocio...
 		//...
 		return clienteRepo.save(cliente);
 	}
 
+	@Override
 	public void borrar(String login) {
 		clienteRepo.deleteByLogin(login);		
 	}

@@ -4,14 +4,14 @@ import com.curso.modelo.entidad.Cliente;
 
 public class ServicioClientes {
 
-	/*
 	//Inicialización ansiosa
+	/*
 	private static ServicioClientes instancia = new ServicioClientes();
 
 	public static ServicioClientes getInstancia() { 
 		return instancia;
 	}
-	*/	
+	*/
 
 	//Inicialización perezosa
 	private static ServicioClientes instancia;

@@ -9,12 +9,12 @@ import com.curso.modelo.entidad.Producto;
 
 public class EstrategiaOfertaDescuentoProductos implements EstrategiaOferta{
 
-	private List<Producto> productos3x2;
+	private List<Producto> productos;
 	private Double descuento;
 	
-	public EstrategiaOfertaDescuentoProductos(List<Producto> productos3x2, Double descuento) {
+	public EstrategiaOfertaDescuentoProductos(List<Producto> productos, Double descuento) {
 		super();
-		this.productos3x2 = productos3x2;
+		this.productos = productos;
 		this.descuento = descuento;
 	}
 
@@ -23,7 +23,7 @@ public class EstrategiaOfertaDescuentoProductos implements EstrategiaOferta{
 
 		for(DetallePedido dp: pedido.getDetalles()) {
 			
-			productos3x2
+			productos
 				.stream()
 				.filter(p -> p.getId()==dp.getProducto().getId())
 				.findFirst()

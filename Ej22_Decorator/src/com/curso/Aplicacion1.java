@@ -13,7 +13,8 @@ public class Aplicacion1 {
 		// Ejemplo de decorator en el api de java
 
 		
-		FileWriter fw1 = new FileWriter("tocoto.txt"); fw1.write("H");
+		FileWriter fw1 = new FileWriter("tocoto.txt"); 
+		fw1.write("H");
 		fw1.write("O"); 
 		fw1.write("L"); 
 		fw1.write("A"); 

@@ -13,8 +13,12 @@ import com.curso.modelo.persistencia.ClienteRepositorio;
 @Transactional
 public class GestorClientesImpl implements GestorClientes {
 	
-	@Autowired
 	private ClienteRepositorio clienteRepo;
+
+	public GestorClientesImpl(ClienteRepositorio clienteRepo) {
+		super();
+		this.clienteRepo = clienteRepo;
+	}
 
 	@Override
 	public Cliente insertar(Cliente cliente) {

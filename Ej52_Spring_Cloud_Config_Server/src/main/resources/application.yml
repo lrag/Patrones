@@ -16,6 +16,6 @@ spring:
   security:
     user:
       name: root
-      password: vault:fdjfgjdkgkedkfkeri58chjdjdjdf
+      password: root
     
     

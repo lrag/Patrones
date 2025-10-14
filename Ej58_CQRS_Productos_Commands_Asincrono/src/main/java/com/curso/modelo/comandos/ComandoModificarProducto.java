@@ -1,14 +1,14 @@
 package com.curso.modelo.comandos;
 
 import com.curso.modelo.entidad.Producto;
-import com.curso.modelo.negocio.GestorProductos;
+import com.curso.modelo.negocio.ServicioProductos;
 
 public class ComandoModificarProducto implements Comando {
 
 	private Producto producto;
-	private GestorProductos gestorProductos;
+	private ServicioProductos gestorProductos;
 	
-	public ComandoModificarProducto( Producto producto, GestorProductos gestorProductos) {
+	public ComandoModificarProducto( Producto producto, ServicioProductos gestorProductos) {
 		super();
 		this.producto = producto;
 		this.gestorProductos = gestorProductos;		

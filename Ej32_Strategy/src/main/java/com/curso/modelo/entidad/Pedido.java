@@ -116,6 +116,8 @@ public class Pedido {
 	
 	public String formatear() {		
 		StringBuilder sb =new StringBuilder()
+			.append("\n")
+			.append("\n")
 			.append("PEDIDO:"+codigo+"\n")
 			.append("Fecha:"+fecha+"\n")
 			.append("Cliente:"+cliente.getNombre()+"\n")
