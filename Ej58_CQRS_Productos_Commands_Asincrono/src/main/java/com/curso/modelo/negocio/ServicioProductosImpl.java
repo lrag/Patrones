@@ -23,11 +23,14 @@ public class ServicioProductosImpl implements ServicioProductos {
 
 	/*
 	{
-		id : null
-		nombre : "X"
-		fabricante: {
-			id: 12
-		}	
+		tipo : PROD_INSERTADO | PROD_MODIFICADO | PROD_ELIMINADO
+		producto: {
+			id : null
+			nombre : "X"
+			fabricante: {
+				id: 12
+			}	
+		}
 	}
 	*/
 	@Override

@@ -39,6 +39,7 @@ public class ProxyMensajeriaKafkaTemplateImplementation implements ProxyMensajer
 		        ex.printStackTrace();
 		    }
 		});
+
 	}
 	
 }

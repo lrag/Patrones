@@ -10,7 +10,6 @@ public class Configuracion {
 	Consumer<Pedido> oyenteOrdenesCompra(GestorFacturas gestorFacturas){
 		return pedido -> gestorFacturas.facturarPedido(pedido);
 	}
-	*/
-	
+	*/	
 	
 }

@@ -19,7 +19,7 @@ public class FiltroLog extends AbstractGatewayFilterFactory{
 }
 
 /*
-class GF implements GatewayFilter {
+class FiltroLog implements GatewayFilter {
 
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {

@@ -17,6 +17,10 @@ spring:
       uri: mongodb://localhost:27017/productos
 
   #mongodb:
+  #  embedded:
+  #  version: 3.5.5			
+
+  #mongodb:
     #embedded:
       #version: 3.5.5
 

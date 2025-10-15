@@ -17,6 +17,9 @@ spring:
       definition: oyenteEventos
 
     stream:
+      kafka:
+        binder:
+          brokers: localhost:9092			
       bindings:
         oyenteEventos-in-0.destination: topic-productos-cqrs      
 

@@ -17,21 +17,21 @@ spring:
 
       routes:
         - id: ServicioClientes
-          uri: lb://ServicioClientes
           predicates:
             - Path=/clientes/**
+          uri: lb://ServicioClientes
         - id: ServicioProductos
-          uri: lb://ServicioProductos
           predicates:
             - Path=/productos/**
+          uri: lb://ServicioProductos
         - id: ServicioPedidos
-          uri: lb://ServicioPedidos
           predicates:
             - Path=/pedidos/**
+          uri: lb://ServicioPedidos
         - id: ServicioCalificacionesProductos
-          uri: lb://ServicioCalificacionesProductos
           predicates:
             - Path=/calificaciones_productos/**
+          uri: lb://ServicioCalificacionesProductos
 
     consul:
       host: localhost

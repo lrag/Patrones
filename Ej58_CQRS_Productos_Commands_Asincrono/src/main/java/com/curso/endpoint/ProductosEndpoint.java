@@ -26,11 +26,22 @@ import com.curso.modelo.repositorio.RepositorioProductos;
 @RestController
 public class ProductosEndpoint {
 	
-	@Autowired private ServicioProductos gestorProductos;
-	@Autowired private ColaComandos colaComandos;
+	private ServicioProductos gestorProductos;
+	private ColaComandos colaComandos;
 	
+	public ProductosEndpoint(
+			ServicioProductos gestorProductos, 
+			ColaComandos colaComandos,
+			RepositorioProductos repoProductos) {
+		super();
+		this.gestorProductos = gestorProductos;
+		this.colaComandos = colaComandos;
+		this.repoProductos = repoProductos;
+	}
+
 	@PostMapping("/productos")
 	public ResponseEntity<Void> altaProducto(@RequestBody ProductoDTO productoDTO){
+		//Validaciones
 		Comando comando = new ComandoInsertarProducto(productoDTO.asProducto(), gestorProductos);
 		colaComandos.offer(comando); 
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);
@@ -38,6 +49,7 @@ public class ProductosEndpoint {
 	
 	@PutMapping("/productos/{referencia}")
 	public ResponseEntity<Void> modificarProducto(@RequestBody ProductoDTO productoDTO, @PathVariable("referencia") String referencia){
+		//Validaciones
 		productoDTO.setReferencia(referencia);
 		Comando comando = new ComandoModificarProducto(productoDTO.asProducto(), gestorProductos);
 		colaComandos.offer(comando);
