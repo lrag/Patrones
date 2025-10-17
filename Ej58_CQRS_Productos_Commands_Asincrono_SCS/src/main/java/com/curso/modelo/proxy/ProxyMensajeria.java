@@ -21,7 +21,7 @@ public class ProxyMensajeria {
 			.setHeader(KafkaHeaders.MESSAGE_KEY, referencia.getBytes())
 			.build();
 		
-		//Licencia: el nombre del topic no está en la configuración
+		//Licencia: el nombre del topic está a fuego 
 		streamBridge.send("topic-productos-cqrs", mensaje);		
 	}
 

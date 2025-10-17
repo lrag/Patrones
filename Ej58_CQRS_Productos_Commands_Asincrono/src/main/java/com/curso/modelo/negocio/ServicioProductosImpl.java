@@ -19,7 +19,6 @@ public class ServicioProductosImpl implements ServicioProductos {
 	@Autowired private RepositorioProductos repoProductos;
 	@Autowired private RepositorioFabricantes repoFabricantes;
 	@Autowired private ProxyMensajeria proxyMensajeria;
-	
 
 	/*
 	{

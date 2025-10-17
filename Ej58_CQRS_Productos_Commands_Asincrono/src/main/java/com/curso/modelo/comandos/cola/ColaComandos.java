@@ -17,7 +17,7 @@ public class ColaComandos {
 		super();
 		
 		//Aqui tenemos un único hilo para procesar todos los comandos.
-		//Podriamos definir un pool...
+		//Podriamos definir un ExecutorService con un pool de hilos...
 		new Thread() {
 			public void run() {
 				while(true) {

@@ -15,7 +15,7 @@ public class OyenteOrdenesDeCompra {
 	@Autowired
 	private ServicioFacturas gestorFacturas;
 	
-    @RabbitListener(queues = "colaOrdenesDeCompra")
+    @RabbitListener( queues = "colaOrdenesDeCompra")
     public void listen(String json) {
     	
     	//

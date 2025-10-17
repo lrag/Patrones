@@ -13,7 +13,7 @@ import com.curso.modelo.entidad.Pedido;
 
 @Component
 public class SupplierOrdenesCompra implements Supplier<PedidoDTO>{
-
+	
 	private BlockingQueue<PedidoDTO> cola = new LinkedBlockingQueue<>();
 	
 	public void enviarPedido(Pedido pedido) {	

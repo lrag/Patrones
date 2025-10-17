@@ -1,5 +1,7 @@
 package com.curso;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -75,36 +77,41 @@ public class Aplicacion implements CommandLineRunner {
 		}
 		
 		System.out.println("================================");
-		pedidoRepo.findAll().forEach( p -> System.out.println());
-		
-		/*
-		Pedido p = new Pedido();
-		Cliente c = new Cliente();
-		c.setLogin("sam");
-		p.setCliente(c);
-		
-		Producto p1 = new Producto();
-		p1.setCodigo("PROD-1");
-		Producto p2 = new Producto();
-		p2.setCodigo("PROD-3");
-		
-		DetallePedido dp1 = new DetallePedido();
-		dp1.setProducto(p1);
-		dp1.setCantidad(1);
-		
-		DetallePedido dp2 = new DetallePedido();
-		dp2.setProducto(p2);
-		dp2.setCantidad(5);
-		
-		List<DetallePedido> detalles = new ArrayList<>();
-		detalles.add(dp1);
-		detalles.add(dp2);
-		
-		p.setDetalles(detalles);
-		
-		gestorPedidos.altaPedido(p);
-		*/
-		
+
 	}
 
 }
+
+/*
+
+class Emisor implements Supplier<String> {
+	@Override
+	public String get() {
+		return "HOLA";
+	}
+}
+
+class Oyente implements Consumer<String> {
+	@Override
+	public void accept(String t) {
+		//
+	}
+}
+
+class Movida implements Function<String, String> {
+	@Override
+	public String apply(String t) {
+		return t.toString();
+	}
+}
+
+*/
+
+
+
+
+
+
+
+
+

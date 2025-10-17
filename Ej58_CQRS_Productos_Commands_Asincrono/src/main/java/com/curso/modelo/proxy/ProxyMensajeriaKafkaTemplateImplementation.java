@@ -1,5 +1,7 @@
 package com.curso.modelo.proxy;
 
+import java.util.concurrent.Future;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -23,7 +25,7 @@ public class ProxyMensajeriaKafkaTemplateImplementation implements ProxyMensajer
 	public void enviarMensaje(String clave, EventoProducto valor) {
 		
 		//kafkaTemplate.send(nombreTopic, clave, valor);
-		
+
 		System.out.println("Enviando el mensaje...");
 		ListenableFuture<SendResult<String, EventoProducto>> future = kafkaTemplate.send(nombreTopic, clave, valor);
 
