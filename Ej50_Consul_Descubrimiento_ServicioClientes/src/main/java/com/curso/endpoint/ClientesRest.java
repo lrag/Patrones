@@ -29,9 +29,16 @@ DELETE /clientes/{id}
 @RestController
 public class ClientesRest {
 
-	@Autowired private GestorClientes gestorClientes;
-	@Autowired private ClienteRepositorio clienteRepo;
+	private GestorClientes gestorClientes;
+	private ClienteRepositorio clienteRepo;
 	
+	public ClientesRest(GestorClientes gestorClientes, ClienteRepositorio clienteRepo) {
+		super();
+		this.gestorClientes = gestorClientes;
+		this.clienteRepo = clienteRepo;
+		
+	}
+
 	@GetMapping(path="/clientes/{login}", produces="application/json")
 	public ResponseEntity<ClienteDTO> buscar(@PathVariable() String login){
 		return clienteRepo

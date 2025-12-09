@@ -1,0 +1,35 @@
+server:
+  port: 9010
+
+spring:
+  application:
+    name: "ServicioPedidos"
+
+  config:
+    import: consul:localhost:8500       
+  
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+      config:
+        enabled: true
+        fail-fast: true
+        watch:
+          enabled: true
+          delay: 5000  
+
+  artemis:
+    mode: native
+    #broker-url: tcp://localhost:61616
+    broker-url: tcp://127.0.0.1:8080?httpUpgradeEnabled=true
+    user: user
+    password: useruser
+        
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect      

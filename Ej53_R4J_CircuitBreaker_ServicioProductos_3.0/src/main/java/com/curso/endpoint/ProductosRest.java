@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.endpoint.dto.ProductoDTO;
 import com.curso.modelo.entidad.Producto;
-import com.curso.modelo.negocio.GestorProductos;
+import com.curso.modelo.negocio.ServicioProductos;
 import com.curso.modelo.persistencia.ProductoRepositorio;
 
 @RestController
 public class ProductosRest {
 
-	@Autowired private GestorProductos gestorProductos;
+	@Autowired private ServicioProductos gestorProductos;
 	@Autowired private ProductoRepositorio productoRepo;
 	
 	//Solo el producto

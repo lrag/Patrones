@@ -1,0 +1,27 @@
+server:
+  port: 9040
+
+spring:
+  application:
+    name: "ServicioFacturacion"
+    
+  config:
+    import: consul:localhost:8500   
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      config:
+        enabled: true
+        fail-fast: true
+        format: YAML      
+      discovery:
+        instanceId: ${spring.application.name}:${random.value}
+        
+  artemis:
+    mode: native
+    broker-url: tcp://127.0.0.1:8080?httpUpgradeEnabled=true
+    user: user
+    password: useruser
+

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.curso.modelo.entidad.Cliente;
 import com.curso.modelo.persistencia.ClienteRepositorio;
 
-@RefreshScope
+//@RefreshScope
 @Service
 @Transactional
 public class GestorClientes {

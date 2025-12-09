@@ -38,8 +38,7 @@ public class GestorProductos {
 						calificaciones = calificacionesProductosProxy.buscarCalificacionesProducto(producto.getCodigo());
 						producto.setCalificaciones(calificaciones);
 						return producto;					
-					})
-					.or(() -> Optional.empty());
+					});
 			} catch (Exception e) {
 				intentos++;
 				ex = e;
@@ -73,8 +72,7 @@ public class GestorProductos {
 					.buscarCalificacionesProducto(producto.getCodigo());
 				producto.setCalificaciones(calificaciones);
 				return producto;		
-			})
-			.or(() -> Optional.empty());	
+			});	
 		
 	}
 	

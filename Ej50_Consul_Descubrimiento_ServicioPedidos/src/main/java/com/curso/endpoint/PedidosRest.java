@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.endpoint.dto.PedidoDTO;
 import com.curso.modelo.entidad.Pedido;
-import com.curso.modelo.negocio.GestorPedidos;
+import com.curso.modelo.negocio.ServicioPedidos;
 import com.curso.modelo.persistencia.PedidoRepositorio;
 
 @RestController
@@ -24,7 +24,7 @@ import com.curso.modelo.persistencia.PedidoRepositorio;
 public class PedidosRest {
 
 	@Autowired private PedidoRepositorio pedidoRepo;
-	@Autowired private GestorPedidos gestorPedidos;
+	@Autowired private ServicioPedidos gestorPedidos;
 	
 	@PostMapping
 	public ResponseEntity<PedidoDTO> insertar(@RequestBody() PedidoDTO pedidoDto) {

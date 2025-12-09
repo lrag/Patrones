@@ -5,7 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.curso.modelo.negocio.GestorPedidos;
+import com.curso.modelo.negocio.ServicioPedidos;
 import com.curso.modelo.persistencia.ClienteRepositorio;
 import com.curso.modelo.persistencia.PedidoRepositorio;
 
@@ -44,7 +44,7 @@ public class Aplicacion implements CommandLineRunner {
 
 	@Autowired private ClienteRepositorio clienteRepo;
 	@Autowired private PedidoRepositorio pedidoRepo;
-	@Autowired private GestorPedidos gestorPedidos;
+	@Autowired private ServicioPedidos gestorPedidos;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Aplicacion.class, args);

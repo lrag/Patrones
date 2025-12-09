@@ -14,11 +14,9 @@ public class ClientesRestProxy implements ClientesProxy{
 	@Autowired private RestTemplate restTemplate;
 	@Autowired private RestClient restClient;
 	
-	
 	@Autowired private ClienteRepositorio clienteRepo;
 	
 	public Cliente buscar(String login){
-		
 		/*
 		Optional<Cliente> clienteOp = clienteRepo.findByLogin(login);
 		if(clienteOp.isPresent()) {
@@ -29,8 +27,9 @@ public class ClientesRestProxy implements ClientesProxy{
 			clienteRepo.save(cliAux);
 			return cliAux;			
 		}
-		*/
-	
+		*/		
+
+		
 		return clienteRepo
 			.findByLogin(login)
 			.orElseGet( () -> {

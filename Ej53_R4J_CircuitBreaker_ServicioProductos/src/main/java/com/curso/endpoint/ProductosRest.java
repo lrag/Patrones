@@ -1,6 +1,7 @@
 package com.curso.endpoint;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,21 +15,31 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.endpoint.dto.ProductoDTO;
 import com.curso.modelo.entidad.Producto;
-import com.curso.modelo.negocio.GestorProductos;
+import com.curso.modelo.negocio.ServicioProductos;
 import com.curso.modelo.persistencia.ProductoRepositorio;
-
-import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
 @RestController
 public class ProductosRest {
 
-	@Autowired private GestorProductos gestorProductos;
+	@Autowired private ServicioProductos servicioProductos;
 	@Autowired private ProductoRepositorio productoRepo;
 	
 	//Solo el producto
 	@GetMapping(path="/productos/{codigo}")
 	public ResponseEntity<ProductoDTO> buscar(@PathVariable("codigo") String codigo){
 		System.out.println("Buscando por codigo:"+codigo);
+		
+		/*
+		Optional<Producto> opProducto = productoRepo.findByCodigo(codigo);
+		if(opProducto.isPresent()) {
+			Producto p = opProducto.get();
+			ProductoDTO pDto = new ProductoDTO(p);
+			return new ResponseEntity<ProductoDTO>(pDto, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND);
+		}
+		*/
+		
 		return 
 			productoRepo
 				.findByCodigo(codigo)
@@ -45,7 +56,7 @@ public class ProductosRest {
 	public ResponseEntity<ProductoDTO> buscarConCalificaciones(@PathVariable("codigo") String codigo){
 		//Esto debería ser más bonito
 		try {
-			return gestorProductos
+			return servicioProductos
 					.buscarProductoYCalificaciones(codigo)
 					.map(p -> new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK))
 					.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
@@ -65,7 +76,7 @@ public class ProductosRest {
 	
 	@PostMapping(path="/productos")
 	public ResponseEntity<Producto> insertar(@RequestBody() ProductoDTO productoDto){
-		Producto productoInsertado = gestorProductos.insertar(productoDto.asProducto());
+		Producto productoInsertado = servicioProductos.insertar(productoDto.asProducto());
 		return new ResponseEntity<Producto>(productoInsertado, HttpStatus.CREATED);
 	}
 	

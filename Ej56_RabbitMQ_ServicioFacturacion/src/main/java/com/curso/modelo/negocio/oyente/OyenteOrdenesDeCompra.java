@@ -33,6 +33,9 @@ public class OyenteOrdenesDeCompra {
 			e.printStackTrace();
 		}	
         
+        //LN
+        
+        
         System.out.println(pedido);
         gestorFacturas.facturarPedido(pedido);
     }	

@@ -39,7 +39,7 @@ public class Aplicacion implements CommandLineRunner{
 		System.out.println("LISTAR:"+listar);
 		System.out.println("BUSCAR:"+buscar);
 
-		Thread.sleep(30_000);				
+		Thread.sleep(15_000);				
 		
 		System.out.println("FIN del hilo main");
 		System.exit(0);

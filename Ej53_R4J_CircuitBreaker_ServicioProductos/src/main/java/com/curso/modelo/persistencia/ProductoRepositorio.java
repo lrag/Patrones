@@ -11,3 +11,4 @@ import com.curso.modelo.entidad.Producto;
 public interface ProductoRepositorio extends JpaRepository<Producto, Integer>{
 	Optional<Producto> findByCodigo(String codigo);
 }
+

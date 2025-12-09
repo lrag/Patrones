@@ -84,7 +84,8 @@ public class Configuracion {
     			.to(exchangeColas) 
     			.with("nuevaIncidenciaPedido"); 
     }
-    */    
+    */   
+    
 	
 	//Esta necesitamos tenerla
 	//Spring Boot registra una RabbitTemplate, pero que recibe un string (json) como payload del mensaje
