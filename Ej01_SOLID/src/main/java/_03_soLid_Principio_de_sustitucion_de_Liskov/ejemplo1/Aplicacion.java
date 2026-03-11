@@ -12,6 +12,24 @@ public class Aplicacion {
 
 	public static void main(String[] args) {
 		
+		List<String> palabras1 = new ArrayList<>();
+		palabras1.add("Siete");
+		palabras1.add("caballos");
+		palabras1.add("vienen");
+		palabras1.add("de");
+		palabras1.add("Bonanza");
+		
+		List<String> palabras2 =  List.of("Siete", "Caballos", "Vienen", "De", "Bonanza");
+		
+		palabras1.forEach( p -> System.out.println(p) );
+		palabras2.forEach( p -> System.out.println(p) );
+		
+		palabras1.add(".");
+		palabras2.add(".");
+		
+		
+		System.exit(0);
+		
 		System.out.println("===================================");
 		Collection<String> c1 = Aplicacion.listar1(); //List
 		c1.add("EOF");

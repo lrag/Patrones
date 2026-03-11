@@ -2,6 +2,7 @@ package _05_soliD_Principio_de_inversion_de_dependencias;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 //ServicioClientes es una clase de alto nivel
 //Depende de ClienteDao, que es de bajo nivel
@@ -27,9 +28,6 @@ public class ServicioClientes_1 {
 	}
 	
 }
-
-
-
 
 
 

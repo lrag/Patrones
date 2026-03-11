@@ -15,15 +15,23 @@ public class ServicioProductos_MAL {
 		switch(producto.getTipo()) {
 			case HARDWARE : 
 				System.out.println("Cosas particulares de los productos tipo Hardware");
+				altaProductoSoftware(producto);
 				break;
 			case SOFTWARE : 
 				System.out.println("Cosas particulares de los productos tipo Software");
+				altaProductoHasdware(producto);
 				break;
 		}
 		
 		System.out.println("Alta del producto: "+producto);
 	}
 	
+	public void altaProductoSoftware(Producto producto) {
+		//...
+	}
 	
+	public void altaProductoHasdware(Producto producto) {
+		//...
+	}
 	
 }

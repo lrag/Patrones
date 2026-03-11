@@ -1,7 +1,5 @@
 package _01_Solid_Principio_de_responsabilidad_unica.ejemplo1;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 //@Entity

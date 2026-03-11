@@ -84,8 +84,7 @@ public class GestorPedidosImpl implements GestorPedidos {
 			}
 			
 			//calcular ofertas
-			
-			
+						
 			String camion = gestorTransportes.obtenerCamion(true);
 			pedido.setCamion(camion);
 			

@@ -9,6 +9,7 @@ public class DataSourceUtil {
 
 	private static DataSource dataSource;
 	
+	//Esto es un factory method
 	public static synchronized DataSource getDataSource() {
 		//Lazy inicialization
 		if(dataSource == null) {			

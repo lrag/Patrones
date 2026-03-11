@@ -4,6 +4,11 @@ public class ServicioClientes_3 {
 
 	private ClienteDao clienteDao;
 	
+	//Retiramos la responsabilidad de crear el objeto
+	//Esto es IoC. Ahora el que sabe crear ClienteDao es otro
+	//Seguimos con los problemas para hacer test doubles
+	
+	
 	//Inyección de dependencias: Esto está bien si tienes un contenedor
 	//IoC también
 	//Y ya podemos hacer test doubles

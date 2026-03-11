@@ -4,6 +4,7 @@ public class Producto {
 
 	private String nombre;
 	private TipoProducto tipo;
+	
 
 	public Producto() {
 		super();

@@ -49,8 +49,15 @@ public class Prueba {
 		
 		//Raro es que tengamos todos los valores
 		//Factura f0 = new Factura(1, "FAC-1", LocalDate.now(), c, detalles, cobros, eventos);
+		Factura f1 = new FacturaBuilderImplementation()
+				.id(1)
+				.codigo("FAC-1")
+				.fecha(LocalDate.now())
+				.cliente(c)
+				.detalles(detalles)
+				.build();
 		
-		Factura f1 = new FacturaBuilderImplementation("FAC-1", LocalDate.now())
+		Factura f2 = new FacturaBuilderImplementation("FAC-1", LocalDate.now())
 				.id(1)
 				.cliente(c)
 				.detalles(detalles)
@@ -58,13 +65,6 @@ public class Prueba {
 				.eventos(eventos)
 				.build();
 
-		Factura f2 = new FacturaBuilderImplementation()
-				.id(1)
-				.codigo("FAC-1")
-				.fecha(LocalDate.now())
-				.cliente(c)
-				.detalles(detalles)
-				.build();
 		
 		//Sin el 'fluent api' esto es horrible
 		FacturaBuilderImplementation fbi = new FacturaBuilderImplementation();

@@ -23,7 +23,7 @@ public class GestorPedidos_PROXY implements GestorPedidos {
 	//////////////////////////////////////////////////////////////////
 
 	//El proxy tiene la potestad de crear al objeto delante del cuál se coloca
-	private GestorPedidosImpl target = GestorPedidosImpl.getInstancia();
+	private GestorPedidos target = GestorPedidosImpl.getInstancia();
 
 	private GestorPedidos_PROXY() {
 	}

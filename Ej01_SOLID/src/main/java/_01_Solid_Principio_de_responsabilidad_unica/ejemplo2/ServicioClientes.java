@@ -11,21 +11,30 @@ public class ServicioClientes {
 	public void altaCliente_MAL(Cliente cliente) {
 		//Validar la dirección
 		//...
+		//...
 		//Encontrar sucursal cercana
+		//...
 		//...
 		//Asociarle un comercial
 		//...		
-		em.persist(cliente);	
+		//...		
+		em.persist(cliente);
 		//
+		
+		//Enviar correo electrónico de bienvenida
+		//...
+		//...
 	}
 	
 	public void altaCliente(Cliente cliente) {
 		//Validar la dirección
+		//servicioDirecciones.validarDireccion(cliente.getDireccion());
 		Sucursal sucursal = servicioSucursales.encontrarSucursalCercana(cliente.getDireccion());
 		//Comercial comercial = servicioComerciales.encotrarComercial(sucursal);
 		//Asociarle un comercial...
 		//cliente.setComercial(comercial);
-		clienteDao.insertar(cliente);	
+		clienteDao.insertar(cliente);
+		//servicioMensajes.enviarCorreoElectronico(cliente);
 	}
 	
 }

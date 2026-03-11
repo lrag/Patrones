@@ -64,7 +64,7 @@ public class Aplicacion {
 	
 	public static Pedido getPedido1() {
 		Cliente c = getCliente();
-		Pedido pedido1 = new Pedido(null, "PED-1", LocalDate.now(), "PENDIENTE", c, null);
+		Pedido pedido1 = new Pedido(null, "PED-0", LocalDate.now(), "PENDIENTE", c, null);
 		List<DetallePedido> detalles = new ArrayList<DetallePedido>();
 		detalles.add(new DetallePedido(null, pedido1, p1, 25d, 1, 0d));
 		detalles.add(new DetallePedido(null, pedido1, p3, 75d, 1, 0d));

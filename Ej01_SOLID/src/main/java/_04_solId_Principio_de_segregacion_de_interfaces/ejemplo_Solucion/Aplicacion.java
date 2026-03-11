@@ -11,7 +11,7 @@ public class Aplicacion {
 		Volador go = new Gorrion();
 		Nadador lucas = new Pato();
 		
-		ga.volar(); //Para qué?
+		//ga.volar(); //Para qué?
 		//go.nadar(); //??
 		//ga.andar();
 		go.volar();

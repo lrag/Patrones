@@ -70,7 +70,7 @@ public class ServicioCursos {
 	*/	
 	
 	public void matricularAlumno(Alumno alumno, Curso curso) {		
-		//OO
+		//POO
 		curso.matricularAlumno(alumno);
 	}	
 	

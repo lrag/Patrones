@@ -1,12 +1,21 @@
 package com.curso.modelo.entidad;
 
-import java.util.ArrayList;
 import java.util.List;
 
 //@Component
 //@Scope("prototype")
 //@Entity
 public class CursoOnline extends Curso {
+
+	//private RepoMatriculas repoMatriculas;
+	//private EmisorMensajes emisorMensajes;
+	
+	//@Autowired
+	//public CursoOnline(RepoMatriculas repoMatriculas, EmisorMensajes emisorMensajes) {
+	//	super();
+	//	this.repoMatriculas = repoMatriculas;
+	//	this.emisorMensajes = emisorMensajes;
+	//}
 
 	private String url;
 
@@ -33,6 +42,10 @@ public class CursoOnline extends Curso {
 		if (alumnos.size() < plazas) {
 			alumnos.add(alumno);
 		}
+		
+		//repoMatriculas.save(matricula);
+		//emisorMensajes("te has matriculado");	
+		
 	}
 
 	@Override

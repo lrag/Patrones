@@ -2,10 +2,12 @@ package com.curso;
 
 import com.curso.modelo.entidad.Pedido;
 
+//A esto le falta la D
 public class ServicioPedidos {
 
 	//La estrategia puede ser un atributo del objeto y que se asigne al crearlo
 	private EstrategiaOferta estrategiaOferta;
+	
 	//Si así fuera, el método aceptar pedido sería así
 	public void aceptarPedido_(Pedido pedido) {
 		//...

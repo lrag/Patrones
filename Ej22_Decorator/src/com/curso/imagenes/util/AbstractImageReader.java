@@ -5,6 +5,7 @@ import java.io.IOException;
 
 public abstract class AbstractImageReader {
 
+	//Aqui referenciamos al siguiente eslabón de la cadena
 	protected AbstractImageReader imageReader;
 	
 	public AbstractImageReader(AbstractImageReader imageReader) {
