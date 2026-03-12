@@ -32,18 +32,6 @@ public class EjemploLambdasEstrategia {
 			}
 		});
 		
-		
-		/*
-		
-		(String s) {
-			syso...
-			...
-			...
-		}
-		
-		
-		*/
-		
 		palabras.forEach( s -> System.out.println("<<<<<"+s) );
 		palabras.forEach( s -> System.out.println(":::::"+s) );
 		palabras.forEach( s -> System.out.println(">>>>>"+s) );	

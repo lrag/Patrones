@@ -11,7 +11,6 @@ public abstract class Curso {
 
 	public Curso() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Curso(String titulo, String duracion, String profesor) {

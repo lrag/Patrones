@@ -16,10 +16,10 @@ public class ServicioPedidos {
 		
 		//Lógica de negocio para aceptar el pedido
 		
-		//buscar los datos del cliente
+		//buscar los datos del cliente: síncrono
 		//Cliente c = servicioClientes.buscar(pedido.getCliente())
 		//buscar el precio de los productos: sincrono
-		//reservarla los productos en el almacen: sincronno
+		//reservar los productos en el almacen: sincrono
 		
 		System.out.println("=====================================");
 		System.out.println("GestorPedidos.altaPedido");

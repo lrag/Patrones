@@ -1,6 +1,5 @@
 package com.curso.problema;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -14,8 +13,7 @@ public class PanelJuego extends JPanel {
 	private List<Sprite> sprites = new ArrayList<>();
 
     public PanelJuego() {
-		super();
-		
+		super();		
 	}
 
 	@Override
