@@ -29,6 +29,8 @@ public class Aplicacion implements CommandLineRunner{
 
 		System.out.println("=====================================");
 
+		Thread.sleep(5_000);
+		
         ExecutorService servicio = Executors.newFixedThreadPool(6);
         Future<Integer> contadorListar = servicio.submit(new PruebaListar(productosRestProxy));
         Future<Integer> contadorBuscar = servicio.submit(new PruebaBuscar(productosRestProxy));

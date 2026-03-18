@@ -21,7 +21,7 @@ import com.curso.modelo.proxy.ProductosRestProxy;
 
 @Service
 @Transactional(rollbackOn = { Exception.class } )
-public class GestorPedidos {
+public class ServicioPedidos {
 
 	@Autowired private PedidoRepositorio pedidoRepo;
 	@Autowired private ClientesRestProxy clientesRestProxy;

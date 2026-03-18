@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.endpoint.dto.ProductoDTO;
 import com.curso.modelo.entidad.Producto;
-import com.curso.modelo.negocio.GestorProductos;
+import com.curso.modelo.negocio.ServicioProductos;
 import com.curso.modelo.persistencia.ProductoRepositorio;
 
 @RestController
 public class ProductosRest {
 
-	@Autowired private GestorProductos gestorProductos;
+	@Autowired private ServicioProductos servicioProductos;
 	@Autowired private ProductoRepositorio productoRepo;
 	
 	//Buscar un producto 
@@ -41,7 +41,7 @@ public class ProductosRest {
 	public ResponseEntity<ProductoDTO> buscarConCalificaciones(@PathVariable("codigo") String codigo){
 		//Esto debería ser más bonito
 		try {
-			return gestorProductos
+			return servicioProductos
 					.buscarProductoYCalificaciones(codigo)
 					.map(p -> new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK))
 					.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
@@ -61,7 +61,7 @@ public class ProductosRest {
 	
 	@PostMapping(path="/productos")
 	public ResponseEntity<Producto> insertar(@RequestBody() ProductoDTO productoDto){
-		Producto productoInsertado = gestorProductos.insertar(productoDto.asProducto());
+		Producto productoInsertado = servicioProductos.insertar(productoDto.asProducto());
 		return new ResponseEntity<Producto>(productoInsertado, HttpStatus.CREATED);
 	}
 	

@@ -16,7 +16,7 @@ import io.github.resilience4j.retry.annotation.Retry;
 
 @Service
 @Transactional
-public class GestorProductos {
+public class ServicioProductos {
 
 	@Autowired private ProductoRepositorio productoRepo;
 	@Autowired private CalificacionesProductosProxy calificacionesProductosProxy;

@@ -1,5 +1,7 @@
 package com.curso;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -8,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.curso.modelo.entidad.CalificacionProducto;
 import com.curso.modelo.persistencia.CalificacionProductoRepository;
+import com.zaxxer.hikari.HikariDataSource;
 
 /*
 config/ServicioCalificacionesProductos/
@@ -22,6 +25,8 @@ public class Aplicacion implements CommandLineRunner{
 
 	@Autowired private CalificacionProductoRepository productoRepo;
 	
+	@Autowired DataSource ds;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(Aplicacion.class, args);
 	}
@@ -30,6 +35,12 @@ public class Aplicacion implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		
 		System.out.println("=======================================");
+		
+		
+		System.out.println(((HikariDataSource) ds).getJdbcUrl());
+		
+		System.out.println(ds);
+		
 		productoRepo.save(new CalificacionProducto(null, "PROD-1","Producto 1",4,"Fistro","bla bla bla","fecha 1"));
 		productoRepo.save(new CalificacionProducto(null, "PROD-1","Producto 1",4,"Fulanito","bla bla bla","fecha 3"));
 		productoRepo.save(new CalificacionProducto(null, "PROD-1","Producto 1",5,"Fistra","bla bla bla","fecha 2"));

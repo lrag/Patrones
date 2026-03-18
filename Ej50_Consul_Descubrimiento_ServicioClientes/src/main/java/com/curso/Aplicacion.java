@@ -46,11 +46,11 @@ public class Aplicacion implements CommandLineRunner{
 	public void run(String...args) {
 		System.out.println("=============================");		
 		if(clienteRepo.count() == 0) {
-			clienteRepo.save(new Cliente(1,"lew","Lew Archer","C/Tal,123","555","lew@archer.com","banco 1"));
-			clienteRepo.save(new Cliente(2,"philip","Philip Marlowe","C/Pascual,123","555","philip@marlowe.com","banco 2"));
-			clienteRepo.save(new Cliente(3,"sam","Sam Spade","C/Tal y Pascual,123","555","sam@spade.com","banco 3"));
-			clienteRepo.save(new Cliente(4,"jesus","Jesus Witness","C/Falsa,123","555","jotero@greatfarandulaindustries.es","banco 4"));
-			clienteRepo.save(new Cliente(5,"agente","El agente de la Continental","C/Pascualillo,123","555","agente@continental.com","banco 5"));
+			clienteRepo.save(new Cliente(null,"lew","Lew Archer","C/Tal,123","555","lew@archer.com","banco 1"));
+			clienteRepo.save(new Cliente(null,"philip","Philip Marlowe","C/Pascual,123","555","philip@marlowe.com","banco 2"));
+			clienteRepo.save(new Cliente(null,"sam","Sam Spade","C/Tal y Pascual,123","555","sam@spade.com","banco 3"));
+			clienteRepo.save(new Cliente(null,"jesus","Jesus Witness","C/Falsa,123","555","jotero@greatfarandulaindustries.es","banco 4"));
+			clienteRepo.save(new Cliente(null,"agente","El agente de la Continental","C/Pascualillo,123","555","agente@continental.com","banco 5"));
 		}
 	}
 

@@ -6,13 +6,13 @@ import com.curso.modelo.entidad.Factura;
 import com.curso.modelo.entidad.Pedido;
 
 @Service
-public class GestorFacturas {
+public class ServicioFacturas {
 
 	public Factura facturarPedido(Pedido pedido) {
 		//Lógica de negocio...
 		//...
     	System.out.println("========================================");
-    	System.out.println("GestorFacturas.facturarPedido.");
+    	System.out.println("GestorFacturas.facturarPedido (SCS).");
     	System.out.println("Emitiendo una facturita");
 		return null;
 	}

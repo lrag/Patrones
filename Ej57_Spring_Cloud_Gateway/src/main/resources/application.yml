@@ -13,7 +13,8 @@ spring:
       default-filters:
       - name: FiltroCronometro      
       - name: FiltroLog
-      - name: FiltroHeaders      
+      - name: FiltroHeaders
+      # name: FiltroJWT      
 
       routes:
         - id: ServicioClientes

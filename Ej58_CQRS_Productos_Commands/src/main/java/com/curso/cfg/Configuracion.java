@@ -26,18 +26,18 @@ public class Configuracion {
 	private String nombreTopic;
 	
 	@Bean
-	public NewTopic topic() {
+	NewTopic topic() {
 		System.out.println("Topic:"+nombreTopic);
 		return TopicBuilder.name("topic-productos-cqrs").partitions(4).replicas(1).build();
 	}
 
 	@Bean
-	public ProducerFactory<String, EventoProducto> producerFactory() {
+	ProducerFactory<String, EventoProducto> producerFactory() {
 		return new DefaultKafkaProducerFactory<>(producerConfigs(), new StringSerializer(), new JsonSerializer<EventoProducto>());
 	}
 
 	@Bean
-	public Map<String, Object> producerConfigs() {
+	Map<String, Object> producerConfigs() {
 		Map<String, Object> props = new HashMap<>();
 		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, direccionKafka);
 		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -46,7 +46,7 @@ public class Configuracion {
 	}
 
 	@Bean
-	public KafkaTemplate<String, EventoProducto> kafkaTemplateProductos() {
+	KafkaTemplate<String, EventoProducto> kafkaTemplateProductos() {
 		return new KafkaTemplate<>(producerFactory());
 	}
 

@@ -14,6 +14,7 @@ public class ServicioPedidos {
 	}
 	
 	//Tambien puede ser un parámetro de un método y que la estrategia cambie a cada llamada
+
 	public void aceptarPedido(Pedido pedido, EstrategiaOferta estrategiaOferta) {
 		//Comprobar datos bancarios del cliente
 		//Comprobar las existencias

@@ -1,10 +1,7 @@
 package com.curso.endpoint.dto;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.curso.modelo.entidad.Cliente;
 
-@XmlRootElement
 public class ClienteDTO {
 
 	private String login;

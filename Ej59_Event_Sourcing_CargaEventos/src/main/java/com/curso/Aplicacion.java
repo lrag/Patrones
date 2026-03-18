@@ -1,0 +1,25 @@
+package com.curso;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+@SpringBootApplication
+public class Aplicacion implements CommandLineRunner{
+
+	@Autowired private CargarEventos cargarDatos;	
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Aplicacion.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		
+		cargarDatos.cargarDatos();
+		
+	}
+
+}

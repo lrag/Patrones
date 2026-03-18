@@ -12,7 +12,7 @@ import com.curso.modelo.persistencia.ProductoRepositorio;
 import com.curso.modelo.proxy.CalificacionesProductosProxy;
 
 @Service
-public class GestorProductos {
+public class ServicioProductos {
 
 	@Autowired private ProductoRepositorio productoRepo;
 	@Autowired private CalificacionesProductosProxy calificacionesProductosProxy;

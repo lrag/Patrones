@@ -19,7 +19,7 @@ import com.curso.modelo.persistencia.FacturaRepositorio;
 @RestController
 public class FacturasRest {
 
-	@Autowired private ServicioFacturas gestorFacturas;
+	@Autowired private ServicioFacturas servicioFacturas;
 	@Autowired private FacturaRepositorio facturaRepo;
 	
 	@GetMapping(path="/facturas/{id}")
@@ -38,7 +38,7 @@ public class FacturasRest {
 	
 	@PostMapping(path="/facturas")
 	public ResponseEntity<Factura> facturarPedido(@RequestBody() Pedido pedido){
-		Factura facturaInsertada = gestorFacturas.facturarPedido(pedido);
+		Factura facturaInsertada = servicioFacturas.facturarPedido(pedido);
 		return new ResponseEntity<>(facturaInsertada, HttpStatus.CREATED);
 	}
 	

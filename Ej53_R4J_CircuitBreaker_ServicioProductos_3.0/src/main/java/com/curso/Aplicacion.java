@@ -11,14 +11,8 @@ import com.curso.modelo.entidad.Producto;
 import com.curso.modelo.persistencia.ProductoRepositorio;
 
 /*
- 
- 
-consul agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind=127.0.0.1
 
-config/ServicioProductos/
-
-bbdd.url, jdbc:h2:file:c:/h2/bbdd_cloud_productos;DB_CLOSE_DELAY=-1
-
+http://localhost:8080/actuator/
 
 */
 

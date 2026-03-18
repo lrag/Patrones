@@ -20,7 +20,8 @@ public class ColaComandos {
 		//Podriamos definir un ExecutorService con un pool de hilos...
 		new Thread() {
 			public void run() {
-				while(true) {
+				Boolean smith = true;
+				while(smith) {
 					try {
 						colaComandos.take().ejecutar();
 					} catch (InterruptedException e) {

@@ -24,9 +24,6 @@ public class Aplicacion implements CommandLineRunner{
 
 	@Autowired private CalificacionProductoRepository productoRepo;
 
-	@Value("${bbdd.url:valor_por_defecto}")
-	private String url;	
-	
 	public static void main(String[] args) {
 		SpringApplication.run(Aplicacion.class, args);
 	}
@@ -35,7 +32,6 @@ public class Aplicacion implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		
 		System.out.println("=======================================");
-		System.out.println("Url a la base de datos: "+url);		
 		
 		if(productoRepo.count() == 0) {
 			productoRepo.save(new CalificacionProducto(null, "PROD-1","Producto 1",4,"Fistro","bla bla bla","fecha 1"));

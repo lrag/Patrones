@@ -1,11 +1,5 @@
 package com.curso.endpoint.dto;
 
-import java.util.UUID;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-import com.curso.modelo.entidad.Fabricante;
 import com.curso.modelo.entidad.Producto;
 
 public class ProductoDTO {

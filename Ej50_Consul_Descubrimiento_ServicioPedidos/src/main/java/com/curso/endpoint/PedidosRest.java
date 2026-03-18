@@ -23,9 +23,15 @@ import com.curso.modelo.persistencia.PedidoRepositorio;
 @RequestMapping("/pedidos")
 public class PedidosRest {
 
-	@Autowired private PedidoRepositorio pedidoRepo;
-	@Autowired private ServicioPedidos gestorPedidos;
+	private PedidoRepositorio pedidoRepo;
+	private ServicioPedidos gestorPedidos;
 	
+	public PedidosRest(PedidoRepositorio pedidoRepo, ServicioPedidos gestorPedidos) {
+		super();
+		this.pedidoRepo = pedidoRepo;
+		this.gestorPedidos = gestorPedidos;
+	}
+
 	@PostMapping
 	public ResponseEntity<PedidoDTO> insertar(@RequestBody() PedidoDTO pedidoDto) {
 		Pedido pedidoInsertado = gestorPedidos.altaPedido(pedidoDto.asPedido());

@@ -27,8 +27,7 @@ public class ClientesRestProxy implements ClientesProxy{
 			clienteRepo.save(cliAux);
 			return cliAux;			
 		}
-		*/		
-
+		*/	
 		
 		return clienteRepo
 			.findByLogin(login)

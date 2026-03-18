@@ -6,9 +6,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.curso.modelo.entidad.Fabricante;
-import com.curso.modelo.entidad.Producto;
 import com.curso.modelo.repositorio.RepositorioFabricantes;
 import com.curso.modelo.repositorio.RepositorioProductos;
+
+/*
+
+docker run -d --name broker apache/kafka:latest
+docker exec --workdir /opt/kafka/bin/ -it broker sh
+
+*/
 
 /*
 {

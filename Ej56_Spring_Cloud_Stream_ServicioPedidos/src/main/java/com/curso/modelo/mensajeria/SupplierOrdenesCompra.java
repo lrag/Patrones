@@ -1,11 +1,10 @@
 package com.curso.modelo.mensajeria;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.function.Supplier;
 
+import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Component;
 
 import com.curso.endpoint.dto.PedidoDTO;
@@ -23,9 +22,11 @@ public class SupplierOrdenesCompra implements Supplier<PedidoDTO>{
 	
 	@Override
 	public PedidoDTO get() {
+		
 		PedidoDTO pedido = null;
 		try {
 			System.out.println("==================================================");
+			System.out.println("LLAMADA A SupplierOrdenesCompra.get()");
 			System.out.println("cola.take()");
 			pedido = cola.take();
 			System.out.println("pedido extraido de la cola!");

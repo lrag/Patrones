@@ -3,11 +3,15 @@ package com.curso.filtros;
 import java.util.function.Function;
 
 import org.springframework.cloud.gateway.filter.GatewayFilter;
+import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ServerWebExchange;
+
+import reactor.core.publisher.Mono;
 
 @Component
-//Esta bean NO es el filtro: su responsabilidad de esta bean es crearlo y devolverlo
+//Esta bean NO es el filtro: su responsabilidad es crearlo y devolverlo
 public class FiltroLog extends AbstractGatewayFilterFactory{
 
 	@Override
@@ -20,9 +24,9 @@ public class FiltroLog extends AbstractGatewayFilterFactory{
 
 }
 
-
 /*
-class FiltroLog implements GatewayFilter {
+@Component
+class FiltroLog_ implements GatewayFilter {
 
 	@Override
 	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {

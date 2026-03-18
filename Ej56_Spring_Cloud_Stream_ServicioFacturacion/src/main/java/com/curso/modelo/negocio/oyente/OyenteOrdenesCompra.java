@@ -6,20 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.curso.modelo.entidad.Pedido;
-import com.curso.modelo.negocio.GestorFacturas;
+import com.curso.modelo.negocio.ServicioFacturas;
 
 @Component
 public class OyenteOrdenesCompra implements Consumer<Pedido>{
 
 	@Autowired
-	private GestorFacturas gestorFacturas;
+	private ServicioFacturas servicioFacturas;
 	
 	@Override
 	public void accept(Pedido pedido) {
 		//Esto es lógica de control
 		System.out.println("========================================");
 		System.out.println("Pedido recibido: " + pedido);
-		gestorFacturas.facturarPedido(pedido);		
+		servicioFacturas.facturarPedido(pedido);		
 	}	
 	
 }

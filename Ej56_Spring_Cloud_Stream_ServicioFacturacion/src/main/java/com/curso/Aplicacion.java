@@ -1,14 +1,14 @@
 package com.curso;
 
-import javax.sql.DataSource;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.curso.modelo.entidad.Factura;
 import com.curso.modelo.persistencia.FacturaRepositorio;
 
 /*
@@ -38,3 +38,23 @@ public class Aplicacion implements CommandLineRunner{
 	}
 
 }
+
+/*
+class Movida implements Consumer<String> {
+	public void accept(String t) {
+	}
+}
+
+class Movidon implements Function<String, String>{
+	public String apply(String t) {
+		return null;
+	}
+}
+
+class Movidote implements Supplier<String>{
+	public String get() {
+		return null;
+	}
+}
+*/
+

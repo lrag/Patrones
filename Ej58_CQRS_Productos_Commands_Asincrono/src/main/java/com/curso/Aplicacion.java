@@ -11,6 +11,14 @@ import com.curso.modelo.repositorio.RepositorioFabricantes;
 import com.curso.modelo.repositorio.RepositorioProductos;
 
 /*
+
+docker run -d --name broker apache/kafka:latest
+docker exec --workdir /opt/kafka/bin/ -it broker sh
+
+*/
+
+
+/*
 {
     "referencia": "REF-111",
     "nombre": "Fleje",
