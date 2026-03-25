@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.endpoint.dto.ClienteDTO;
 import com.curso.modelo.entidad.Cliente;
-import com.curso.modelo.negocio.GestorClientes;
+import com.curso.modelo.negocio.ServicioClientes;
 import com.curso.modelo.persistencia.ClienteRepositorio;
 
 /*
@@ -29,12 +29,12 @@ DELETE /clientes/{id}
 @RestController
 public class ClientesRest {
 
-	private GestorClientes gestorClientes;
+	private ServicioClientes servicioClientes;
 	private ClienteRepositorio clienteRepo;
 	
-	public ClientesRest(GestorClientes gestorClientes, ClienteRepositorio clienteRepo) {
+	public ClientesRest(ServicioClientes servicioClientes, ClienteRepositorio clienteRepo) {
 		super();
-		this.gestorClientes = gestorClientes;
+		this.servicioClientes = servicioClientes;
 		this.clienteRepo = clienteRepo;
 		
 	}
@@ -60,7 +60,7 @@ public class ClientesRest {
 	public ResponseEntity<ClienteDTO> insertar(@RequestBody() ClienteDTO clienteDto){
 		
 		System.out.println("INSERTAR");
-		Cliente clienteInsertado = gestorClientes.insertar(clienteDto.asCliente());
+		Cliente clienteInsertado = servicioClientes.insertar(clienteDto.asCliente());
 		return new ResponseEntity<ClienteDTO>(new ClienteDTO(clienteInsertado), HttpStatus.CREATED);
 	}
 	
@@ -68,7 +68,7 @@ public class ClientesRest {
 	
 	@DeleteMapping(path="/clientes/{login}")
 	public ResponseEntity<Object> borrar(@PathVariable() String login){
-		gestorClientes.borrar(login);
+		servicioClientes.borrar(login);
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 	

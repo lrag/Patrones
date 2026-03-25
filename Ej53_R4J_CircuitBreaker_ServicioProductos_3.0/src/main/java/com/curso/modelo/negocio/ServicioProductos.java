@@ -72,7 +72,7 @@ public class ServicioProductos {
 		
 	}
 	
-	@CircuitBreaker(name = "gestorProductos-buscarProductoYCalificaciones", 
+	@CircuitBreaker(name = "servicioProductos-buscarProductoYCalificaciones", 
     		        fallbackMethod = "fallbackBuscarProductoYCalificaciones")    
 	public Optional<Producto> buscarProductoYCalificaciones(String codigo) throws Exception{
 		System.out.println("========================================");		

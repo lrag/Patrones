@@ -11,9 +11,7 @@ import com.curso.modelo.entidad.Producto;
 import com.curso.modelo.persistencia.ProductoRepositorio;
 
 /*
-
-http://localhost:8080/actuator/
-
+http://localhost:9020/actuator/health
 */
 
 @SpringBootApplication

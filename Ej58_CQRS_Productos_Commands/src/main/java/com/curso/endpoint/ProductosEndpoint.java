@@ -16,31 +16,31 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.endpoint.dto.ProductoDTO;
 import com.curso.modelo.entidad.Producto;
-import com.curso.modelo.negocio.GestorProductos;
+import com.curso.modelo.negocio.ServicioProductos;
 import com.curso.modelo.repositorio.RepositorioProductos;
 
 @RestController
 public class ProductosEndpoint {
 	
 	@Autowired
-	private GestorProductos gestorProductos;
+	private ServicioProductos servicioProductos;
 
 	@PostMapping("/productos")
 	public ResponseEntity<ProductoDTO> altaProducto(@RequestBody ProductoDTO productoDTO){
-		Producto producto = gestorProductos.insertar(productoDTO.asProducto());
+		Producto producto = servicioProductos.insertar(productoDTO.asProducto());
 		return new ResponseEntity<ProductoDTO>(new ProductoDTO(producto), HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/productos/{referencia}")
 	public ResponseEntity<ProductoDTO> modificarProducto(@RequestBody ProductoDTO productoDTO, @PathVariable("referencia") String referencia){
 		productoDTO.setReferencia(referencia);
-		Producto producto =	gestorProductos.modificar(productoDTO.asProducto());				
+		Producto producto =	servicioProductos.modificar(productoDTO.asProducto());				
 		return new ResponseEntity<>(new ProductoDTO(producto), HttpStatus.OK);
 	}
 
 	@DeleteMapping("/productos/{referencia}")
 	public ResponseEntity<Void> eliminarProducto(@PathVariable("referencia") String referencia) {
-		gestorProductos.borrar(referencia);
+		servicioProductos.borrar(referencia);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	

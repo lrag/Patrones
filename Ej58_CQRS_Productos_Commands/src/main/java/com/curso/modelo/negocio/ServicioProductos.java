@@ -14,7 +14,7 @@ import com.curso.modelo.repositorio.RepositorioProductos;
 
 @Service
 @Transactional
-public class GestorProductos {
+public class ServicioProductos {
 
 	@Autowired private RepositorioProductos repoProductos;
 	@Autowired private RepositorioFabricantes repoFabricantes;

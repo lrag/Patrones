@@ -10,11 +10,11 @@ import com.curso.modelo.persistencia.ClienteRepositorio;
 @Service
 //@Scope("singleton")
 @Transactional
-public class GestorClientesImpl implements GestorClientes {
+public class ServicioClientesImpl implements ServicioClientes {
 	
 	private ClienteRepositorio clienteRepo;
 
-	public GestorClientesImpl(ClienteRepositorio clienteRepo) {
+	public ServicioClientesImpl(ClienteRepositorio clienteRepo) {
 		super();
 		this.clienteRepo = clienteRepo;
 	}

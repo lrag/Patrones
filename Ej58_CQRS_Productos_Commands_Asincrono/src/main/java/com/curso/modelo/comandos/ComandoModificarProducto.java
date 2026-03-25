@@ -6,17 +6,17 @@ import com.curso.modelo.negocio.ServicioProductos;
 public class ComandoModificarProducto implements Comando {
 
 	private Producto producto;
-	private ServicioProductos gestorProductos;
+	private ServicioProductos servicioProductos;
 	
-	public ComandoModificarProducto( Producto producto, ServicioProductos gestorProductos) {
+	public ComandoModificarProducto( Producto producto, ServicioProductos servicioProductos) {
 		super();
 		this.producto = producto;
-		this.gestorProductos = gestorProductos;		
+		this.servicioProductos = servicioProductos;		
 	}
 	
 	@Override
 	public void ejecutar() {
-		gestorProductos.modificar(producto);
+		servicioProductos.modificar(producto);
 	}
 	
 }

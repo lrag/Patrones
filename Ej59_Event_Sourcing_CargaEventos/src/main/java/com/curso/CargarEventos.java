@@ -11,7 +11,7 @@ import com.curso.modelo.entidad.Producto;
 public class CargarEventos {
 
 	
-	public void cargarDatos() throws InterruptedException {
+	public void cargarEventos() throws InterruptedException {
 				
 		RestClient restClient = RestClient.create();
 		

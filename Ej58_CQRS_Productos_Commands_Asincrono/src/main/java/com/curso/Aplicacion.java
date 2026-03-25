@@ -12,8 +12,10 @@ import com.curso.modelo.repositorio.RepositorioProductos;
 
 /*
 
-docker run -d --name broker apache/kafka:latest
+docker run -d -p 9092:9092 --name broker apache/kafka:latest
 docker exec --workdir /opt/kafka/bin/ -it broker sh
+
+También hay que arrancar el Consul!
 
 */
 

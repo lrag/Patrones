@@ -18,7 +18,7 @@ public class Aplicacion implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		cargarDatos.cargarDatos();
+		cargarDatos.cargarEventos();
 		
 	}
 

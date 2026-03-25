@@ -25,7 +25,7 @@ public class ServicioProductos {
 	private static int numeroHilos = 0;	
     public Producto buscarProductoYCalificaciones_BULKHEAD_A_MANO(String codigo) throws Exception{
     	synchronized(this) {
-	    	if(numeroHilos > 5) {
+	    	if(numeroHilos > 3) {
 	    		throw new Exception("NO MAS");
 	    	}    	
 	    	numeroHilos++;

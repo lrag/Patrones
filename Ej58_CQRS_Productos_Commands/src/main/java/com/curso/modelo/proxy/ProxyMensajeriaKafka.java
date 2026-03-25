@@ -21,22 +21,8 @@ public class ProxyMensajeriaKafka implements ProxyMensajeria {
 	
 	@Override
 	public void enviarMensaje(String clave, EventoProducto valor) {
-		
 		System.out.println("Enviando el mensaje...");
-		ListenableFuture<SendResult<String, EventoProducto>> future = kafkaTemplate.send(nombreTopic, clave, valor);
-
-		future.addCallback(new ListenableFutureCallback<SendResult<String, EventoProducto>>() {
-		    @Override
-		    public void onSuccess(SendResult<String, EventoProducto> result) {
-		        System.out.println("OK");
-		    }
-
-		    @Override
-		    public void onFailure(Throwable ex) {
-		        System.out.println("ZASCA");
-		        ex.printStackTrace();
-		    }
-		});
+		kafkaTemplate.send(nombreTopic, clave, valor);
 	}
 	
 }

@@ -20,7 +20,7 @@ import com.curso.modelo.persistencia.ProductoRepositorio;
 @RestController
 public class ProductosRest {
 
-	@Autowired private ServicioProductos gestorProductos;
+	@Autowired private ServicioProductos servicioProductos;
 	@Autowired private ProductoRepositorio productoRepo;
 	
 	//Solo el producto
@@ -43,7 +43,7 @@ public class ProductosRest {
 	public ResponseEntity<ProductoDTO> buscarConCalificaciones(@PathVariable("codigo") String codigo){
 		//Esto debería ser más bonito
 		try {
-			return gestorProductos.buscarProductoYCalificaciones(codigo)
+			return servicioProductos.buscarProductoYCalificaciones(codigo)
 					.map(p -> new ResponseEntity<ProductoDTO>(new ProductoDTO(p), HttpStatus.OK))
 					.orElse(new ResponseEntity<ProductoDTO>(HttpStatus.NOT_FOUND));
 		} catch (Exception e) {
@@ -62,7 +62,7 @@ public class ProductosRest {
 	
 	@PostMapping(path="/productos")
 	public ResponseEntity<Producto> insertar(@RequestBody() ProductoDTO productoDto){
-		Producto productoInsertado = gestorProductos.insertar(productoDto.asProducto());
+		Producto productoInsertado = servicioProductos.insertar(productoDto.asProducto());
 		return new ResponseEntity<Producto>(productoInsertado, HttpStatus.CREATED);
 	}
 	

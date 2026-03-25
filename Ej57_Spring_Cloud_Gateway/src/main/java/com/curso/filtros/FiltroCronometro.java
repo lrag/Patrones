@@ -26,34 +26,6 @@ public class FiltroCronometro extends AbstractGatewayFilterFactory {
 			}));
 		};
 	}
-	
-	/*
-	public static void main(String[] args) {
-		
-		List<String> palabras = List.of("uno","dos","tres","cuatro","cinco");
-		
-		
-		List<String> palabras2 = palabras.stream()	
-			.filter( s -> s.length()>3 )
-			.map( s -> s.toUpperCase() )
-			.collect(Collectors.toList());
-		
-		palabras2.forEach(p -> System.out.println(p));
-		
-		
-		Optional<String> strOp = Optional.of("hola");
-		
-		
-		strOp.filter( s -> s.length()>3).map( s -> s.toUpperCase()).orElse("NO HAY VALOR");
-		
-		
-		
-		
-		
-		
-	}
-	*/
-	
 
 }
 

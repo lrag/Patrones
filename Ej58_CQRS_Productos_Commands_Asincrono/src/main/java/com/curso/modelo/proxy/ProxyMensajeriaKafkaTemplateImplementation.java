@@ -1,13 +1,12 @@
 package com.curso.modelo.proxy;
 
-import java.util.concurrent.Future;
+import java.util.concurrent.CompletableFuture;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
-import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
 import com.curso.modelo.evento.EventoProducto;
@@ -24,11 +23,13 @@ public class ProxyMensajeriaKafkaTemplateImplementation implements ProxyMensajer
 	@Override
 	public void enviarMensaje(String clave, EventoProducto valor) {
 		
-		//kafkaTemplate.send(nombreTopic, clave, valor);
+		kafkaTemplate.send(nombreTopic, clave, valor);
 
 		System.out.println("Enviando el mensaje...");
+		
+		//Deprecated en Spring 6. Mucho mejor CompletableFuture (Java 8) que ListenableFuture que es un invento de Spring
+		/*
 		ListenableFuture<SendResult<String, EventoProducto>> future = kafkaTemplate.send(nombreTopic, clave, valor);
-
 		future.addCallback(new ListenableFutureCallback<SendResult<String, EventoProducto>>() {
 		    @Override
 		    public void onSuccess(SendResult<String, EventoProducto> result) {
@@ -41,6 +42,19 @@ public class ProxyMensajeriaKafkaTemplateImplementation implements ProxyMensajer
 		        ex.printStackTrace();
 		    }
 		});
+		*/
+		
+		/*
+		CompletableFuture<SendResult<String, EventoProducto>> future = kafkaTemplate.send(nombreTopic, clave, valor);
+		future.whenComplete((result, ex) -> {
+		    if (ex == null) {
+		        System.out.println("OK");
+		    } else {
+		        System.out.println("ZASCA");
+		        ex.printStackTrace();
+		    }
+		});
+		*/
 
 	}
 	

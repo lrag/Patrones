@@ -1,8 +1,10 @@
 package com.curso.filtros;
 
 import org.springframework.cloud.gateway.filter.GatewayFilter;
+import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ServerWebExchange;
 
 import reactor.core.publisher.Mono;
 
@@ -21,6 +23,7 @@ public class FiltroHeaders extends AbstractGatewayFilterFactory{
 	
 	
 	/*
+	//Añadiendo el header a la respuesta antes de tirar pa'lante
 	@Override
 	public GatewayFilter apply(Object config) {
 		return (exchange, chain) -> {

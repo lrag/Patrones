@@ -18,8 +18,8 @@ import com.curso.modelo.negocio.ProjectorProductos;
 @Component
 public class OyenteEventosTimestamp extends AbstractConsumerSeekAware {
 
-    private Long startTimeMillis = 1773762751000L;
-    private Long fechaFinMillis  = 1773762757999L;
+    private Long startTimeMillis = 1774292163000L;
+    private Long fechaFinMillis  = 1774292171999L;
     
     @Autowired private KafkaListenerEndpointRegistry registry;
     @Autowired private ProjectorProductos projectorProductos;
@@ -30,7 +30,8 @@ public class OyenteEventosTimestamp extends AbstractConsumerSeekAware {
     		id = "oyenteEventosTimestamp"
     	)
     public void oyenteEventoProducto(EventoProducto eventoProducto, @Header(KafkaHeaders.RECEIVED_TIMESTAMP) long ts) {
-        if (ts > fechaFinMillis) {
+
+    	if (ts > fechaFinMillis) {
         	registry.getListenerContainer("oyenteEventosTimestamp").stop();
             return; 
         }

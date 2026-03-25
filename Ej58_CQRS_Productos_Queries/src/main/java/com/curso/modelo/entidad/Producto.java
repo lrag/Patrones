@@ -26,7 +26,7 @@ Colección de productos:
 			"descripcion":"ddd"
 		}
 	]
- }
+ },
 ]*/
 
 public class Producto {
