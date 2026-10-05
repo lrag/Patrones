@@ -7,10 +7,12 @@ public class ClienteDaoMysqlImplementation implements ClienteDao{
 	
 	public void insertar(Cliente cliente) {
 		System.out.println("Insertando en ClienteDao (mysql):"+cliente);
+		//INSERT INTO...
 	}
 
 	@Override
 	public void modificar(Cliente cliente) {
+		//UPDATE...
 	}
 
 	@Override

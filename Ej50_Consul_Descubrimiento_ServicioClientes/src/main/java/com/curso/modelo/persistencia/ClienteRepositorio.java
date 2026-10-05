@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.curso.modelo.entidad.Cliente;
 
-@Repository
+//@Repository
 public interface ClienteRepositorio extends JpaRepository<Cliente, Integer>{
 
 	Optional<Cliente> findByLogin(String login);

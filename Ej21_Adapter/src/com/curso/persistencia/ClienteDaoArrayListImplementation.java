@@ -1,15 +1,23 @@
 package com.curso.persistencia;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.sql.DataSource;
 
 import com.curso.modelo.entidad.Cliente;
 
 public class ClienteDaoArrayListImplementation implements ClienteDao {
 	
+	private DataSource ds;
+	
 	private List<Cliente> clientes = new ArrayList<>();
 	private Long contador = 1l;
+	
+	public ClienteDaoArrayListImplementation(DataSource ds) {
+		super();
+		this.ds = ds;
+	}
 
 	@Override
 	public void insertar(Cliente cliente) {

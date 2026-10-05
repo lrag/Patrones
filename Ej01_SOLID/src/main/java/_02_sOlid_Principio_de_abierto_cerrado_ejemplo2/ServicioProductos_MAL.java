@@ -19,7 +19,7 @@ public class ServicioProductos_MAL {
 				break;
 			case SOFTWARE : 
 				System.out.println("Cosas particulares de los productos tipo Software");
-				altaProductoHasdware(producto);
+				altaProductoHardware(producto);
 				break;
 		}
 		
@@ -30,7 +30,7 @@ public class ServicioProductos_MAL {
 		//...
 	}
 	
-	public void altaProductoHasdware(Producto producto) {
+	public void altaProductoHardware(Producto producto) {
 		//...
 	}
 	

@@ -1,5 +1,7 @@
 package com.curso;
 
+import javax.sql.DataSource;
+
 import com.curso.endpoint.ClientesEndpoint;
 import com.curso.endpoint.dto.ClienteDTO;
 import com.curso.endpoint.dto.ServicioClientesAdapter;
@@ -12,7 +14,8 @@ public class Aplicacion {
 
 	public static void main(String[] args) {
 
-		ClienteDao clienteDao = new ClienteDaoArrayListImplementation();
+		DataSource ds = null; //new DS(TROLOLO);
+		ClienteDao clienteDao = new ClienteDaoArrayListImplementation(ds);
 		ServicioClientes servicioClientes = new ServicioClientesImplementation(clienteDao);
 		ServicioClientesAdapter servicioClientesAdapter = new ServicioClientesAdapter(servicioClientes);
 		ClientesEndpoint clientesRest = new ClientesEndpoint(servicioClientesAdapter);

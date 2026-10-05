@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-//ServicioClientes es una clase de alto nivel
+//ServicioClientes aqui es una clase de alto nivel
 //Depende de ClienteDao, que es de bajo nivel
 //Tiene una relación de uso, no de composición
 public class ServicioClientes_1 {
@@ -13,7 +13,7 @@ public class ServicioClientes_1 {
 	//
 	//Crear objetos con new en vez de simple es simplón
 	//A ver quien hace un test double de esto...
-	//ServicioClientes, además, tiene una responsabilidad que no le corresponde: crear el ClienteDao
+	//ServicioClientes, además, tiene una responsabilidad que no le corresponde: crear el ClienteDao (obtener sus dependencias)
 	private ClienteDaoMysqlImplementation clienteDao = new ClienteDaoMysqlImplementation();
 	
 	public void altaCliente(Cliente cliente) {

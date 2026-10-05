@@ -56,8 +56,8 @@ public class Libro {
 
 	//Esto hace tres cosas
 	//Sabe imprimir el libro
-	//Sabe imprimir el capítulo
-	//Y lo hace por consola
+	//Sabe imprimir el capítulo (rompiendo el encapsulamiento)
+	//Y lo hace únicamente por consola
 	public void imprimir_MAL() {
 		System.out.println(titulo);
 		System.out.println(autor+", "+year);
@@ -99,11 +99,10 @@ public class Libro {
 	
 	public String formatearTexto() {
 
-		//StringBuffer es thread safe
+		//StringBuilder no thread safe
 
-		//StringBuilder no es thread safe pero en esta situación 
-		//no supone ningun problema
-		StringBuilder sb = new StringBuilder();
+		//StringBuilder si
+		StringBuffer sb = new StringBuffer();
 		sb.append(titulo);
 		sb.append("\n\n");
 		sb.append(autor+", "+year);
